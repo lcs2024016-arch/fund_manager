@@ -1,5 +1,5 @@
 # Non-root, minimal, pinned. No secrets baked in.
-FROM python:3.12-slim@sha256:0f6f0e13b0112b1d68a29df5cf3e5d3f7b60c1ec0e79c8e4b0e2f7cb6db1b914
+FROM python:3.12-slim@sha256:12316debbfb86890f6b2d825820612741ba527ad5a44e3902759141d572bfe8f
 
 ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 PIP_NO_CACHE_DIR=1
 
