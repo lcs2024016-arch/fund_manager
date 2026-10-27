@@ -189,7 +189,14 @@ class PortfolioManager:
             mark = float(pos.mark_price) if pos.mark_price is not None else (
                 float(pos.entry_price) if pos.entry_price is not None else 0.0
             )
-            gross += size * mark
+            # ports report the contract_value-scaled USD notional; the raw
+            # contracts*mark fallback overstates gross by 1/contract_value
+            # (legacy snapshots only — see PositionSnapshot.notional_usd)
+            notional = getattr(pos, "notional_usd", None)
+            if notional is not None:
+                gross += abs(float(notional))
+            else:
+                gross += size * mark
             if pos.mark_price and pos.liquidation_price:
                 lp = float(pos.liquidation_price)
                 mk = float(pos.mark_price)

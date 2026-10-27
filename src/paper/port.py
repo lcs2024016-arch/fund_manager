@@ -4,6 +4,8 @@ absolutely zero orders sent.
 - Candles/tickers come from the live Delta India REST (public, no auth needed).
 - place() crosses against the current best bid/ask when possible and simulates
   an immediate fill (paper is intentional: instant, symmetric, no queueing).
+  Exception: reduce-only LIMIT orders (lot TPs) the book has not touched REST,
+  and fill at their limit price when the market crosses them (maker fee).
 - Fees are charged at the product's taker rate; no funding accrual.
 """
 from __future__ import annotations
@@ -57,6 +59,10 @@ class PaperPort(ExecutionPort):
         self.catalog = ProductCatalog(self.rest)
         self.pending_fills: list[FillEvent] = []
         self.placed_orders: list[dict[str, Any]] = []  # dry-run audit trail
+        # resting reduce-only limit orders (lot TPs): unlike entries, a TP
+        # far from the book must NOT instantly "fill" — it rests until the
+        # market crosses it, exactly like on the exchange (spec 3.2).
+        self.resting: dict[str, OrderIntent] = {}    # client_order_id -> intent
         # simulated account
         self.equity_sim = Decimal(str(cfg.flags.get("paper_initial_equity_usd", 100000)))
         self.positions: dict[str, dict[str, Any]] = {}  # symbol -> {size, entry, mark}
@@ -67,6 +73,12 @@ class PaperPort(ExecutionPort):
 
     async def bootstrap(self) -> None:
         await self.catalog.load()
+        # process restart: the strategy's _restore_tps re-places the newest
+        # lot's TP, so stale resting orders must not linger (duplicate TPs)
+        if self.resting:
+            log.info("dropping %d stale resting paper orders (re-placed on restore)",
+                     len(self.resting))
+            self.resting.clear()
         self.save_state()
 
     # ----------------------------------------------------- persistence
@@ -151,7 +163,7 @@ class PaperPort(ExecutionPort):
         raw = await self.rest.get_ticker(symbol)
         payload = raw if isinstance(raw, dict) else {}
         quotes = payload.get("quotes") or {}
-        return Ticker(
+        t = Ticker(
             symbol=symbol,
             mark_price=_dec(payload.get("mark_price")),
             spot_price=_dec(payload.get("spot_price")),
@@ -162,6 +174,9 @@ class PaperPort(ExecutionPort):
             delta=_dec((payload.get("greeks") or {}).get("delta")),
             raw=payload,
         )
+        if t is not None:
+            self._fill_resting(symbol, t)   # book crossed a resting TP?
+        return t
 
     async def candles(self, symbol: str, resolution: str, start: int, end: int) -> list[Candle]:
         rows = await self.rest.get_candles(symbol, resolution, start, end)
@@ -205,6 +220,7 @@ class PaperPort(ExecutionPort):
                     entry_price=p["entry"],
                     mark_price=mark,
                     margin=notional / lev,
+                    notional_usd=notional,
                 )
             )
         # the simulated account is cross-margined (spec 2.3): report it the
@@ -217,8 +233,64 @@ class PaperPort(ExecutionPort):
     async def position(self, symbol: str) -> Optional[PositionSnapshot]:
         return next((p for p in (await self.account()).positions if p.symbol == symbol), None)
 
+    def _fill_resting(self, symbol: str, t: Ticker) -> None:
+        """Fill resting reduce-only limits the book has crossed, at the LIMIT
+        price (maker semantics) — a resting order never fills at market."""
+        if not self.resting:
+            return
+        prod = self.catalog.get(symbol)
+        cv = prod.contract_value if prod else Decimal("1")
+        maker = prod.maker_commission_rate if prod else Decimal("0.0002")
+        for oid, intent in list(self.resting.items()):
+            if intent.product_symbol != symbol or intent.limit_price is None:
+                continue
+            lim = Decimal(str(intent.limit_price))
+            edge = (t.best_ask or t.mark_price) if intent.side is Side.BUY \
+                else (t.best_bid or t.mark_price)
+            if edge is None:
+                continue
+            crossed = (edge <= lim) if intent.side is Side.BUY else (edge >= lim)
+            if not crossed:
+                continue
+            self.resting.pop(oid, None)
+            fee = Decimal(intent.size) * lim * cv * maker
+            signed = intent.size if intent.side is Side.BUY else -intent.size
+            cur = self.positions.setdefault(
+                symbol, {"size": 0, "entry": lim, "mark": t.mark_price})
+            cur["size"] += int(signed)
+            self.equity_sim -= fee
+            self.pending_fills.append(FillEvent(
+                client_order_id=oid, symbol=symbol, side=intent.side,
+                size=intent.size, price=lim, ts=now_utc(), fee=fee,
+                reduce_only=True,
+            ))
+            self.placed_orders.append({
+                "ts": now_utc().isoformat(),
+                "intent": intent.model_dump(mode="json"),
+                "fill_price": str(lim),
+                "fee": str(fee),
+                "resting_fill": True,
+            })
+            self.save_state()
+            log.info("resting TP filled: %s %s %d @ %s", intent.side.value,
+                     symbol, intent.size, lim)
+
     async def open_orders(self, symbol: Optional[str] = None) -> list[OrderRecord]:
-        return []  # paper fills instantly; nothing rests
+        out: list[OrderRecord] = []
+        for oid, intent in self.resting.items():
+            if symbol and intent.product_symbol != symbol:
+                continue
+            out.append(OrderRecord(
+                client_order_id=oid, symbol=intent.product_symbol,
+                side=intent.side, size=intent.size, filled_size=0,
+                status=OrderStatus.OPEN,
+                order_type=intent.order_type.value if hasattr(
+                    intent.order_type, "value") else str(intent.order_type),
+                limit_price=intent.limit_price,
+                reduce_only=intent.reduce_only,
+                product_id=intent.product_id,
+            ))
+        return out
 
     async def place(self, intent: OrderIntent) -> OrderResult:
         """Simulate a fill at the best bid/ask/mark. Zero exchange calls."""
@@ -246,6 +318,23 @@ class PaperPort(ExecutionPort):
         else:
             px = t.best_ask if intent.side is Side.BUY else t.best_bid
             px = px or mark
+        # a reduce-only limit (lot TP) that the book has NOT touched rests,
+        # like on the real exchange; everything else fills at the book edge.
+        if (intent.order_type is OrderType.LIMIT and intent.reduce_only
+                and intent.limit_price is not None and px is not None):
+            lim = Decimal(str(intent.limit_price))
+            touched = (px <= lim) if intent.side is Side.BUY else (px >= lim)
+            if not touched:
+                self.resting[intent.client_order_id] = intent
+                self.save_state()
+                return OrderResult(
+                    client_order_id=intent.client_order_id,
+                    accepted=True,
+                    status=OrderStatus.OPEN,
+                    filled_size=0,
+                    avg_fill_price=None,
+                    raw={"paper": True, "resting": True},
+                )
         notional = Decimal(intent.size) * px * cv
         prod = self.catalog.get(intent.product_symbol)
         fee = notional * (prod.taker_commission_rate if prod else Decimal("0.0007"))
@@ -284,7 +373,8 @@ class PaperPort(ExecutionPort):
         )
 
     async def cancel(self, client_order_id: str, symbol: str) -> bool:
-        return True  # nothing ever rests in paper
+        self.resting.pop(client_order_id, None)
+        return True
 
     async def reconcile(self, ledger_state: dict[str, Any]) -> list[str]:
         mismatches = []

@@ -355,6 +355,15 @@ class AllInOneStrategy(StrategyPort):
         """sum(open lots signed) == exchange net position per symbol (3.3)."""
         if self.ledger is None or self.exec_port is None:
             return []
+        # Paper ports deliver fills asynchronously (pending_fills, drained by
+        # the caller's loop): settle them into the ledger BEFORE comparing,
+        # else a fill in flight reads as an unbacked position -> spurious
+        # sleeve HALT (seen 2026-10-27: entry+TP fills raced the hourly check).
+        pending = list(getattr(self.exec_port, "pending_fills", None) or [])
+        if pending:
+            self.exec_port.pending_fills = []
+            for f in pending:
+                await self.on_fill(f)
         symbols = sorted({s for lst in self.resolved_symbols.values() for s in lst})
         ledger_state = {sym: self.ledger.sum_signed_contracts(sym) for sym in symbols}
         mism: list[str] = []

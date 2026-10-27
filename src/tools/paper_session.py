@@ -226,7 +226,7 @@ async def run_session(cfg: Config, minutes: float, out_dir: Path) -> dict[str, A
         journal.append_intraday(ts, equity, cash, unreal, open_pos)
         return equity, cash, unreal, open_pos
 
-    def journal_new_fills() -> int:
+    async def journal_new_fills() -> int:
         fills = port.pending_fills
         port.pending_fills = []
         rows = []
@@ -237,6 +237,15 @@ async def run_session(cfg: Config, minutes: float, out_dir: Path) -> dict[str, A
             rows.append((f, cv, notional))
             log.info("paper fill %s %s %s @ %s fee=%s", f.side.value, f.size,
                      f.symbol, f.price, f.fee)
+            # sleeves must HEAR their fills (same-code path as main.py's
+            # drain_fills): otherwise lots never enter the ledger, TPs are
+            # never placed, and the next session's reconcile HALTs every
+            # sleeve on ledger-vs-paper mismatch.
+            try:
+                await strategy.on_fill(f)
+            except Exception:
+                log.exception("strategy.on_fill failed for %s (continuing)",
+                              f.client_order_id)
         journal.append_trades(rows)
         return len(rows)
 
@@ -260,7 +269,7 @@ async def run_session(cfg: Config, minutes: float, out_dir: Path) -> dict[str, A
                         p["mark"] = t.mark_price
                 if t:
                     await strategy.on_ticker(sym, t)
-            fills_seen += journal_new_fills()
+            fills_seen += await journal_new_fills()
             if time.monotonic() - last_timer >= 60:
                 last_timer = time.monotonic()
                 await strategy.on_timer()
@@ -278,7 +287,7 @@ async def run_session(cfg: Config, minutes: float, out_dir: Path) -> dict[str, A
             pass
 
     # ---- close of session: finalize fills, snapshot, persist ----------------
-    fills_seen += journal_new_fills()
+    fills_seen += await journal_new_fills()
     equity, cash, unreal, open_pos = snapshot_now(now_utc(), count_session=True)
 
     port.save_state()

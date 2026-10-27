@@ -79,6 +79,18 @@ def test_gross_notional_breach_halts_and_allows_derisk(pm: PortfolioManager):
     assert pm.risk_breached is False
 
 
+def test_gross_notional_uses_contract_scaled_notional(pm: PortfolioManager):
+    """Regression (2026-10-27): contracts * mark ignores contract_value —
+    489 gold contracts (cv 0.001) @ 4360 read as $2.13M gross (21x equity,
+    permanent breach) instead of the real $2,132."""
+    pm.set_margin_mode(True)
+    p = pos("XAUTUSD", 489, 4360.0)
+    p.notional_usd = Decimal("489") * Decimal("4360.0") * Decimal("0.001")
+    st = pm.update(account(equity=100_000, positions=[p]), NOW)
+    assert st.breach is False
+    assert abs(st.gross_notional - 2132.04 / 100_000.0) < 1e-9
+
+
 def test_margin_utilisation_and_liq_distance_breaches(pm: PortfolioManager):
     pm.set_margin_mode(True)
     st = pm.update(account(equity=100_000, used_margin=60_000), NOW)

@@ -184,9 +184,17 @@ class DeltaPort(ExecutionPort):
             size = int(p.get("size", 0) or 0)
             side = str(p.get("side", "")).lower()
             signed = size if side in ("buy", "long") else -size
+            sym = str(p.get("product_symbol", p.get("symbol", "")))
+            mark = _dec(p.get("mark_price")) or _dec(p.get("avg_entry_price"))
+            notional = _dec(p.get("notional"))
+            if notional is None and mark is not None:
+                # contract_value-scaled USD notional; NEVER contracts * mark
+                prod = self.catalog.get(sym)
+                cv = prod.contract_value if prod else Decimal("1")
+                notional = abs(Decimal(signed)) * mark * cv
             out.append(
                 PositionSnapshot(
-                    symbol=str(p.get("product_symbol", p.get("symbol", ""))),
+                    symbol=sym,
                     product_id=p.get("product_id"),
                     net_size=signed,
                     entry_price=_dec(p.get("avg_entry_price")),
@@ -195,6 +203,7 @@ class DeltaPort(ExecutionPort):
                     unrealized_pnl=_dec(p.get("pnl")),
                     margin=_dec(p.get("margin")),
                     effective_leverage=_dec(p.get("leverage")),
+                    notional_usd=notional,
                 )
             )
         return out

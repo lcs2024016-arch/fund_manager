@@ -10,7 +10,7 @@ import enum
 import uuid
 from datetime import datetime, timezone
 from decimal import Decimal
-from typing import Any, Optional
+from typing import Any, Optional, Union
 
 from pydantic import BaseModel, Field
 
@@ -175,6 +175,11 @@ class PositionSnapshot(BaseModel):
     unrealized_pnl: Optional[Decimal] = None
     margin: Optional[Decimal] = None
     effective_leverage: Optional[Decimal] = None
+    # USD notional = |net_size| * mark * contract_value (ports set this;
+    # consumers MUST NOT infer it as contracts * mark, which ignores the
+    # contract value and overstates gross exposure by 1/cv — e.g. 1000x
+    # for gold perps with cv 0.001).
+    notional_usd: Optional[Decimal] = None
 
 
 class AccountSnapshot(BaseModel):
@@ -243,7 +248,11 @@ class EventNote(BaseModel):
 
     ts: datetime = Field(default_factory=now_utc)
     algo: str
-    kind: Event
+    # free-form decision labels (lot_open, entry_veto, status, derisk, ...)
+    # plus the spec Event enum — restricting this to the enum silently ate
+    # every sleeve decision event via EventNote validation errors (found
+    # 2026-10-27: six days of paper sessions, zero diagnosable events).
+    kind: Union[str, Event]
     symbol: Optional[str] = None
     message: str
     features: dict[str, Any] = Field(default_factory=dict)
