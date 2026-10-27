@@ -10,6 +10,7 @@ scripts/paper_supervisor.sh). Parity is re-run live against the recorded
 fixture. Mismatch count comes from state/soak_mismatches.json (append-only;
 the runner/supervisor records every 'halt:' reconciliation event).
 """
+
 from __future__ import annotations
 
 import json
@@ -21,8 +22,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 STATE = ROOT / "state"
 
-REQUIRED_DAYS = 28          # ~4 weeks soak
-OVERLAP_DAYS = 30           # count days with any soak activity in window
+REQUIRED_DAYS = 28  # ~4 weeks soak
+OVERLAP_DAYS = 30  # count days with any soak activity in window
 
 
 def _soak_days() -> tuple[float, int]:
@@ -39,8 +40,9 @@ def _soak_days() -> tuple[float, int]:
         if not s:
             continue
         t0 = datetime.fromisoformat(s.replace("Z", "+00:00"))
-        t1 = datetime.fromisoformat(e.replace("Z", "+00:00")) if e \
-            else datetime.now(UTC)
+        t1 = (
+            datetime.fromisoformat(e.replace("Z", "+00:00")) if e else datetime.now(UTC)
+        )
         # merge consecutive segments (crash-restarts stay continuous)
         t0 = max(t0, cutoff)
         span += max(t1 - t0, timedelta(0))
@@ -51,10 +53,21 @@ def _soak_days() -> tuple[float, int]:
 
 def _parity_ok() -> tuple[bool, str]:
     r = subprocess.run(
-        [sys.executable, "-m", "pytest",
-         "tests/test_parity_paper_backtest.py", "-q", "--no-header",
-         "-p", "no:cacheprovider"],
-        capture_output=True, text=True, cwd=str(ROOT), timeout=300)
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "tests/test_parity_paper_backtest.py",
+            "-q",
+            "--no-header",
+            "-p",
+            "no:cacheprovider",
+        ],
+        capture_output=True,
+        text=True,
+        cwd=str(ROOT),
+        timeout=300,
+    )
     tail = (r.stdout or "").strip().splitlines()[-1:] or ["no output"]
     return r.returncode == 0, tail[0]
 
@@ -77,10 +90,16 @@ def main() -> int:
         f"parity={'PASS' if parity_ok else 'FAIL'} ({parity_msg}), "
         f"unresolved_mismatches={n_mm}"
     )
-    (STATE / "paper_gate.json").write_text(json.dumps(
-        {"passed": passed, "detail": detail,
-         "updated": datetime.now(UTC).isoformat()},
-        indent=1))
+    (STATE / "paper_gate.json").write_text(
+        json.dumps(
+            {
+                "passed": passed,
+                "detail": detail,
+                "updated": datetime.now(UTC).isoformat(),
+            },
+            indent=1,
+        )
+    )
     print(("OK " if passed else "PENDING ") + detail)
     return 0 if passed else 1
 

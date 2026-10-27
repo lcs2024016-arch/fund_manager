@@ -287,8 +287,7 @@ def _parse_option_symbol(
     if not raw.isdigit() or len(raw) != 6:
         return None
     expiry = "20" + raw[4:6] + "-" + raw[2:4] + "-" + raw[:2]  # DDMMYY
-    return parts[1], ("call" if parts[0] == "C" else "put"), \
-        Decimal(parts[2]), expiry
+    return parts[1], ("call" if parts[0] == "C" else "put"), Decimal(parts[2]), expiry
 
 
 class CreditSpreadRunner:
@@ -325,15 +324,17 @@ class CreditSpreadRunner:
 
             data = yaml.safe_load(_RISK_LIMITS_PATH.read_text())
             self.risk = PortfolioRiskEngine(limits=RiskLimits(**data))
-        except Exception as exc:                       # noqa: BLE001
-            log.warning("risk_limits.yaml missing/invalid (%s) — validated "
-                        "defaults in use", exc)
+        except Exception as exc:  # noqa: BLE001
+            log.warning(
+                "risk_limits.yaml missing/invalid (%s) — validated defaults in use", exc
+            )
         products = await self.port.products()
         for u in self.cfg.underlyings:
             base = u[:3] if u[:3] in ("BTC", "ETH", "XAU") else u
             base_sym = base + "USD"
             self._option_syms[base_sym] = [
-                p.symbol for p in products
+                p.symbol
+                for p in products
                 if p.strike_price is not None
                 and (p.underlying_asset_symbol or "") == base
                 and _parse_option_symbol(p.symbol) is not None
@@ -341,7 +342,8 @@ class CreditSpreadRunner:
         log.info(
             "credit_spread runner up: option universe=%s risk_limits=%s",
             {k: len(v) for k, v in self._option_syms.items()},
-            self.risk.limits.model_dump())
+            self.risk.limits.model_dump(),
+        )
 
     async def _sync_open_spreads(self) -> None:
         """The port is the truth: pairs whose short position is flat are gone;
@@ -352,7 +354,7 @@ class CreditSpreadRunner:
             pos: PositionSnapshot | None
             try:
                 pos = await self.port.position(short_sym)
-            except Exception:                          # noqa: BLE001
+            except Exception:  # noqa: BLE001
                 pos = None
             net = pos.net_size if pos else 0
             if not net:
@@ -363,13 +365,21 @@ class CreditSpreadRunner:
             mark = ZERO
             if s_q is not None and l_q is not None:
                 mark = max(
-                    (s_q.best_ask - l_q.best_bid) * s_q.contract_value
-                    * int(meta["size"]), ZERO)
-            alive.append(OpenSpread(
-                spread=meta["spread"], underlying=str(meta["underlying"]),
-                opened_ts=str(meta.get("opened_ts", _today())),
-                entry_credit_usd=Decimal(str(meta["entry_credit_usd"])),
-                mark_cost_usd=mark, symbol=short_sym))
+                    (s_q.best_ask - l_q.best_bid)
+                    * s_q.contract_value
+                    * int(meta["size"]),
+                    ZERO,
+                )
+            alive.append(
+                OpenSpread(
+                    spread=meta["spread"],
+                    underlying=str(meta["underlying"]),
+                    opened_ts=str(meta.get("opened_ts", _today())),
+                    entry_credit_usd=Decimal(str(meta["entry_credit_usd"])),
+                    mark_cost_usd=mark,
+                    symbol=short_sym,
+                )
+            )
         self.open_spreads = alive
 
     async def _collect_quotes(self) -> None:
@@ -383,7 +393,8 @@ class CreditSpreadRunner:
             lo = spot * Decimal("0.75")
             hi = spot * Decimal("1.25")
             fresh: list[Quote] = [
-                q for q in self.quotes.values() if q.underlying + "USD" == base_sym]
+                q for q in self.quotes.values() if q.underlying + "USD" == base_sym
+            ]
             for sym in syms:
                 parsed = _parse_option_symbol(sym)
                 if not parsed:
@@ -391,8 +402,10 @@ class CreditSpreadRunner:
                 _, kind, strike, expiry = parsed
                 if not (lo <= strike <= hi):
                     continue
-                dte = (datetime.strptime(expiry, "%Y-%m-%d")
-                       - datetime.strptime(today, "%Y-%m-%d")).days
+                dte = (
+                    datetime.strptime(expiry, "%Y-%m-%d")
+                    - datetime.strptime(today, "%Y-%m-%d")
+                ).days
                 if dte < 0 or dte > 2:
                     continue
                 t = await self.port.ticker(sym)
@@ -401,21 +414,30 @@ class CreditSpreadRunner:
                 if t.best_bid <= ZERO or t.best_ask <= ZERO:
                     continue
                 p = await self.port.product(sym)
-                size_quote = int(
-                    (t.raw.get("quotes") or {}).get("bid_size", 1) or 1)
-                fresh.append(Quote(
-                    symbol=sym, underlying=base_sym[:-3], kind=kind,
-                    strike=strike, expiry=expiry, delta=float(t.delta or 0),
-                    best_bid=t.best_bid, best_ask=t.best_ask,
-                    bid_size=max(size_quote, 1),
-                    contract_value=p.contract_value if p else Decimal("0.001"),
-                    underlying_price=spot))
+                size_quote = int((t.raw.get("quotes") or {}).get("bid_size", 1) or 1)
+                fresh.append(
+                    Quote(
+                        symbol=sym,
+                        underlying=base_sym[:-3],
+                        kind=kind,
+                        strike=strike,
+                        expiry=expiry,
+                        delta=float(t.delta or 0),
+                        best_bid=t.best_bid,
+                        best_ask=t.best_ask,
+                        bid_size=max(size_quote, 1),
+                        contract_value=p.contract_value if p else Decimal("0.001"),
+                        underlying_price=spot,
+                    )
+                )
             self.quotes = {q.symbol: q for q in fresh}
 
     # -- StrategyPort -------------------------------------------------------
     async def on_candle_close(self, candle: Candle) -> None:
-        if candle.symbol.endswith("USD") and _parse_option_symbol(
-                candle.symbol) is None:
+        if (
+            candle.symbol.endswith("USD")
+            and _parse_option_symbol(candle.symbol) is None
+        ):
             self.spots[candle.symbol] = Decimal(str(candle.close))
 
     async def on_ticker(self, symbol: str, ticker: Ticker) -> None:
@@ -427,7 +449,7 @@ class CreditSpreadRunner:
         if rec is not None:
             try:
                 self.book.apply_fill(fill)
-            except Exception:                          # noqa: BLE001
+            except Exception:  # noqa: BLE001
                 self._report_halt("apply_fill", [fill.client_order_id])
 
     async def on_timer(self) -> None:
@@ -438,11 +460,14 @@ class CreditSpreadRunner:
             await self._reconcile_book()
             await self._collect_quotes()
             await self._sync_open_spreads()
-        except Exception:                              # noqa: BLE001
+        except Exception:  # noqa: BLE001
             log.exception("timer preflight failed")
             return
-        state = MarketState(now=_today(), quotes=list(self.quotes.values()),
-                            open_spreads=list(self.open_spreads))
+        state = MarketState(
+            now=_today(),
+            quotes=list(self.quotes.values()),
+            open_spreads=list(self.open_spreads),
+        )
         dec = evaluate(state, self.cfg, option_fee=option_fee)
         acct = await self.port.account()
         # 1) risk stops — reduce-only, no growth veto
@@ -451,15 +476,22 @@ class CreditSpreadRunner:
             if not meta:
                 continue
             long_sym = str(meta["paired_long_leg"])
-            short_leg_side = Side.BUY                 # buy back the short
+            short_leg_side = Side.BUY  # buy back the short
             self._pairs.pop(sym, None)
             for leg, side in ((sym, short_leg_side), (long_sym, Side.SELL)):
-                await self._send(OrderIntent(
-                    algo=self.algo, product_symbol=leg, side=side,
-                    size=int(meta["size"]), purpose="spread_stop",
-                    reduce_only=True,
-                    reason=f"stop_out {sym} (2x credit multiples of MTM)"),
-                    acct, veto=False)
+                await self._send(
+                    OrderIntent(
+                        algo=self.algo,
+                        product_symbol=leg,
+                        side=side,
+                        size=int(meta["size"]),
+                        purpose="spread_stop",
+                        reduce_only=True,
+                        reason=f"stop_out {sym} (2x credit multiples of MTM)",
+                    ),
+                    acct,
+                    veto=False,
+                )
         # 2) entries
         await self._enter_pairs(dec, acct)
         for r in dec.rejects:
@@ -468,22 +500,23 @@ class CreditSpreadRunner:
 
     async def _enter_pairs(self, dec: Decision, acct: Any) -> None:
         shorts = [o for o in dec.open_orders if o.side is Side.SELL]
-        longs = {o.product_symbol: o for o in dec.open_orders
-                 if o.side is Side.BUY}
+        longs = {o.product_symbol: o for o in dec.open_orders if o.side is Side.BUY}
         for s in shorts:
             long_sym = str(s.meta.get("paired_long_leg", ""))
             lo = longs.get(long_sym)
-            s_q, l_q = self.quotes.get(s.product_symbol), \
-                self.quotes.get(long_sym)
+            s_q, l_q = self.quotes.get(s.product_symbol), self.quotes.get(long_sym)
             if lo is None or s_q is None or l_q is None:
                 continue
             sp = CreditSpread(
                 kind=s_q.kind,
-                short=SpreadLeg(s_q.kind, "sell", s_q.strike,
-                                s.limit_price or s_q.best_bid),
-                long=SpreadLeg(l_q.kind, "buy", l_q.strike,
-                               lo.limit_price or l_q.best_ask),
-                expiry=s_q.expiry)
+                short=SpreadLeg(
+                    s_q.kind, "sell", s_q.strike, s.limit_price or s_q.best_bid
+                ),
+                long=SpreadLeg(
+                    l_q.kind, "buy", l_q.strike, lo.limit_price or l_q.best_ask
+                ),
+                expiry=s_q.expiry,
+            )
             credit_usd = sp.net_credit_usd(s_q.contract_value) * s.size
             ok_s = await self._send(s, acct, veto=True)
             ok_l = await self._send(lo, acct, veto=True)
@@ -497,13 +530,13 @@ class CreditSpreadRunner:
                     "opened_ts": _today(),
                 }
 
-    async def _send(self, intent: OrderIntent, acct: Any,
-                    veto: bool) -> bool:
+    async def _send(self, intent: OrderIntent, acct: Any, veto: bool) -> bool:
         """Place through the port with the risk veto. Returns accepted."""
         assert self.port is not None
         if not intent.client_order_id:
             intent = intent.with_client_id(
-                self.algo, intent.product_symbol, intent.purpose)
+                self.algo, intent.product_symbol, intent.purpose
+            )
         if veto:
             q = self.quotes.get(intent.product_symbol)
             p = await self.port.product(intent.product_symbol)
@@ -511,19 +544,25 @@ class CreditSpreadRunner:
                 return False
             cv_usd = float(p.contract_value) * float(q.underlying_price)
             ok, why = self.risk.pre_trade(
-                intent, acct,
-                Ticker(symbol=intent.product_symbol, best_bid=q.best_bid,
-                       best_ask=q.best_ask),
-                [],   # option legs carry no futures position here
-                contract_value_usd=cv_usd, bid_size=int(q.bid_size),
+                intent,
+                acct,
+                Ticker(
+                    symbol=intent.product_symbol,
+                    best_bid=q.best_bid,
+                    best_ask=q.best_ask,
+                ),
+                [],  # option legs carry no futures position here
+                contract_value_usd=cv_usd,
+                bid_size=int(q.bid_size),
                 equity=acct.equity,
-                open_orders_count=len(self.book.orders))
+                open_orders_count=len(self.book.orders),
+            )
             if not ok:
                 log.info("risk veto %s: %s", intent.product_symbol, why)
                 return False
         try:
             res = await self.port.place(intent)
-        except Exception:                              # noqa: BLE001
+        except Exception:  # noqa: BLE001
             log.exception("place failed for %s", intent.product_symbol)
             return False
         self.book.submit(OrderRecordFactory(intent))
@@ -533,12 +572,16 @@ class CreditSpreadRunner:
         assert self.port is not None
         open_orders = await self.port.open_orders()
         ex = [
-            {"client_order_id": o.client_order_id, "symbol": o.symbol,
-             "side": str(o.side.value), "size": o.size,
-             "status": str(getattr(o, "status", "open")),
-             "filled_size": o.filled_size}
-            for o in open_orders if isinstance(getattr(o, "client_order_id", ""),
-                                               str) and o.client_order_id
+            {
+                "client_order_id": o.client_order_id,
+                "symbol": o.symbol,
+                "side": str(o.side.value),
+                "size": o.size,
+                "status": str(getattr(o, "status", "open")),
+                "filled_size": o.filled_size,
+            }
+            for o in open_orders
+            if isinstance(getattr(o, "client_order_id", ""), str) and o.client_order_id
         ]
         mm = self.book.reconcile(ex)
         if any(m.startswith("halt:") for m in mm):
@@ -572,11 +615,16 @@ class CreditSpreadRunner:
 # --- tiny helpers -----------------------------------------------------------
 def OrderRecordFactory(intent: OrderIntent) -> OrderRecord:
     """Light local-order mirror for idempotency (OMS submit)."""
-    return OrderRecord(client_order_id=intent.client_order_id,
-                       symbol=intent.product_symbol, side=intent.side,
-                       size=intent.size, status=OrderStatus.NEW)
+    return OrderRecord(
+        client_order_id=intent.client_order_id,
+        symbol=intent.product_symbol,
+        side=intent.side,
+        size=intent.size,
+        status=OrderStatus.NEW,
+    )
 
 
 def json_dump(obj: Any) -> str:
     import json
+
     return json.dumps(obj, indent=1)

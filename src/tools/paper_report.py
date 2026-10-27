@@ -39,6 +39,7 @@ README_END = "<!-- paper:end -->"
 STRATEGY_LABEL = {  # A/B labels from the prompt specs (prompts/*.md)
     "rwa_positional": "A",
     "all_in_one": "B",
+    "credit_spread": "C",
 }
 
 
@@ -152,6 +153,46 @@ def load_closed_lots(out_dir: Path, strategy: str) -> list[dict[str, Any]]:
         lot["pnl"] = sign * (close - entry) * contracts * cv.get(lot["symbol"], 1.0)
         lots.append(lot)
     return lots
+
+
+def trades_table(out_dir: Path, n: int = 25) -> str:
+    """Recent fills per strategy, newest first (from trades.csv journal).
+
+    `kind` is decoded from the client_order_id (`<strategy>-<sym>-<kind>-<id>`),
+    e.g. lotentry / lot_tp / reentry — the order's purpose in the strategy.
+    """
+    path = out_dir / "trades.csv"
+    if not path.exists():
+        return "_No fill journal yet._\n"
+    rows: list[dict[str, Any]] = []
+    with path.open(newline="") as fh:
+        rows = [r for r in csv.DictReader(fh) if r.get("ts")]
+    if not rows:
+        return "_No fills journaled yet._\n"
+    out = [
+        "| Time (UTC) | Symbol | Side | Size | Price | Notional | Fee | Kind |",
+        "|---|---|---|---|---|---|---|---|",
+    ]
+    for r in rows[-n:][::-1]:
+        coid = (r.get("client_order_id") or "").split("-")
+        kind = coid[2] if len(coid) >= 4 else "?"
+        try:
+            notional = float(r.get("notional_usd") or 0)
+        except ValueError:
+            notional = 0.0
+        try:
+            fee = float(r.get("fee") or 0)
+        except ValueError:
+            fee = 0.0
+        out.append(
+            f"| {r['ts'][:19].replace('T', ' ')} | {r.get('symbol', '?')} "
+            f"| {'SELL' if r.get('side') == 'sell' else 'BUY'} | {r.get('size', '?')} "
+            f"| {r.get('price', '?')} | {_money(notional)} | {_money(fee)} | `{kind}` |"
+        )
+    out.append("")
+    out.append(f"_(All-time fills: **{len(rows)}** — showing the {min(n, len(rows))} "
+               "most recent. Kind decoded from client_order_id.)_\n")
+    return "\n".join(out)
 
 
 def max_drawdown(days: dict[str, DayRow]) -> float:
@@ -296,6 +337,7 @@ def strategy_section(out_dir: Path, meta: dict[str, Any]) -> tuple[str, dict[str
     ]
     section = "\n".join(lead) + calendar_markdown(days) + "\n"
     section += "### Daily stats (last 30 recorded days)\n\n" + daily_stats_table(days) + "\n"
+    section += "### Trades (last 25 fills, newest first)\n\n" + trades_table(out_dir) + "\n"
     row = {**{k: v for k, v in st.items()}, "strategy": strategy, "label": label}
     return section, row
 
@@ -342,12 +384,12 @@ def build_combined(out_dir: Path) -> tuple[str, list[dict[str, Any]]]:
         sections.append(sec)
         rows.append(row)
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    labels = "+".join(r["label"] for r in rows)
     head = [
-        "# Paper-trading report (A + B)",
+        f"# Paper-trading report ({labels})",
         "",
         "_Paper money for each strategy: simulated fills on real Delta market "
-        "data; zero orders sent, no API keys used._",
-        f"_Generated {now}._",
+        f"data; zero orders sent, no API keys used. Generated {now}._",
         "",
         summary_table(rows),
         "> Strategies trade *separate simulated accounts*; their numbers are "

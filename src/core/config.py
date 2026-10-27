@@ -3,6 +3,7 @@
 Any config value tagged [ASK] in the prompt specs defaults to `null`.
 Live trading is refused while any requested value is still null.
 """
+
 from __future__ import annotations
 
 import os
@@ -107,7 +108,9 @@ class Config(BaseModel):
             )
 
 
-def load_config(path: str = "config.yaml", overrides: dict[str, Any] | None = None) -> Config:
+def load_config(
+    path: str = "config.yaml", overrides: dict[str, Any] | None = None
+) -> Config:
     data: dict[str, Any] = {}
     p = Path(path)
     if p.exists():

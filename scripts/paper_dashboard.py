@@ -15,13 +15,15 @@ Refresh: the page re-fetches /api/summary every 15 s.
 
 Run:  python scripts/paper_dashboard.py [--port 8591]
 """
+
 from __future__ import annotations
 
 import argparse
+import contextlib
 import csv
 import json
 import socket
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
@@ -123,15 +125,17 @@ def load_strategy(name: str) -> dict:
         entry, mark = _f(p.get("entry")), _f(p.get("mark"))
         cval = cv.get(sym, 1.0)
         unreal = size * (mark - entry) * cval
-        holdings.append({
-            "symbol": sym,
-            "size": size,
-            "entry": entry,
-            "mark": mark,
-            "contract_value": cval,
-            "notional": abs(size) * mark * cval,
-            "unrealized": unreal,
-        })
+        holdings.append(
+            {
+                "symbol": sym,
+                "size": size,
+                "entry": entry,
+                "mark": mark,
+                "contract_value": cval,
+                "notional": abs(size) * mark * cval,
+                "unrealized": unreal,
+            }
+        )
     unreal_total = sum(h["unrealized"] for h in holdings)
 
     initial = _f(out["meta"].get("initial_equity"))
@@ -156,10 +160,13 @@ def load_strategy(name: str) -> dict:
 
 
 def build_summary() -> dict:
-    strategies = [load_strategy(d.name) for d in sorted(PAPER.iterdir())
-                  if d.is_dir() and not d.name.startswith(".")]
+    strategies = [
+        load_strategy(d.name)
+        for d in sorted(PAPER.iterdir())
+        if d.is_dir() and not d.name.startswith(".")
+    ]
     return {
-        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "generated_at": datetime.now(UTC).isoformat(),
         "strategies": strategies,
     }
 
@@ -419,10 +426,8 @@ def main() -> None:
     port = find_free_port(args.port)
     srv = ThreadingHTTPServer(("127.0.0.1", port), Handler)
     print(f"paper dashboard → http://127.0.0.1:{port}  (Ctrl-C to stop)")
-    try:
+    with contextlib.suppress(KeyboardInterrupt):
         srv.serve_forever()
-    except KeyboardInterrupt:
-        pass
 
 
 if __name__ == "__main__":

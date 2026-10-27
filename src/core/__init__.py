@@ -1,4 +1,5 @@
 """Shared core packages for the fund manager (basis for every strategy)."""
+
 from __future__ import annotations
 
 from .events import EventLogger, setup_logging

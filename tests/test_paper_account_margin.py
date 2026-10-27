@@ -12,14 +12,13 @@ from __future__ import annotations
 
 import asyncio
 import json
+from decimal import Decimal
 from pathlib import Path
 
 import httpx
-import pytest
-from decimal import Decimal
 
 from core.config import load_config
-from core.models import OrderStatus
+from core.models import OrderIntent, OrderStatus
 from paper.port import PaperPort
 
 FIXTURE = Path(__file__).parent / "fixtures" / "products_btcusd.json"
@@ -36,27 +35,38 @@ def _mocked_paper_port(tmp_path: Path) -> PaperPort:
         if url.endswith("/products") or "/products?" in url:
             body = {"success": True, "result": payload_products, "meta": {}}
         elif "/tickers/" in url:
-            body = {"success": True, "result": {
-                "symbol": url.rsplit("/", 1)[-1],
-                "mark_price": "100.25",
-                "quotes": {"best_bid": "100", "best_ask": "100.5"},
-                "spot_price": "100.25", "greeks": {"delta": 0.5},
-                "vol": "1", "oi": "1", "timestamp": "0",
-            }}
+            body = {
+                "success": True,
+                "result": {
+                    "symbol": url.rsplit("/", 1)[-1],
+                    "mark_price": "100.25",
+                    "quotes": {"best_bid": "100", "best_ask": "100.5"},
+                    "spot_price": "100.25",
+                    "greeks": {"delta": 0.5},
+                    "vol": "1",
+                    "oi": "1",
+                    "timestamp": "0",
+                },
+            }
         else:
             body = {"success": True, "result": {"data": []}, "meta": {}}
         return httpx.Response(200, json=body)
 
     http = httpx.AsyncClient(
-        transport=httpx.MockTransport(handler), base_url="https://mock.delta.invalid")
+        transport=httpx.MockTransport(handler), base_url="https://mock.delta.invalid"
+    )
 
     original = pp.DeltaRestClient
 
     class MockClient(original):  # type: ignore[misc, valid-type]
         def __init__(self, *a, **kw):
             kw.pop("http_client", None)
-            super().__init__(base_url="https://mock.delta.invalid",
-                             api_key="", api_secret="", http_client=http)
+            super().__init__(
+                base_url="https://mock.delta.invalid",
+                api_key="",
+                api_secret="",
+                http_client=http,
+            )
 
     pp.DeltaRestClient = MockClient
     try:
@@ -102,15 +112,22 @@ def _paper_port_with_book(tmp_path: Path, bid: str, ask: str) -> PaperPort:
     return port
 
 
-def _lot_tp_intent(buy: bool, limit: str, size: int = 10) -> "OrderIntent":
-    from core.models import OrderIntent, OrderType, Side, TimeInForce
+def _lot_tp_intent(buy: bool, limit: str, size: int = 10) -> OrderIntent:
+    from core.models import OrderType, Side, TimeInForce
 
     return OrderIntent(
-        algo="aio", product_symbol="BTCUSD", product_id=None,
-        side=Side.BUY if buy else Side.SELL, size=size,
-        order_type=OrderType.LIMIT, limit_price=Decimal(limit),
-        time_in_force=TimeInForce.GTC, post_only=True, reduce_only=True,
-        client_order_id="aio-btc-lottp-test", purpose="lot_tp",
+        algo="aio",
+        product_symbol="BTCUSD",
+        product_id=None,
+        side=Side.BUY if buy else Side.SELL,
+        size=size,
+        order_type=OrderType.LIMIT,
+        limit_price=Decimal(limit),
+        time_in_force=TimeInForce.GTC,
+        post_only=True,
+        reduce_only=True,
+        client_order_id="aio-btc-lottp-test",
+        purpose="lot_tp",
     )
 
 
@@ -133,7 +150,8 @@ def test_reduce_only_limit_far_from_book_rests(tmp_path: Path) -> None:
             raw = await orig(symbol)
             if isinstance(raw, dict):
                 (raw.setdefault("quotes", {}) or {}).update(
-                    {"best_bid": "98.5", "best_ask": "98.9"})
+                    {"best_bid": "98.5", "best_ask": "98.9"}
+                )
                 raw["mark_price"] = "98.7"
             return raw
 
@@ -156,10 +174,17 @@ def test_non_reduce_only_limit_still_fills_at_edge(tmp_path: Path) -> None:
     from core.models import OrderIntent, OrderType, Side, TimeInForce
 
     intent = OrderIntent(
-        algo="aio", product_symbol="BTCUSD", product_id=None,
-        side=Side.BUY, size=10, order_type=OrderType.LIMIT,
-        limit_price=Decimal("100.3"), time_in_force=TimeInForce.GTC,
-        post_only=True, reduce_only=False, client_order_id="aio-btc-lotentry-t",
+        algo="aio",
+        product_symbol="BTCUSD",
+        product_id=None,
+        side=Side.BUY,
+        size=10,
+        order_type=OrderType.LIMIT,
+        limit_price=Decimal("100.3"),
+        time_in_force=TimeInForce.GTC,
+        post_only=True,
+        reduce_only=False,
+        client_order_id="aio-btc-lotentry-t",
         purpose="lot_entry",
     )
 
