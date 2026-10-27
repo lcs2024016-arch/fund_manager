@@ -50,7 +50,7 @@ class SpreadCfg(BaseModel):
     def _validate(self) -> None:
         if self.short_delta_high <= self.short_delta_low:
             raise ValueError("delta band empty")
-        if "XAUT" in self.underlyings and self.max_spread_pct < 0.10:
+        if any("XAUT" in u for u in self.underlyings) and self.max_spread_pct < 0.10:
             raise ValueError(
                 "XAUT books quote ~35% wide; max_spread_pct "
                 "must reflect that or XAUT will never clear"
