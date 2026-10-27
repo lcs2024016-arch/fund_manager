@@ -102,6 +102,7 @@ jobs:
           context: .
           file: docker/Dockerfile
           push: false
+          load: true   # keep image in docker engine so the trivy scan can see it
           tags: fund-manager:${{ github.sha }}
       - name: scan image (trivy)
         uses: aquasecurity/trivy-action@master
