@@ -7,11 +7,10 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
-from typing import Any, Optional
+from typing import Any
 
 import yaml
-from pydantic import BaseModel, Field, field_validator
-from pydantic_settings import BaseSettings
+from pydantic import BaseModel, Field
 
 # Values that must be filled by the user before live trading is allowed.
 ASK_KEYS: dict[str, list[str]] = {
@@ -57,8 +56,8 @@ class ApiConfig(BaseModel):
 
 
 class LlmSecrets(BaseModel):
-    telegram_bot_token: Optional[str] = None
-    telegram_chat_id: Optional[str] = None
+    telegram_bot_token: str | None = None
+    telegram_chat_id: str | None = None
 
 
 class Config(BaseModel):

@@ -1,0 +1,17 @@
+# Credit-spread strategy config — RISK-FIRST replacement of the leader's
+# naked short-vol book. Versioned in git; changes require PR review.
+# PAPER/testnet only until scripts/golive_check.py passes ALL gates and an
+# operator sets the explicit live flag (never a default).
+strategy: credit_spread
+underlyings: ["BTCUSD", "ETHUSD"]        # XAUT: opt-in only after spread check
+short_delta_low: 0.10
+short_delta_high: 0.30
+width_strikes: 2                          # long leg N strikes beyond short leg
+max_spread_pct: 0.05                      # XAUT books ~35% wide: keep opt-in
+min_credit_over_fee: 2.0                  # credit >= 2x measured fee+GST
+max_open_spreads_per_underlying: 2
+stop_loss_credit_multiple: 2.0            # close at 2x received credit MTM
+notional_budget_usd: 400
+sell_premium_slip_bps: 50                 # sell below bid, buy above ask
+buy_premium_slip_bps: 50
+allowed_kinds: ["call", "put"]

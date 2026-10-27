@@ -1,0 +1,159 @@
+{
+ "Q1": {
+  "total_pnl": 1536.74,
+  "top5_days_pnl": 783.62,
+  "top5_days_share": 0.5099,
+  "top20_trades_pnl": 1829.51,
+  "top20_trades_share_of_trade_pnl": 1.1905,
+  "best_month": "2026-09",
+  "best_month_pnl": 759.08,
+  "excl_best_month_pnl": 777.66
+ },
+ "Q2": {
+  "realized_pnl_sum": 1536.77,
+  "fees_sum": 0,
+  "open_unrealized_now": 0,
+  "mark_to_market_now": 1536.77,
+  "note": "funding not itemised in fills; treat as unknown unless exports include it"
+ },
+ "Q3": {
+  "worst_symbol_day_legs": [
+   [
+    "2026-06-15|C-BTC-64000-310726|perp",
+    -117.1
+   ],
+   [
+    "2026-06-01|ETHUSD|perp",
+    -116.48
+   ],
+   [
+    "2026-06-12|C-ETH-1700-120626|perp",
+    -96.93
+   ],
+   [
+    "2026-06-12|C-BTC-63000-120626|perp",
+    -94.66
+   ],
+   [
+    "2026-06-05|C-BTC-70000-050626|perp",
+    -78.73
+   ],
+   [
+    "2026-06-04|P-BTC-67200-040626|perp",
+    -56.4
+   ],
+   [
+    "2026-06-02|P-BTC-72800-020626|perp",
+    -54.42
+   ],
+   [
+    "2026-06-12|P-BTC-65000-120626|perp",
+    -54.28
+   ],
+   [
+    "2026-06-15|C-ETH-1700-310726|perp",
+    -53.8
+   ],
+   [
+    "2026-06-12|P-ETH-1750-120626|perp",
+    -53.5
+   ],
+   [
+    "2026-06-03|C-ETH-1800-050626|perp",
+    -52.85
+   ],
+   [
+    "2026-06-04|P-ETH-1880-040626|perp",
+    -37.25
+   ],
+   [
+    "2026-06-06|P-ETH-1660-060626|perp",
+    -36.85
+   ],
+   [
+    "2026-06-03|P-ETH-1960-030626|perp",
+    -34.85
+   ],
+   [
+    "2026-06-10|C-BTC-61500-190626|perp",
+    -32.2
+   ],
+   [
+    "2026-06-03|P-BTC-71000-260626|perp",
+    -28.19
+   ],
+   [
+    "2026-06-10|P-BTC-63200-100626|perp",
+    -25.82
+   ],
+   [
+    "2026-06-05|P-ETH-1750-050626|perp",
+    -24.6
+   ],
+   [
+    "2026-06-03|ETHUSD|perp",
+    -22.93
+   ],
+   [
+    "2026-06-06|P-BTC-62800-060626|perp",
+    -21.28
+   ]
+  ],
+  "trough_up_to": "2026-06-20",
+  "trough_cum_pnl": -378.3,
+  "loss_as_multiple_of_avg_daily_abs_pnl": -22.35,
+  "note": "as % of $1000 margin: divide trough_cum_pnl by 10"
+ },
+ "Q4": {
+  "n_months": 18,
+  "skew_monthly": 1.132,
+  "excess_kurt": 1.654,
+  "worst_day": -282.24,
+  "worst_week": -346.9200000000001,
+  "longest_underwater_days": 98,
+  "ulcer_index": 42.12,
+  "note": "short-vol signature = positive skew + mild kurtosis + deep sustained DD"
+ },
+ "Q5": {
+  "mean_daily_ret": 0.002024448695652174,
+  "t_stat": 164.189834202181,
+  "CI_mean": [
+   0.000321,
+   0.003735
+  ],
+  "CI_sharpe": [
+   0.012,
+   0.166
+  ],
+  "sharpe_daily_trade_days": 0.1348,
+  "sharpe_daily_calendar": 0.0821,
+  "n_trade_days": 284,
+  "n_calendar_days": 759,
+  "n_active_days": 283,
+  "fraction_days_trading": 0.373,
+  "deflated_sharpe": {
+   "observed_annualised": 1.303,
+   "expected_max_haircut": 0.1538,
+   "net": 1.149,
+   "pass": true
+  }
+ },
+ "Q6": {
+  "follower_points": 2,
+  "first": {
+   "ts": "",
+   "followers": null,
+   "copiers": null
+  },
+  "last": {
+   "ts": "",
+   "followers": null,
+   "copiers": null
+  },
+  "note": "leader return over follower windows is Q1's; follower return = leader's monthly PnL starting AFTER their join month (computed in REPORT when join dates are visible). Copy slippage assumed 1 lot of spread + 5bp unless measured."
+ },
+ "Q7": {
+  "leaderboard_rows_in_export": 1,
+  "note": "rank-one-year-ago requires a leaderboard export (or the leaders list page) \u2014 compute rank of 6001's trailing-12m PnL among peers at 2025-10-23."
+ }
+}

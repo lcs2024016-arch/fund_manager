@@ -1,0 +1,29 @@
+{
+ "source": "collector.db first run",
+ "n_snapshots": 284,
+ "days": 1,
+ "median_spread_pct": {
+  "BTC/call": 0.041384714010969444,
+  "BTC/put": 0.011365187175375786,
+  "ETH/call": 0.041025641025641046,
+  "ETH/put": 0.015789583030353403,
+  "XAUT/call": 0.3529411764705882,
+  "XAUT/put": 0.049844236760124574
+ },
+ "mark_iv_median": {
+  "BTC": 0.34133593500000003,
+  "ETH": 0.45161464500000004,
+  "XAUT": 0.242621475
+ },
+ "realised_daily_vol": {
+  "BTC": null,
+  "ETH": null,
+  "XAUT": null
+ },
+ "vr_premium_daily": {
+  "BTC": 0.34133593500000003,
+  "ETH": 0.45161464500000004,
+  "XAUT": 0.242621475
+ },
+ "note": "spreads are median of (ask-bid)/mid within +/-10% strike window"
+}

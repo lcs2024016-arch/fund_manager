@@ -1,0 +1,75 @@
+name: scheduled-ops
+
+on:
+  schedule:
+    # nightly: collector health check + state backup
+    - cron: "10 13 * * *"     # 13:10 UTC daily
+    # weekly: dependency audit
+    - cron: "40 5 1 * 2"      # Mondays 05:40 UTC
+    # weekly walk-forward re-evaluation → issue on degradation
+    - cron: "0 6 * * 1"       # Mondays 06:00 UTC
+  workflow_dispatch:
+    inputs:
+      task:
+        description: "collector-health | walkforward | dep-audit"
+        default: "collector-health"
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  collector-health:
+    if: github.event_name == 'schedule' || github.event.inputs.task == 'collector-health'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install httpx websockets pyyaml pydantic pydantic-settings
+      - name: collector heartbeat + backup state
+        run: |
+          python scripts/collector_health.py || {
+            echo "collector unhealthy"; exit 1; }
+          tar czf collector_backup_$(date -u +%F).tgz validate/collector.db || true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: collector-backup
+          path: collector_backup_*.tgz
+
+  walkforward:
+    if: github.event_name == 'schedule' || github.event.inputs.task == 'walkforward'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install -e '.[dev]' pandas numpy
+      - name: weekly walk-forward OOS re-evaluation
+        id: wf
+        run: |
+          python scripts/walkforward_eval.py | tee wf.txt
+          echo "degraded=$(grep -c DEGRADED wf.txt || true)" >> "$GITHUB_OUTPUT"
+      - name: open issue if metrics degraded
+        if: steps.wf.outputs.degraded != '0'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner, repo: context.repo.repo,
+              title: `[walkforward] OOS metrics degraded ${new Date().toISOString().slice(0,10)}`,
+              labels: ['walkforward', 'risk'],
+              body: 'Walk-forward re-evaluation degraded. Output:\n```\n' +
+                require('fs').readFileSync('wf.txt', 'utf8') + '\n```'})
+      - name: paper gate staleness check (>= 4 weeks parity)
+        run: python scripts/golive_check.py || echo "gates still failing (expected pre-go-live)"
+
+  dep-audit:
+    if: github.event_name == 'schedule' || github.event.inputs.task == 'dep-audit'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install -e '.[dev]' pip-audit
+      - run: pip-audit --strict || { echo "vulnerable deps"; exit 1; }

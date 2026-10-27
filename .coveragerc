@@ -1,0 +1,11 @@
+[run]
+source = src
+omit =
+    */all_in_one/*
+    */rwa_positional/*
+    */live/*
+    */ws.py
+    */heartbeat.py
+    */delta/orders.py
+    */tools/*
+    */fund_manager.egg-info/*

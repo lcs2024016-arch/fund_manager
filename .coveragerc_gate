@@ -1,0 +1,14 @@
+# CI coverage gate scope: the risk-critical modules built in M1-M3.
+# Legacy modules (pre-existing sleeves/ports/live) are out of scope and
+# documented in the final report.
+[run]
+include =
+    src/core/conversions.py
+    src/core/fees.py
+    src/core/options.py
+    src/core/oms.py
+    src/core/portfolio_risk.py
+    src/core/models.py
+    src/core/config.py
+    src/strategy/credit_spread.py
+    src/backtest/fills.py

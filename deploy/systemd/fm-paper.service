@@ -1,0 +1,27 @@
+# ~/.config/systemd/user/ crate: copy to
+#   ~/.config/systemd/user/fm-paper.service
+# then:   systemctl --user daemon-reload
+#         systemctl --user enable --now fm-paper
+# logs:   journalctl --user -u fm-paper -f
+#
+# The supervisor restarts crashes itself; systemd guards the supervisor
+# (login sessions reboots), so the paper soak survives almost anything
+# except `touch KILL`.
+
+[Unit]
+Description=fund-manager paper soak (credit_spread)
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/codes/fund_manager
+ExecStart=%h/codes/fund_manager/scripts/paper_supervisor.sh start
+ExecStop=%h/codes/fund_manager/scripts/paper_supervisor.sh stop
+Restart=on-failure
+RestartSec=15
+# Keep the laptop from suspending while this runs
+KillSignal=SIGTERM
+TimeoutStopSec=120
+
+[Install]
+WantedBy=default.target

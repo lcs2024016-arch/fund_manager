@@ -39,6 +39,7 @@ TRADE_FIELDS = [
     "contract_value", "notional_usd", "reduce_only", "client_order_id",
 ]
 DAILY_FIELDS = ["date", "ts", "equity", "cash", "unrealized", "open_positions", "sessions"]
+INTRADAY_FIELDS = ["ts", "equity", "cash", "unrealized", "open_positions"]
 
 RESOLUTION_SECONDS = {
     "1m": 60, "3m": 180, "5m": 300, "15m": 900, "30m": 1800,
@@ -53,6 +54,22 @@ def build_strategy(cfg: Config, state_dir: Path):
         from strategy.rwa_positional import RwaPositionalStrategy
 
         return RwaPositionalStrategy(config=cfg, db_path=str(state_dir / f"{name}.db"))
+    if "credit_spread" in name:
+        # Same wiring as main.build_strategy: config file drives the runner,
+        # driver universe = the runner's underlyings at 15m.
+        import yaml
+
+        from strategy.credit_spread import CreditSpreadRunner, SpreadCfg
+
+        path = Path("config") / "credit_spread.yaml"
+        data = yaml.safe_load(path.read_text()) if path.exists() else {}
+        data.pop("strategy", None)
+        runner = CreditSpreadRunner(SpreadCfg(**data))
+        cfg.flags["symbols"] = [
+            u if u.endswith("USD") else u + "USD" for u in runner.cfg.underlyings]
+        cfg.flags["resolutions"] = ["15m"]
+        cfg.flags["poll_interval_s"] = cfg.flags.get("poll_interval_s", 20)
+        return runner
     from strategy.all_in_one import AllInOneStrategy
 
     return AllInOneStrategy(cfg.all_in_one or {}, state_dir=str(state_dir), log_dir=cfg.log_dir)
@@ -75,14 +92,18 @@ def strategy_symbols(strategy: Any, port: PaperPort, cfg: Config) -> list[str]:
 class Journal:
     """CSV journaling with per-UTC-day upsert for the daily snapshot row."""
 
-    def __init__(self, trades_path: Path, daily_path: Path):
+    def __init__(self, trades_path: Path, daily_path: Path,
+                 intraday_path: Path | None = None):
         self.trades_path = trades_path
         self.daily_path = daily_path
+        self.intraday_path = intraday_path
         trades_path.parent.mkdir(parents=True, exist_ok=True)
         if not trades_path.exists():
             trades_path.write_text(",".join(TRADE_FIELDS) + "\n")
         if not daily_path.exists():
             daily_path.write_text(",".join(DAILY_FIELDS) + "\n")
+        if self.intraday_path is not None and not self.intraday_path.exists():
+            self.intraday_path.write_text(",".join(INTRADAY_FIELDS) + "\n")
 
     def append_trades(self, fills: list[tuple[FillEvent, Decimal, Decimal]]) -> None:
         """Append (fill, contract_value, notional_usd) rows."""
@@ -103,15 +124,20 @@ class Journal:
             return list(csv.DictReader(fh)), None
 
     def upsert_daily(self, ts: datetime, equity: Decimal, cash: Decimal,
-                     unrealized: Decimal, positions: dict[str, int]) -> None:
+                     unrealized: Decimal, positions: dict[str, int],
+                     count_session: bool = True) -> None:
         """Replace today's row (sessions may run several times a day)."""
         date = ts.strftime("%Y-%m-%d")
         rows, _ = self._read_daily()
-        sessions = 1
+        sessions = None
         for r in rows:
             if r["date"] == date:
-                sessions = int(r.get("sessions") or 0) + 1
+                sessions = int(r.get("sessions") or 0)
+                if count_session:
+                    sessions += 1
                 break
+        if sessions is None:
+            sessions = 1 if count_session else 0
         rows = [r for r in rows if r["date"] != date]
         rows.append({
             "date": date,
@@ -129,6 +155,17 @@ class Journal:
             w.writeheader()
             w.writerows(rows)
         tmp.replace(self.daily_path)
+
+    def append_intraday(self, ts: datetime, equity: Decimal, cash: Decimal,
+                        unrealized: Decimal, positions: dict[str, int]) -> None:
+        """Append-only minute-wise equity row for the dashboard intraday chart."""
+        if self.intraday_path is None:
+            return
+        with self.intraday_path.open("a", newline="") as fh:
+            csv.writer(fh).writerow([
+                ts.isoformat(), str(equity), str(cash), str(unrealized),
+                json.dumps({s: int(n) for s, n in positions.items()}, sort_keys=True),
+            ])
 
 
 async def run_session(cfg: Config, minutes: float, out_dir: Path) -> dict[str, Any]:
@@ -150,7 +187,8 @@ async def run_session(cfg: Config, minutes: float, out_dir: Path) -> dict[str, A
             "initial_equity": str(port.equity_sim),
             "created_at": now_utc().isoformat(),
         }, indent=2))
-    journal = Journal(out_dir / "trades.csv", out_dir / "daily.csv")
+    journal = Journal(out_dir / "trades.csv", out_dir / "daily.csv",
+                      out_dir / "intraday.csv")
 
     resolutions = cfg.flags.get("resolutions") or ["1m", "15m", "1H", "4H", "1D"]
     symbols = strategy_symbols(strategy, port, cfg)
@@ -172,9 +210,21 @@ async def run_session(cfg: Config, minutes: float, out_dir: Path) -> dict[str, A
 
     fills_seen = 0
     last_timer = time.monotonic()
+    last_snapshot = time.monotonic()
     deadline = time.monotonic() + minutes * 60.0
     poll_interval = int(cfg.flags.get("poll_interval_s", 20))
     last_candle_ts: dict[tuple[str, str], int] = {}
+
+    def snapshot_now(ts: datetime, count_session: bool = False) -> tuple:
+        """Equity snapshot for the dashboard (today's daily.csv row, upserted)."""
+        cash = port.equity_sim
+        unreal = port.unrealized_pnl()
+        equity = cash + unreal
+        open_pos = {sym: int(p["size"]) for sym, p in port.positions.items()
+                    if int(p["size"]) != 0}
+        journal.upsert_daily(ts, equity, cash, unreal, open_pos, count_session)
+        journal.append_intraday(ts, equity, cash, unreal, open_pos)
+        return equity, cash, unreal, open_pos
 
     def journal_new_fills() -> int:
         fills = port.pending_fills
@@ -214,6 +264,12 @@ async def run_session(cfg: Config, minutes: float, out_dir: Path) -> dict[str, A
             if time.monotonic() - last_timer >= 60:
                 last_timer = time.monotonic()
                 await strategy.on_timer()
+            if time.monotonic() - last_snapshot >= 60:
+                last_snapshot = time.monotonic()
+                try:
+                    snapshot_now(now_utc())   # keep dashboard equity ~1min fresh
+                except Exception:
+                    log.exception("mid-session snapshot failed (continuing)")
         except Exception:
             log.exception("session loop error (continuing)")
         try:
@@ -223,12 +279,8 @@ async def run_session(cfg: Config, minutes: float, out_dir: Path) -> dict[str, A
 
     # ---- close of session: finalize fills, snapshot, persist ----------------
     fills_seen += journal_new_fills()
-    now = now_utc()
-    cash = port.equity_sim
-    unreal = port.unrealized_pnl()
-    equity = cash + unreal
-    open_pos = {sym: int(p["size"]) for sym, p in port.positions.items() if int(p["size"]) != 0}
-    journal.upsert_daily(now, equity, cash, unreal, open_pos)
+    equity, cash, unreal, open_pos = snapshot_now(now_utc(), count_session=True)
+
     port.save_state()
     log.info("session done: fills=%d equity=%s cash=%s unrealized=%s open=%s",
              fills_seen, equity, cash, unreal, open_pos)
@@ -239,7 +291,8 @@ async def run_session(cfg: Config, minutes: float, out_dir: Path) -> dict[str, A
 def main() -> None:
     ap = argparse.ArgumentParser(description="bounded paper session for CI")
     ap.add_argument("--config", default="config.yaml")
-    ap.add_argument("--strategy", default=None, help="rwa_positional | all_in_one")
+    ap.add_argument("--strategy", default=None,
+                    help="rwa_positional | all_in_one | credit_spread")
     ap.add_argument("--minutes", type=float,
                     default=float(os.environ.get("PAPER_SESSION_MINUTES", 20)))
     ap.add_argument("--out-dir", default="paper")

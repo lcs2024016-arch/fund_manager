@@ -11,3 +11,26 @@ reports/
 *.sqlite-wal
 .env
 .venv/
+# research artifacts that must never be committed (credentials/PII-adjacent)
+*.har
+leader-*-closed-trades*.csv
+trade.mirrorpip.com_Archive*.har
+long_cache/
+delta_cache/
+delta_products.json
+delta_products.csv
+equity_v2.csv
+leader_trades.db
+calibration_window.json
+collector.log
+__pycache__/
+*.egg-info/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+scripts/logs/
+scripts/state/
+*.db
+leader_*closed_trades*.csv
+

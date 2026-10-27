@@ -1,0 +1,7615 @@
+{
+ "source_rows": 2660,
+ "generated_utc": "2026-10-22T22:26:33.478092+00:00",
+ "assets": {
+  "BTC": {
+   "n_trades": 551,
+   "instruments": {
+    "put": 184,
+    "call": 188,
+    "perp": 179
+   },
+   "options": {
+    "entry_price": {
+     "n": 372,
+     "min": 9.0,
+     "p10": 76.0,
+     "median": 505.0,
+     "p90": 3912.0,
+     "mean": 1170.073387
+    },
+    "qty": {
+     "n": 372,
+     "min": 0.001,
+     "p10": 0.001,
+     "median": 0.02,
+     "p90": 0.056,
+     "mean": 0.030282
+    },
+    "holding_hours": {
+     "n": 372,
+     "min": 2.0,
+     "p10": 4928.0,
+     "median": 81157.0,
+     "p90": 285469.0,
+     "mean": 128260.053763
+    },
+    "win_rate": 0.629,
+    "avg_win": 9.7547,
+    "avg_loss": -14.1217
+   },
+   "perps": {
+    "entry_price": {
+     "n": 179,
+     "min": 60722.0,
+     "p10": 66735.5,
+     "median": 77815.5,
+     "p90": 89322.5,
+     "mean": 77574.438547
+    },
+    "qty": {
+     "n": 179,
+     "min": 0.001,
+     "p10": 0.001,
+     "median": 0.005,
+     "p90": 0.023,
+     "mean": 0.01319
+    },
+    "holding_hours": {
+     "n": 179,
+     "min": 2.0,
+     "p10": 25.0,
+     "median": 35741.0,
+     "p90": 311298.0,
+     "mean": 106953.648045
+    },
+    "win_rate": 0.5363,
+    "avg_win": 9.726,
+    "avg_loss": -14.0212
+   },
+   "grid_spacing": {
+    "n": 58,
+    "min": 2.2e-05,
+    "p10": 0.000361,
+    "median": 0.008361,
+    "p90": 0.033836,
+    "mean": 0.017052
+   },
+   "options_geometry": {
+    "n_parsed": 372,
+    "calls": 188,
+    "puts": 184,
+    "expiry_weekdays": {
+     "Wed": 58,
+     "Tue": 41,
+     "Fri": 81,
+     "Thu": 33,
+     "Sun": 39,
+     "Mon": 60,
+     "Sat": 60
+    },
+    "strike_distance_pct": {
+     "n": 144,
+     "min": -0.094233,
+     "p10": -0.025449,
+     "median": 0.001954,
+     "p90": 0.030267,
+     "mean": 0.004213
+    },
+    "strike_distance_call": {
+     "n": 71,
+     "min": -0.05371,
+     "p10": -0.005303,
+     "median": 0.014459,
+     "p90": 0.033018,
+     "mean": 0.013574
+    },
+    "strike_distance_put": {
+     "n": 73,
+     "min": -0.094233,
+     "p10": -0.031549,
+     "median": 0.000276,
+     "p90": 0.018489,
+     "mean": -0.004891
+    },
+    "spot_proxy": "nearest perp fill within 24h (Delta perp ~ spot)"
+   },
+   "lifo_check": {
+    "n_pairs_checked": 35,
+    "n_lifo": 2,
+    "n_fifo": 10
+   },
+   "cover_ratio_note": "cover ratio computed in interrogate.py once both legs exist"
+  },
+  "ETH": {
+   "n_trades": 530,
+   "instruments": {
+    "perp": 188,
+    "put": 117,
+    "call": 225
+   },
+   "options": {
+    "entry_price": {
+     "n": 342,
+     "min": 0.99,
+     "p10": 3.2,
+     "median": 19.8,
+     "p90": 110.9,
+     "mean": 37.460058
+    },
+    "qty": {
+     "n": 342,
+     "min": 0.01,
+     "p10": 0.08,
+     "median": 0.25,
+     "p90": 0.65,
+     "mean": 0.372836
+    },
+    "holding_hours": {
+     "n": 342,
+     "min": 10.0,
+     "p10": 26518.0,
+     "median": 85751.0,
+     "p90": 114445.0,
+     "mean": 110895.453216
+    },
+    "win_rate": 0.5965,
+    "avg_win": 6.8593,
+    "avg_loss": -7.6724
+   },
+   "perps": {
+    "entry_price": {
+     "n": 188,
+     "min": 0.4726,
+     "p10": 1798.6,
+     "median": 2382.2,
+     "p90": 2714.9,
+     "mean": 2330.36352
+    },
+    "qty": {
+     "n": 188,
+     "min": 0.01,
+     "p10": 0.02,
+     "median": 0.1,
+     "p90": 1.0,
+     "mean": 1.841809
+    },
+    "holding_hours": {
+     "n": 188,
+     "min": 4.0,
+     "p10": 285.0,
+     "median": 143354.0,
+     "p90": 496705.0,
+     "mean": 249408.989362
+    },
+    "win_rate": 0.5745,
+    "avg_win": 15.0105,
+    "avg_loss": -9.7568
+   },
+   "grid_spacing": {
+    "n": 50,
+    "min": 1.8e-05,
+    "p10": 0.001627,
+    "median": 0.018167,
+    "p90": 0.061793,
+    "mean": 76.575499
+   },
+   "options_geometry": {
+    "n_parsed": 342,
+    "calls": 225,
+    "puts": 117,
+    "expiry_weekdays": {
+     "Sat": 57,
+     "Tue": 55,
+     "Fri": 57,
+     "Wed": 43,
+     "Thu": 41,
+     "Mon": 44,
+     "Sun": 45
+    },
+    "strike_distance_pct": {
+     "n": 195,
+     "min": -0.084025,
+     "p10": -0.041744,
+     "median": -0.002017,
+     "p90": 0.01943,
+     "mean": -0.00492
+    },
+    "strike_distance_call": {
+     "n": 152,
+     "min": -0.084025,
+     "p10": -0.010296,
+     "median": -0.000317,
+     "p90": 0.01943,
+     "mean": 0.001714
+    },
+    "strike_distance_put": {
+     "n": 43,
+     "min": -0.084025,
+     "p10": -0.060528,
+     "median": -0.037804,
+     "p90": 0.017964,
+     "mean": -0.028373
+    },
+    "spot_proxy": "nearest perp fill within 24h (Delta perp ~ spot)"
+   },
+   "lifo_check": {
+    "n_pairs_checked": 43,
+    "n_lifo": 3,
+    "n_fifo": 2
+   },
+   "cover_ratio_note": "cover ratio computed in interrogate.py once both legs exist"
+  },
+  "XRPUSD": {
+   "n_trades": 18,
+   "instruments": {
+    "perp": 18
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 18,
+     "min": 1.4961,
+     "p10": 1.506,
+     "median": 1.9946,
+     "p90": 2.6547,
+     "mean": 1.965406
+    },
+    "qty": {
+     "n": 18,
+     "min": 1.0,
+     "p10": 2.0,
+     "median": 23.0,
+     "p90": 68.0,
+     "mean": 33.055556
+    },
+    "holding_hours": {
+     "n": 18,
+     "min": 17.0,
+     "p10": 32.0,
+     "median": 627.0,
+     "p90": 89429.0,
+     "mean": 184004.277778
+    },
+    "win_rate": 0.2778,
+    "avg_win": 1.0347,
+    "avg_loss": -0.4
+   },
+   "grid_spacing": {
+    "n": 6,
+    "min": 0.000401,
+    "p10": 0.000401,
+    "median": 0.032815,
+    "p90": 0.061165,
+    "mean": 0.028324
+   },
+   "lifo_check": {
+    "n_pairs_checked": 1,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "SOLUSD": {
+   "n_trades": 9,
+   "instruments": {
+    "perp": 9
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 9,
+     "min": 132.397,
+     "p10": 132.397,
+     "median": 132.926,
+     "p90": 241.619,
+     "mean": 168.444111
+    },
+    "qty": {
+     "n": 9,
+     "min": 1.0,
+     "p10": 1.0,
+     "median": 1.0,
+     "p90": 20.0,
+     "mean": 8.333333
+    },
+    "holding_hours": {
+     "n": 9,
+     "min": 17.0,
+     "p10": 17.0,
+     "median": 400.0,
+     "p90": 163671.0,
+     "mean": 19519.111111
+    },
+    "win_rate": 0.3333,
+    "avg_win": 6.3097,
+    "avg_loss": -4.7233
+   },
+   "grid_spacing": {
+    "n": 6,
+    "min": 0.000679,
+    "p10": 0.000679,
+    "median": 0.003548,
+    "p90": 0.024374,
+    "mean": 0.007718
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "DOGEUS": {
+   "n_trades": 28,
+   "instruments": {
+    "perp": 28
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 28,
+     "min": 0.07901,
+     "p10": 0.07901,
+     "median": 0.09928,
+     "p90": 0.30393,
+     "mean": 0.144825
+    },
+    "qty": {
+     "n": 28,
+     "min": 100.0,
+     "p10": 100.0,
+     "median": 1000.0,
+     "p90": 20000.0,
+     "mean": 4285.714286
+    },
+    "holding_hours": {
+     "n": 28,
+     "min": 17.0,
+     "p10": 32.0,
+     "median": 1105.0,
+     "p90": 14036.0,
+     "mean": 3332.928571
+    },
+    "win_rate": 0.3571,
+    "avg_win": 0.5262,
+    "avg_loss": -5.1432
+   },
+   "grid_spacing": {
+    "n": 5,
+    "min": 0.003504,
+    "p10": 0.003504,
+    "median": 0.024249,
+    "p90": 0.241,
+    "mean": 0.069692
+   },
+   "lifo_check": {
+    "n_pairs_checked": 2,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "WIFUSD": {
+   "n_trades": 4,
+   "instruments": {
+    "perp": 4
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 4,
+     "min": 0.2292,
+     "p10": 0.2292,
+     "median": 0.4055,
+     "p90": 0.97,
+     "mean": 0.495075
+    },
+    "qty": {
+     "n": 4,
+     "min": 1.0,
+     "p10": 1.0,
+     "median": 216.0,
+     "p90": 216.0,
+     "mean": 119.0
+    },
+    "holding_hours": {
+     "n": 4,
+     "min": 119.0,
+     "p10": 119.0,
+     "median": 225.0,
+     "p90": 69753.0,
+     "mean": 17557.25
+    },
+    "win_rate": 0.5,
+    "avg_win": 0.0129,
+    "avg_loss": -0.1525
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "KAITOU": {
+   "n_trades": 12,
+   "instruments": {
+    "perp": 12
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 12,
+     "min": 1.0287,
+     "p10": 1.1315,
+     "median": 1.1403,
+     "p90": 1.1519,
+     "mean": 1.133867
+    },
+    "qty": {
+     "n": 12,
+     "min": 43.0,
+     "p10": 43.0,
+     "median": 48.0,
+     "p90": 172.0,
+     "mean": 83.0
+    },
+    "holding_hours": {
+     "n": 12,
+     "min": 1.0,
+     "p10": 2.0,
+     "median": 14.0,
+     "p90": 8975.0,
+     "mean": 52895.25
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.5114
+   },
+   "grid_spacing": {
+    "n": 5,
+    "min": 0.000175,
+    "p10": 0.000175,
+    "median": 0.002433,
+    "p90": 0.010676,
+    "mean": 0.004166
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "BBUSD": {
+   "n_trades": 11,
+   "instruments": {
+    "perp": 11
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 11,
+     "min": 0.03475,
+     "p10": 0.11972,
+     "median": 0.13173,
+     "p90": 0.13237,
+     "mean": 0.121839
+    },
+    "qty": {
+     "n": 11,
+     "min": 280.0,
+     "p10": 370.0,
+     "median": 380.0,
+     "p90": 920.0,
+     "mean": 567.272727
+    },
+    "holding_hours": {
+     "n": 11,
+     "min": 1.0,
+     "p10": 2.0,
+     "median": 17.0,
+     "p90": 8975.0,
+     "mean": 42642.454545
+    },
+    "win_rate": 0.3636,
+    "avg_win": 0.0176,
+    "avg_loss": -0.5956
+   },
+   "grid_spacing": {
+    "n": 4,
+    "min": 0.000304,
+    "p10": 0.000304,
+    "median": 0.006488,
+    "p90": 0.00873,
+    "mean": 0.004881
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "BIOUSD": {
+   "n_trades": 11,
+   "instruments": {
+    "perp": 11
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 11,
+     "min": 0.08439,
+     "p10": 0.09333,
+     "median": 0.09421,
+     "p90": 0.09544,
+     "mean": 0.093598
+    },
+    "qty": {
+     "n": 11,
+     "min": 520.0,
+     "p10": 520.0,
+     "median": 530.0,
+     "p90": 1080.0,
+     "mean": 733.636364
+    },
+    "holding_hours": {
+     "n": 11,
+     "min": 1.0,
+     "p10": 1.0,
+     "median": 17.0,
+     "p90": 8993.0,
+     "mean": 57398.545455
+    },
+    "win_rate": 0.3636,
+    "avg_win": 0.1157,
+    "avg_loss": -1.0206
+   },
+   "grid_spacing": {
+    "n": 3,
+    "min": 0.004294,
+    "p10": 0.004294,
+    "median": 0.010916,
+    "p90": 0.013726,
+    "mean": 0.009645
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "LISTAU": {
+   "n_trades": 11,
+   "instruments": {
+    "perp": 11
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 11,
+     "min": 0.2748,
+     "p10": 0.3586,
+     "median": 0.3614,
+     "p90": 0.367,
+     "mean": 0.354918
+    },
+    "qty": {
+     "n": 11,
+     "min": 130.0,
+     "p10": 130.0,
+     "median": 130.0,
+     "p90": 520.0,
+     "mean": 276.363636
+    },
+    "holding_hours": {
+     "n": 11,
+     "min": 1.0,
+     "p10": 1.0,
+     "median": 13.0,
+     "p90": 25194.0,
+     "mean": 57254.909091
+    },
+    "win_rate": 0.1818,
+    "avg_win": 0.091,
+    "avg_loss": -0.4647
+   },
+   "grid_spacing": {
+    "n": 5,
+    "min": 0.000277,
+    "p10": 0.000277,
+    "median": 0.004087,
+    "p90": 0.015791,
+    "mean": 0.005691
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "REDUSD": {
+   "n_trades": 12,
+   "instruments": {
+    "perp": 12
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 12,
+     "min": 0.2705,
+     "p10": 0.3353,
+     "median": 0.3939,
+     "p90": 0.3978,
+     "mean": 0.379375
+    },
+    "qty": {
+     "n": 12,
+     "min": 120.0,
+     "p10": 120.0,
+     "median": 140.0,
+     "p90": 320.0,
+     "mean": 208.333333
+    },
+    "holding_hours": {
+     "n": 12,
+     "min": 2.0,
+     "p10": 2.0,
+     "median": 163.0,
+     "p90": 8965.0,
+     "mean": 51143.916667
+    },
+    "win_rate": 0.0833,
+    "avg_win": 0.32,
+    "avg_loss": -0.5296
+   },
+   "grid_spacing": {
+    "n": 4,
+    "min": 0.000254,
+    "p10": 0.000254,
+    "median": 0.008632,
+    "p90": 0.011304,
+    "mean": 0.005927
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "SKLUSD": {
+   "n_trades": 12,
+   "instruments": {
+    "perp": 12
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 12,
+     "min": 0.00694,
+     "p10": 0.0182,
+     "median": 0.02171,
+     "p90": 0.02179,
+     "mean": 0.020197
+    },
+    "qty": {
+     "n": 12,
+     "min": 1400.0,
+     "p10": 2200.0,
+     "median": 2300.0,
+     "p90": 6400.0,
+     "mean": 3591.666667
+    },
+    "holding_hours": {
+     "n": 12,
+     "min": 1.0,
+     "p10": 1.0,
+     "median": 18.0,
+     "p90": 8970.0,
+     "mean": 77289.333333
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.4964
+   },
+   "grid_spacing": {
+    "n": 3,
+    "min": 0.000459,
+    "p10": 0.000459,
+    "median": 0.000918,
+    "p90": 0.007809,
+    "mean": 0.003062
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "MOODEN": {
+   "n_trades": 6,
+   "instruments": {
+    "perp": 6
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 6,
+     "min": 0.04686,
+     "p10": 0.04686,
+     "median": 0.09924,
+     "p90": 0.11589,
+     "mean": 0.08864
+    },
+    "qty": {
+     "n": 6,
+     "min": 100.0,
+     "p10": 100.0,
+     "median": 240.0,
+     "p90": 1080.0,
+     "mean": 440.0
+    },
+    "holding_hours": {
+     "n": 6,
+     "min": 12.0,
+     "p10": 12.0,
+     "median": 221.0,
+     "p90": 2426.0,
+     "mean": 526.833333
+    },
+    "win_rate": 0.3333,
+    "avg_win": 0.5844,
+    "avg_loss": -0.211
+   },
+   "grid_spacing": {
+    "n": 1,
+    "min": 0.000101,
+    "p10": 0.000101,
+    "median": 0.000101,
+    "p90": 0.000101,
+    "mean": 0.000101
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "PNUTUS": {
+   "n_trades": 5,
+   "instruments": {
+    "perp": 5
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 5,
+     "min": 0.05009,
+     "p10": 0.05009,
+     "median": 0.0911,
+     "p90": 0.1363,
+     "mean": 0.092378
+    },
+    "qty": {
+     "n": 5,
+     "min": 1.0,
+     "p10": 1.0,
+     "median": 199.0,
+     "p90": 832.0,
+     "mean": 402.0
+    },
+    "holding_hours": {
+     "n": 5,
+     "min": 116.0,
+     "p10": 116.0,
+     "median": 226.0,
+     "p90": 11737.0,
+     "mean": 2851.4
+    },
+    "win_rate": 0.4,
+    "avg_win": 0.0091,
+    "avg_loss": -0.2307
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "FFUSD": {
+   "n_trades": 2,
+   "instruments": {
+    "perp": 2
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 2,
+     "min": 0.07943,
+     "p10": 0.07943,
+     "median": 0.1123,
+     "p90": 0.1123,
+     "mean": 0.095865
+    },
+    "qty": {
+     "n": 2,
+     "min": 100.0,
+     "p10": 100.0,
+     "median": 1000.0,
+     "p90": 1000.0,
+     "mean": 550.0
+    },
+    "holding_hours": {
+     "n": 2,
+     "min": 11.0,
+     "p10": 11.0,
+     "median": 221.0,
+     "p90": 221.0,
+     "mean": 116.0
+    },
+    "win_rate": 0.5,
+    "avg_win": 0.014,
+    "avg_loss": -0.4
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "ALGOUS": {
+   "n_trades": 2,
+   "instruments": {
+    "perp": 2
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 2,
+     "min": 0.1393,
+     "p10": 0.1393,
+     "median": 0.1731,
+     "p90": 0.1731,
+     "mean": 0.1562
+    },
+    "qty": {
+     "n": 2,
+     "min": 100.0,
+     "p10": 100.0,
+     "median": 717.0,
+     "p90": 717.0,
+     "mean": 408.5
+    },
+    "holding_hours": {
+     "n": 2,
+     "min": 74.0,
+     "p10": 74.0,
+     "median": 153.0,
+     "p90": 153.0,
+     "mean": 113.5
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.3468
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "CAKEUS": {
+   "n_trades": 16,
+   "instruments": {
+    "perp": 16
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 16,
+     "min": 2.2812,
+     "p10": 2.284,
+     "median": 2.3407,
+     "p90": 2.3852,
+     "mean": 2.326119
+    },
+    "qty": {
+     "n": 16,
+     "min": 1.0,
+     "p10": 2.0,
+     "median": 15.0,
+     "p90": 55.0,
+     "mean": 25.25
+    },
+    "holding_hours": {
+     "n": 16,
+     "min": 1.0,
+     "p10": 1.0,
+     "median": 161.0,
+     "p90": 573.0,
+     "mean": 2512.9375
+    },
+    "win_rate": 0.5,
+    "avg_win": 0.0401,
+    "avg_loss": -0.1905
+   },
+   "grid_spacing": {
+    "n": 1,
+    "min": 0.032036,
+    "p10": 0.032036,
+    "median": 0.032036,
+    "p90": 0.032036,
+    "mean": 0.032036
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "PEPEUS": {
+   "n_trades": 4,
+   "instruments": {
+    "perp": 4
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 4,
+     "min": 4e-06,
+     "p10": 4e-06,
+     "median": 5e-06,
+     "p90": 5e-06,
+     "mean": 5e-06
+    },
+    "qty": {
+     "n": 4,
+     "min": 16000000.0,
+     "p10": 16000000.0,
+     "median": 16000000.0,
+     "p90": 20000000.0,
+     "mean": 17000000.0
+    },
+    "holding_hours": {
+     "n": 4,
+     "min": 116.0,
+     "p10": 116.0,
+     "median": 158.0,
+     "p90": 271.0,
+     "mean": 169.75
+    },
+    "win_rate": 0.25,
+    "avg_win": 0.16,
+    "avg_loss": -0.6667
+   },
+   "grid_spacing": {
+    "n": 1,
+    "min": 0.25,
+    "p10": 0.25,
+    "median": 0.25,
+    "p90": 0.25,
+    "mean": 0.25
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "AINUSD": {
+   "n_trades": 5,
+   "instruments": {
+    "perp": 5
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 5,
+     "min": 0.06703,
+     "p10": 0.06703,
+     "median": 0.07302,
+     "p90": 0.09071,
+     "mean": 0.077646
+    },
+    "qty": {
+     "n": 5,
+     "min": 100.0,
+     "p10": 100.0,
+     "median": 1200.0,
+     "p90": 1200.0,
+     "mean": 960.0
+    },
+    "holding_hours": {
+     "n": 5,
+     "min": 119.0,
+     "p10": 119.0,
+     "median": 133.0,
+     "p90": 2016.0,
+     "mean": 531.2
+    },
+    "win_rate": 0.2,
+    "avg_win": 0.036,
+    "avg_loss": -0.4452
+   },
+   "grid_spacing": {
+    "n": 1,
+    "min": 0.00096,
+    "p10": 0.00096,
+    "median": 0.00096,
+    "p90": 0.00096,
+    "mean": 0.00096
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "BIDUSD": {
+   "n_trades": 2,
+   "instruments": {
+    "perp": 2
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 2,
+     "min": 0.03416,
+     "p10": 0.03416,
+     "median": 0.03469,
+     "p90": 0.03469,
+     "mean": 0.034425
+    },
+    "qty": {
+     "n": 2,
+     "min": 2000.0,
+     "p10": 2000.0,
+     "median": 2000.0,
+     "p90": 2000.0,
+     "mean": 2000.0
+    },
+    "holding_hours": {
+     "n": 2,
+     "min": 133.0,
+     "p10": 133.0,
+     "median": 270.0,
+     "p90": 270.0,
+     "mean": 201.5
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.16
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "ARCUSD": {
+   "n_trades": 10,
+   "instruments": {
+    "perp": 10
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 10,
+     "min": 0.03865,
+     "p10": 0.03866,
+     "median": 0.03866,
+     "p90": 0.08882,
+     "mean": 0.043978
+    },
+    "qty": {
+     "n": 10,
+     "min": 10.0,
+     "p10": 10.0,
+     "median": 110.0,
+     "p90": 9600.0,
+     "mean": 2891.0
+    },
+    "holding_hours": {
+     "n": 10,
+     "min": 133.0,
+     "p10": 224.0,
+     "median": 2016.0,
+     "p90": 2016.0,
+     "mean": 1473.8
+    },
+    "win_rate": 0.8,
+    "avg_win": 0.0179,
+    "avg_loss": -1.488
+   },
+   "grid_spacing": {
+    "n": 2,
+    "min": 0.000259,
+    "p10": 0.000259,
+    "median": 0.018107,
+    "p90": 0.018107,
+    "mean": 0.009183
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "BMTUSD": {
+   "n_trades": 2,
+   "instruments": {
+    "perp": 2
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 2,
+     "min": 0.01716,
+     "p10": 0.01716,
+     "median": 0.02743,
+     "p90": 0.02743,
+     "mean": 0.022295
+    },
+    "qty": {
+     "n": 2,
+     "min": 580.0,
+     "p10": 580.0,
+     "median": 2960.0,
+     "p90": 2960.0,
+     "mean": 1770.0
+    },
+    "holding_hours": {
+     "n": 2,
+     "min": 133.0,
+     "p10": 133.0,
+     "median": 230.0,
+     "p90": 230.0,
+     "mean": 181.5
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.1477
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "NEIROU": {
+   "n_trades": 2,
+   "instruments": {
+    "perp": 2
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 2,
+     "min": 0.000139,
+     "p10": 0.000139,
+     "median": 0.000143,
+     "p90": 0.000143,
+     "mean": 0.000141
+    },
+    "qty": {
+     "n": 2,
+     "min": 568000.0,
+     "p10": 568000.0,
+     "median": 568000.0,
+     "p90": 568000.0,
+     "mean": 568000.0
+    },
+    "holding_hours": {
+     "n": 2,
+     "min": 115.0,
+     "p10": 115.0,
+     "median": 133.0,
+     "p90": 133.0,
+     "mean": 124.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.1704
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "PIUSD": {
+   "n_trades": 2,
+   "instruments": {
+    "perp": 2
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 2,
+     "min": 0.2216,
+     "p10": 0.2216,
+     "median": 0.2328,
+     "p90": 0.2328,
+     "mean": 0.2272
+    },
+    "qty": {
+     "n": 2,
+     "min": 560.0,
+     "p10": 560.0,
+     "median": 560.0,
+     "p90": 560.0,
+     "mean": 560.0
+    },
+    "holding_hours": {
+     "n": 2,
+     "min": 120.0,
+     "p10": 120.0,
+     "median": 133.0,
+     "p90": 133.0,
+     "mean": 126.5
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.224
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "ONDOUS": {
+   "n_trades": 3,
+   "instruments": {
+    "perp": 3
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 3,
+     "min": 0.2559,
+     "p10": 0.2559,
+     "median": 0.4634,
+     "p90": 0.499,
+     "mean": 0.4061
+    },
+    "qty": {
+     "n": 3,
+     "min": 30.0,
+     "p10": 30.0,
+     "median": 160.0,
+     "p90": 160.0,
+     "mean": 116.666667
+    },
+    "holding_hours": {
+     "n": 3,
+     "min": 118.0,
+     "p10": 118.0,
+     "median": 132.0,
+     "p90": 222.0,
+     "mean": 157.333333
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.049
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "DYDXUS": {
+   "n_trades": 6,
+   "instruments": {
+    "perp": 6
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 6,
+     "min": 0.115,
+     "p10": 0.115,
+     "median": 0.218,
+     "p90": 0.238,
+     "mean": 0.172833
+    },
+    "qty": {
+     "n": 6,
+     "min": 1.0,
+     "p10": 1.0,
+     "median": 67.0,
+     "p90": 320.0,
+     "mean": 121.5
+    },
+    "holding_hours": {
+     "n": 6,
+     "min": 119.0,
+     "p10": 119.0,
+     "median": 226.0,
+     "p90": 226.0,
+     "mean": 176.833333
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.3608
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "SAGAUS": {
+   "n_trades": 12,
+   "instruments": {
+    "perp": 12
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 12,
+     "min": 0.03237,
+     "p10": 0.03237,
+     "median": 0.04928,
+     "p90": 0.07377,
+     "mean": 0.054059
+    },
+    "qty": {
+     "n": 12,
+     "min": 3.0,
+     "p10": 12.0,
+     "median": 800.0,
+     "p90": 1680.0,
+     "mean": 860.75
+    },
+    "holding_hours": {
+     "n": 12,
+     "min": 8.0,
+     "p10": 120.0,
+     "median": 234.0,
+     "p90": 303.0,
+     "mean": 218.75
+    },
+    "win_rate": 0.3333,
+    "avg_win": 0.2525,
+    "avg_loss": -0.3969
+   },
+   "grid_spacing": {
+    "n": 2,
+    "min": 0.033193,
+    "p10": 0.033193,
+    "median": 0.079617,
+    "p90": 0.079617,
+    "mean": 0.056405
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "VINEUS": {
+   "n_trades": 3,
+   "instruments": {
+    "perp": 3
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 3,
+     "min": 0.01889,
+     "p10": 0.01889,
+     "median": 0.03083,
+     "p90": 0.0315,
+     "mean": 0.027073
+    },
+    "qty": {
+     "n": 3,
+     "min": 520.0,
+     "p10": 520.0,
+     "median": 2840.0,
+     "p90": 3160.0,
+     "mean": 2173.333333
+    },
+    "holding_hours": {
+     "n": 3,
+     "min": 132.0,
+     "p10": 132.0,
+     "median": 161.0,
+     "p90": 230.0,
+     "mean": 174.333333
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.3512
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "APTUSD": {
+   "n_trades": 5,
+   "instruments": {
+    "perp": 5
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 5,
+     "min": 1.103,
+     "p10": 1.103,
+     "median": 1.751,
+     "p90": 1.994,
+     "mean": 1.6838
+    },
+    "qty": {
+     "n": 5,
+     "min": 9.0,
+     "p10": 9.0,
+     "median": 44.0,
+     "p90": 53.0,
+     "mean": 38.8
+    },
+    "holding_hours": {
+     "n": 5,
+     "min": 119.0,
+     "p10": 119.0,
+     "median": 160.0,
+     "p90": 268.0,
+     "mean": 180.4
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.3564
+   },
+   "grid_spacing": {
+    "n": 2,
+    "min": 0.017432,
+    "p10": 0.017432,
+    "median": 0.056539,
+    "p90": 0.056539,
+    "mean": 0.036985
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "SWARMS": {
+   "n_trades": 7,
+   "instruments": {
+    "perp": 7
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 7,
+     "min": 0.01258,
+     "p10": 0.01258,
+     "median": 0.01266,
+     "p90": 0.01468,
+     "mean": 0.013147
+    },
+    "qty": {
+     "n": 7,
+     "min": 200.0,
+     "p10": 200.0,
+     "median": 200.0,
+     "p90": 9200.0,
+     "mean": 4057.142857
+    },
+    "holding_hours": {
+     "n": 7,
+     "min": 26.0,
+     "p10": 26.0,
+     "median": 131.0,
+     "p90": 2280.0,
+     "mean": 435.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.2494
+   },
+   "grid_spacing": {
+    "n": 1,
+    "min": 0.032349,
+    "p10": 0.032349,
+    "median": 0.032349,
+    "p90": 0.032349,
+    "mean": 0.032349
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "TSTUSD": {
+   "n_trades": 3,
+   "instruments": {
+    "perp": 3
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 3,
+     "min": 0.0152,
+     "p10": 0.0152,
+     "median": 0.01535,
+     "p90": 0.01601,
+     "mean": 0.01552
+    },
+    "qty": {
+     "n": 3,
+     "min": 4800.0,
+     "p10": 4800.0,
+     "median": 4800.0,
+     "p90": 4800.0,
+     "mean": 4800.0
+    },
+    "holding_hours": {
+     "n": 3,
+     "min": 117.0,
+     "p10": 117.0,
+     "median": 131.0,
+     "p90": 270.0,
+     "mean": 172.666667
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.064
+   },
+   "grid_spacing": {
+    "n": 1,
+    "min": 0.009868,
+    "p10": 0.009868,
+    "median": 0.009868,
+    "p90": 0.009868,
+    "mean": 0.009868
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "GRIFFA": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.02065,
+     "p10": 0.02065,
+     "median": 0.02065,
+     "p90": 0.02065,
+     "mean": 0.02065
+    },
+    "qty": {
+     "n": 1,
+     "min": 5120.0,
+     "p10": 5120.0,
+     "median": 5120.0,
+     "p90": 5120.0,
+     "mean": 5120.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 131.0,
+     "p10": 131.0,
+     "median": 131.0,
+     "p90": 131.0,
+     "mean": 131.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.2048
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "SAHARA": {
+   "n_trades": 4,
+   "instruments": {
+    "perp": 4
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 4,
+     "min": 0.01563,
+     "p10": 0.01563,
+     "median": 0.03505,
+     "p90": 0.041,
+     "mean": 0.031665
+    },
+    "qty": {
+     "n": 4,
+     "min": 600.0,
+     "p10": 600.0,
+     "median": 2000.0,
+     "p90": 2800.0,
+     "mean": 1850.0
+    },
+    "holding_hours": {
+     "n": 4,
+     "min": 131.0,
+     "p10": 131.0,
+     "median": 228.0,
+     "p90": 270.0,
+     "mean": 197.5
+    },
+    "win_rate": 0.25,
+    "avg_win": 0.224,
+    "avg_loss": -0.1727
+   },
+   "grid_spacing": {
+    "n": 1,
+    "min": 0.002001,
+    "p10": 0.002001,
+    "median": 0.002001,
+    "p90": 0.002001,
+    "mean": 0.002001
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "VIRTUA": {
+   "n_trades": 3,
+   "instruments": {
+    "perp": 3
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 3,
+     "min": 0.5813,
+     "p10": 0.5813,
+     "median": 0.7843,
+     "p90": 0.9393,
+     "mean": 0.7683
+    },
+    "qty": {
+     "n": 3,
+     "min": 10.0,
+     "p10": 10.0,
+     "median": 17.0,
+     "p90": 160.0,
+     "mean": 62.333333
+    },
+    "holding_hours": {
+     "n": 3,
+     "min": 107.0,
+     "p10": 107.0,
+     "median": 131.0,
+     "p90": 227.0,
+     "mean": 155.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.048
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "AIOUSD": {
+   "n_trades": 5,
+   "instruments": {
+    "perp": 5
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 5,
+     "min": 0.08177,
+     "p10": 0.08177,
+     "median": 0.08596,
+     "p90": 0.094,
+     "mean": 0.086738
+    },
+    "qty": {
+     "n": 5,
+     "min": 100.0,
+     "p10": 100.0,
+     "median": 1200.0,
+     "p90": 1200.0,
+     "mean": 940.0
+    },
+    "holding_hours": {
+     "n": 5,
+     "min": 119.0,
+     "p10": 119.0,
+     "median": 231.0,
+     "p90": 2016.0,
+     "mean": 558.8
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.434
+   },
+   "grid_spacing": {
+    "n": 2,
+    "min": 0.018547,
+    "p10": 0.018547,
+    "median": 0.083324,
+    "p90": 0.083324,
+    "mean": 0.050935
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "MASKUS": {
+   "n_trades": 3,
+   "instruments": {
+    "perp": 3
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 3,
+     "min": 0.651,
+     "p10": 0.651,
+     "median": 0.6533,
+     "p90": 0.6634,
+     "mean": 0.6559
+    },
+    "qty": {
+     "n": 3,
+     "min": 156.0,
+     "p10": 156.0,
+     "median": 156.0,
+     "p90": 156.0,
+     "mean": 156.0
+    },
+    "holding_hours": {
+     "n": 3,
+     "min": 115.0,
+     "p10": 115.0,
+     "median": 268.0,
+     "p90": 2016.0,
+     "mean": 799.666667
+    },
+    "win_rate": 0.3333,
+    "avg_win": 0.0936,
+    "avg_loss": -0.9672
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "IPUSD": {
+   "n_trades": 3,
+   "instruments": {
+    "perp": 3
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 3,
+     "min": 2.17798,
+     "p10": 2.17798,
+     "median": 2.20098,
+     "p90": 2.25298,
+     "mean": 2.210647
+    },
+    "qty": {
+     "n": 3,
+     "min": 20.0,
+     "p10": 20.0,
+     "median": 20.0,
+     "p90": 20.0,
+     "mean": 20.0
+    },
+    "holding_hours": {
+     "n": 3,
+     "min": 116.0,
+     "p10": 116.0,
+     "median": 269.0,
+     "p90": 2015.0,
+     "mean": 800.0
+    },
+    "win_rate": 0.3333,
+    "avg_win": 0.0592,
+    "avg_loss": -0.3908
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "BCHUSD": {
+   "n_trades": 35,
+   "instruments": {
+    "perp": 35
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 35,
+     "min": 256.47,
+     "p10": 268.08,
+     "median": 342.67,
+     "p90": 586.41,
+     "mean": 400.717143
+    },
+    "qty": {
+     "n": 35,
+     "min": 0.01,
+     "p10": 0.03,
+     "median": 0.21,
+     "p90": 1.08,
+     "mean": 0.386
+    },
+    "holding_hours": {
+     "n": 35,
+     "min": 40.0,
+     "p10": 229.0,
+     "median": 1405.0,
+     "p90": 67319.0,
+     "mean": 17329.4
+    },
+    "win_rate": 0.3714,
+    "avg_win": 1.4307,
+    "avg_loss": -1.6382
+   },
+   "grid_spacing": {
+    "n": 11,
+    "min": 0.004679,
+    "p10": 0.00649,
+    "median": 0.011965,
+    "p90": 0.040401,
+    "mean": 0.040142
+   },
+   "lifo_check": {
+    "n_pairs_checked": 9,
+    "n_lifo": 1,
+    "n_fifo": 0
+   }
+  },
+  "ETCUSD": {
+   "n_trades": 23,
+   "instruments": {
+    "perp": 23
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 23,
+     "min": 8.544,
+     "p10": 8.634,
+     "median": 9.523,
+     "p90": 13.939,
+     "mean": 11.013043
+    },
+    "qty": {
+     "n": 23,
+     "min": 1.1,
+     "p10": 5.2,
+     "median": 10.0,
+     "p90": 70.0,
+     "mean": 21.856522
+    },
+    "holding_hours": {
+     "n": 23,
+     "min": 208.0,
+     "p10": 229.0,
+     "median": 5455.0,
+     "p90": 29329.0,
+     "mean": 11238.608696
+    },
+    "win_rate": 0.3913,
+    "avg_win": 1.0672,
+    "avg_loss": -3.7511
+   },
+   "grid_spacing": {
+    "n": 8,
+    "min": 0.002908,
+    "p10": 0.002908,
+    "median": 0.032426,
+    "p90": 0.0566,
+    "mean": 0.029077
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "CROSSU": {
+   "n_trades": 5,
+   "instruments": {
+    "perp": 5
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 5,
+     "min": 0.11259,
+     "p10": 0.11259,
+     "median": 0.11675,
+     "p90": 0.11903,
+     "mean": 0.115816
+    },
+    "qty": {
+     "n": 5,
+     "min": 20.0,
+     "p10": 20.0,
+     "median": 840.0,
+     "p90": 880.0,
+     "mean": 528.0
+    },
+    "holding_hours": {
+     "n": 5,
+     "min": 105.0,
+     "p10": 105.0,
+     "median": 158.0,
+     "p90": 269.0,
+     "mean": 174.6
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.0382
+   },
+   "grid_spacing": {
+    "n": 2,
+    "min": 0.008651,
+    "p10": 0.008651,
+    "median": 0.010785,
+    "p90": 0.010785,
+    "mean": 0.009718
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "MOVEUS": {
+   "n_trades": 4,
+   "instruments": {
+    "perp": 4
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 4,
+     "min": 0.02342,
+     "p10": 0.02342,
+     "median": 0.0443,
+     "p90": 0.0446,
+     "mean": 0.038185
+    },
+    "qty": {
+     "n": 4,
+     "min": 420.0,
+     "p10": 420.0,
+     "median": 2000.0,
+     "p90": 10000.0,
+     "mean": 3605.0
+    },
+    "holding_hours": {
+     "n": 4,
+     "min": 119.0,
+     "p10": 119.0,
+     "median": 270.0,
+     "p90": 9599.0,
+     "mean": 2553.5
+    },
+    "win_rate": 0.25,
+    "avg_win": 3.1,
+    "avg_loss": -0.1347
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "SOPHUS": {
+   "n_trades": 2,
+   "instruments": {
+    "perp": 2
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 2,
+     "min": 0.015846,
+     "p10": 0.015846,
+     "median": 0.015851,
+     "p90": 0.015851,
+     "mean": 0.015849
+    },
+    "qty": {
+     "n": 2,
+     "min": 6400.0,
+     "p10": 6400.0,
+     "median": 6400.0,
+     "p90": 6400.0,
+     "mean": 6400.0
+    },
+    "holding_hours": {
+     "n": 2,
+     "min": 119.0,
+     "p10": 119.0,
+     "median": 268.0,
+     "p90": 268.0,
+     "mean": 193.5
+    },
+    "win_rate": 0.5,
+    "avg_win": 0.0896,
+    "avg_loss": 0.0
+   },
+   "grid_spacing": {
+    "n": 1,
+    "min": 0.000316,
+    "p10": 0.000316,
+    "median": 0.000316,
+    "p90": 0.000316,
+    "mean": 0.000316
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "GOATUS": {
+   "n_trades": 3,
+   "instruments": {
+    "perp": 3
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 3,
+     "min": 0.02284,
+     "p10": 0.02284,
+     "median": 0.02284,
+     "p90": 0.04041,
+     "mean": 0.028697
+    },
+    "qty": {
+     "n": 3,
+     "min": 10.0,
+     "p10": 10.0,
+     "median": 430.0,
+     "p90": 2040.0,
+     "mean": 826.666667
+    },
+    "holding_hours": {
+     "n": 3,
+     "min": 118.0,
+     "p10": 118.0,
+     "median": 223.0,
+     "p90": 282.0,
+     "mean": 207.666667
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.0369
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "EIGENU": {
+   "n_trades": 2,
+   "instruments": {
+    "perp": 2
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 2,
+     "min": 0.2174,
+     "p10": 0.2174,
+     "median": 0.5005,
+     "p90": 0.5005,
+     "mean": 0.35895
+    },
+    "qty": {
+     "n": 2,
+     "min": 45.0,
+     "p10": 45.0,
+     "median": 132.0,
+     "p90": 132.0,
+     "mean": 88.5
+    },
+    "holding_hours": {
+     "n": 2,
+     "min": 119.0,
+     "p10": 119.0,
+     "median": 224.0,
+     "p90": 224.0,
+     "mean": 171.5
+    },
+    "win_rate": 1.0,
+    "avg_win": 0.0111,
+    "avg_loss": 0.0
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "VVVUSD": {
+   "n_trades": 5,
+   "instruments": {
+    "perp": 5
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 5,
+     "min": 1.096,
+     "p10": 1.096,
+     "median": 1.142,
+     "p90": 1.867,
+     "mean": 1.2802
+    },
+    "qty": {
+     "n": 5,
+     "min": 2.0,
+     "p10": 2.0,
+     "median": 78.0,
+     "p90": 85.0,
+     "mean": 50.0
+    },
+    "holding_hours": {
+     "n": 5,
+     "min": 119.0,
+     "p10": 119.0,
+     "median": 229.0,
+     "p90": 268.0,
+     "mean": 209.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.3472
+   },
+   "grid_spacing": {
+    "n": 2,
+    "min": 0.010508,
+    "p10": 0.010508,
+    "median": 0.041971,
+    "p90": 0.041971,
+    "mean": 0.026239
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "WLDUSD": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.5788,
+     "p10": 0.5788,
+     "median": 0.5788,
+     "p90": 0.5788,
+     "mean": 0.5788
+    },
+    "qty": {
+     "n": 1,
+     "min": 132.0,
+     "p10": 132.0,
+     "median": 132.0,
+     "p90": 132.0,
+     "mean": 132.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 119.0,
+     "p10": 119.0,
+     "median": 119.0,
+     "p90": 119.0,
+     "mean": 119.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.0132
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "OMUSD": {
+   "n_trades": 4,
+   "instruments": {
+    "perp": 4
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 4,
+     "min": 0.04542,
+     "p10": 0.04542,
+     "median": 0.0739,
+     "p90": 0.0746,
+     "mean": 0.059835
+    },
+    "qty": {
+     "n": 4,
+     "min": 1.0,
+     "p10": 1.0,
+     "median": 952.0,
+     "p90": 952.0,
+     "mean": 531.0
+    },
+    "holding_hours": {
+     "n": 4,
+     "min": 118.0,
+     "p10": 118.0,
+     "median": 268.0,
+     "p90": 281.0,
+     "mean": 222.25
+    },
+    "win_rate": 0.25,
+    "avg_win": 0.0044,
+    "avg_loss": -0.1904
+   },
+   "grid_spacing": {
+    "n": 1,
+    "min": 0.009472,
+    "p10": 0.009472,
+    "median": 0.009472,
+    "p90": 0.009472,
+    "mean": 0.009472
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "ACTUSD": {
+   "n_trades": 3,
+   "instruments": {
+    "perp": 3
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 3,
+     "min": 0.02132,
+     "p10": 0.02132,
+     "median": 0.02162,
+     "p90": 0.02193,
+     "mean": 0.021623
+    },
+    "qty": {
+     "n": 3,
+     "min": 4550.0,
+     "p10": 4550.0,
+     "median": 5000.0,
+     "p90": 5000.0,
+     "mean": 4850.0
+    },
+    "holding_hours": {
+     "n": 3,
+     "min": 118.0,
+     "p10": 118.0,
+     "median": 157.0,
+     "p90": 268.0,
+     "mean": 181.0
+    },
+    "win_rate": 0.3333,
+    "avg_win": 0.2,
+    "avg_loss": -0.3208
+   },
+   "grid_spacing": {
+    "n": 2,
+    "min": 0.014071,
+    "p10": 0.014071,
+    "median": 0.014339,
+    "p90": 0.014339,
+    "mean": 0.014205
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "MUSD": {
+   "n_trades": 2,
+   "instruments": {
+    "perp": 2
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 2,
+     "min": 1.2407,
+     "p10": 1.2407,
+     "median": 1.2491,
+     "p90": 1.2491,
+     "mean": 1.2449
+    },
+    "qty": {
+     "n": 2,
+     "min": 80.0,
+     "p10": 80.0,
+     "median": 80.0,
+     "p90": 80.0,
+     "mean": 80.0
+    },
+    "holding_hours": {
+     "n": 2,
+     "min": 118.0,
+     "p10": 118.0,
+     "median": 269.0,
+     "p90": 269.0,
+     "mean": 193.5
+    },
+    "win_rate": 1.0,
+    "avg_win": 0.08,
+    "avg_loss": 0.0
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "SIGNUS": {
+   "n_trades": 2,
+   "instruments": {
+    "perp": 2
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 2,
+     "min": 0.03783,
+     "p10": 0.03783,
+     "median": 0.03894,
+     "p90": 0.03894,
+     "mean": 0.038385
+    },
+    "qty": {
+     "n": 2,
+     "min": 2400.0,
+     "p10": 2400.0,
+     "median": 2400.0,
+     "p90": 2400.0,
+     "mean": 2400.0
+    },
+    "holding_hours": {
+     "n": 2,
+     "min": 118.0,
+     "p10": 118.0,
+     "median": 269.0,
+     "p90": 269.0,
+     "mean": 193.5
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.144
+   },
+   "grid_spacing": {
+    "n": 1,
+    "min": 0.029342,
+    "p10": 0.029342,
+    "median": 0.029342,
+    "p90": 0.029342,
+    "mean": 0.029342
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "ALTUSD": {
+   "n_trades": 4,
+   "instruments": {
+    "perp": 4
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 4,
+     "min": 0.00828,
+     "p10": 0.00828,
+     "median": 0.01294,
+     "p90": 0.01324,
+     "mean": 0.010685
+    },
+    "qty": {
+     "n": 4,
+     "min": 10.0,
+     "p10": 10.0,
+     "median": 6040.0,
+     "p90": 6040.0,
+     "mean": 3322.5
+    },
+    "holding_hours": {
+     "n": 4,
+     "min": 117.0,
+     "p10": 117.0,
+     "median": 268.0,
+     "p90": 286.0,
+     "mean": 224.75
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.1088
+   },
+   "grid_spacing": {
+    "n": 1,
+    "min": 0.023184,
+    "p10": 0.023184,
+    "median": 0.023184,
+    "p90": 0.023184,
+    "mean": 0.023184
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "AVAAIU": {
+   "n_trades": 6,
+   "instruments": {
+    "perp": 6
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 6,
+     "min": 0.00779,
+     "p10": 0.00779,
+     "median": 0.00854,
+     "p90": 0.01119,
+     "mean": 0.009275
+    },
+    "qty": {
+     "n": 6,
+     "min": 200.0,
+     "p10": 200.0,
+     "median": 8800.0,
+     "p90": 19400.0,
+     "mean": 6466.666667
+    },
+    "holding_hours": {
+     "n": 6,
+     "min": 117.0,
+     "p10": 117.0,
+     "median": 12627.0,
+     "p90": 12627.0,
+     "mean": 6415.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -1.0417
+   },
+   "grid_spacing": {
+    "n": 1,
+    "min": 0.087822,
+    "p10": 0.087822,
+    "median": 0.087822,
+    "p90": 0.087822,
+    "mean": 0.087822
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "SOLVUS": {
+   "n_trades": 3,
+   "instruments": {
+    "perp": 3
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 3,
+     "min": 0.00602,
+     "p10": 0.00602,
+     "median": 0.01572,
+     "p90": 0.01586,
+     "mean": 0.012533
+    },
+    "qty": {
+     "n": 3,
+     "min": 1600.0,
+     "p10": 1600.0,
+     "median": 4800.0,
+     "p90": 4800.0,
+     "mean": 3733.333333
+    },
+    "holding_hours": {
+     "n": 3,
+     "min": 117.0,
+     "p10": 117.0,
+     "median": 225.0,
+     "p90": 268.0,
+     "mean": 203.333333
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.016
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "SUNUSD": {
+   "n_trades": 2,
+   "instruments": {
+    "perp": 2
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 2,
+     "min": 0.01638,
+     "p10": 0.01638,
+     "median": 0.02139,
+     "p90": 0.02139,
+     "mean": 0.018885
+    },
+    "qty": {
+     "n": 2,
+     "min": 600.0,
+     "p10": 600.0,
+     "median": 10000.0,
+     "p90": 10000.0,
+     "mean": 5300.0
+    },
+    "holding_hours": {
+     "n": 2,
+     "min": 117.0,
+     "p10": 117.0,
+     "median": 224.0,
+     "p90": 224.0,
+     "mean": 170.5
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.206
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "USUALU": {
+   "n_trades": 4,
+   "instruments": {
+    "perp": 4
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 4,
+     "min": 0.01604,
+     "p10": 0.01604,
+     "median": 0.0253,
+     "p90": 0.0254,
+     "mean": 0.020695
+    },
+    "qty": {
+     "n": 4,
+     "min": 10.0,
+     "p10": 10.0,
+     "median": 3040.0,
+     "p90": 3040.0,
+     "mean": 1677.5
+    },
+    "holding_hours": {
+     "n": 4,
+     "min": 117.0,
+     "p10": 117.0,
+     "median": 267.0,
+     "p90": 278.0,
+     "mean": 220.25
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.1535
+   },
+   "grid_spacing": {
+    "n": 1,
+    "min": 0.003953,
+    "p10": 0.003953,
+    "median": 0.003953,
+    "p90": 0.003953,
+    "mean": 0.003953
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "XAIUSD": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.0169,
+     "p10": 0.0169,
+     "median": 0.0169,
+     "p90": 0.0169,
+     "mean": 0.0169
+    },
+    "qty": {
+     "n": 1,
+     "min": 4080.0,
+     "p10": 4080.0,
+     "median": 4080.0,
+     "p90": 4080.0,
+     "mean": 4080.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 117.0,
+     "p10": 117.0,
+     "median": 117.0,
+     "p90": 117.0,
+     "mean": 117.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.204
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "HYPEUS": {
+   "n_trades": 15,
+   "instruments": {
+    "perp": 15
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 15,
+     "min": 30.263,
+     "p10": 32.446,
+     "median": 93.864,
+     "p90": 95.458,
+     "mean": 84.5376
+    },
+    "qty": {
+     "n": 15,
+     "min": 0.5,
+     "p10": 0.5,
+     "median": 0.5,
+     "p90": 2.5,
+     "mean": 0.94
+    },
+    "holding_hours": {
+     "n": 15,
+     "min": 27.0,
+     "p10": 86.0,
+     "median": 1620.0,
+     "p90": 13898.0,
+     "mean": 4412.666667
+    },
+    "win_rate": 0.4667,
+    "avg_win": 0.4709,
+    "avg_loss": -0.4819
+   },
+   "grid_spacing": {
+    "n": 6,
+    "min": 0.002932,
+    "p10": 0.002932,
+    "median": 0.027484,
+    "p90": 0.203788,
+    "mean": 0.047923
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "FARTCO": {
+   "n_trades": 3,
+   "instruments": {
+    "perp": 3
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 3,
+     "min": 0.1991,
+     "p10": 0.1991,
+     "median": 0.3996,
+     "p90": 0.4035,
+     "mean": 0.334067
+    },
+    "qty": {
+     "n": 3,
+     "min": 50.0,
+     "p10": 50.0,
+     "median": 240.0,
+     "p90": 240.0,
+     "mean": 176.666667
+    },
+    "holding_hours": {
+     "n": 3,
+     "min": 116.0,
+     "p10": 116.0,
+     "median": 231.0,
+     "p90": 268.0,
+     "mean": 205.0
+    },
+    "win_rate": 0.6667,
+    "avg_win": 0.264,
+    "avg_loss": 0.0
+   },
+   "grid_spacing": {
+    "n": 1,
+    "min": 0.00976,
+    "p10": 0.00976,
+    "median": 0.00976,
+    "p90": 0.00976,
+    "mean": 0.00976
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "JTOUSD": {
+   "n_trades": 2,
+   "instruments": {
+    "perp": 2
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 2,
+     "min": 0.2484,
+     "p10": 0.2484,
+     "median": 0.4476,
+     "p90": 0.4476,
+     "mean": 0.348
+    },
+    "qty": {
+     "n": 2,
+     "min": 40.0,
+     "p10": 40.0,
+     "median": 108.0,
+     "p90": 108.0,
+     "mean": 74.0
+    },
+    "holding_hours": {
+     "n": 2,
+     "min": 116.0,
+     "p10": 116.0,
+     "median": 231.0,
+     "p90": 231.0,
+     "mean": 173.5
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.0202
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "SPXUSD": {
+   "n_trades": 2,
+   "instruments": {
+    "perp": 2
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 2,
+     "min": 0.6367,
+     "p10": 0.6367,
+     "median": 0.6795,
+     "p90": 0.6795,
+     "mean": 0.6581
+    },
+    "qty": {
+     "n": 2,
+     "min": 120.0,
+     "p10": 120.0,
+     "median": 120.0,
+     "p90": 120.0,
+     "mean": 120.0
+    },
+    "holding_hours": {
+     "n": 2,
+     "min": 116.0,
+     "p10": 116.0,
+     "median": 268.0,
+     "p90": 268.0,
+     "mean": 192.0
+    },
+    "win_rate": 1.0,
+    "avg_win": 0.198,
+    "avg_loss": 0.0
+   },
+   "grid_spacing": {
+    "n": 1,
+    "min": 0.067222,
+    "p10": 0.067222,
+    "median": 0.067222,
+    "p90": 0.067222,
+    "mean": 0.067222
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "MEUSD": {
+   "n_trades": 3,
+   "instruments": {
+    "perp": 3
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 3,
+     "min": 0.1423,
+     "p10": 0.1423,
+     "median": 0.3222,
+     "p90": 0.324,
+     "mean": 0.262833
+    },
+    "qty": {
+     "n": 3,
+     "min": 70.0,
+     "p10": 70.0,
+     "median": 280.0,
+     "p90": 280.0,
+     "mean": 210.0
+    },
+    "holding_hours": {
+     "n": 3,
+     "min": 114.0,
+     "p10": 114.0,
+     "median": 231.0,
+     "p90": 268.0,
+     "mean": 204.333333
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.084
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "HUSD": {
+   "n_trades": 2,
+   "instruments": {
+    "perp": 2
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 2,
+     "min": 0.04819,
+     "p10": 0.04819,
+     "median": 0.05446,
+     "p90": 0.05446,
+     "mean": 0.051325
+    },
+    "qty": {
+     "n": 2,
+     "min": 1800.0,
+     "p10": 1800.0,
+     "median": 4000.0,
+     "p90": 4000.0,
+     "mean": 2900.0
+    },
+    "holding_hours": {
+     "n": 2,
+     "min": 160.0,
+     "p10": 160.0,
+     "median": 267.0,
+     "p90": 267.0,
+     "mean": 213.5
+    },
+    "win_rate": 0.5,
+    "avg_win": 0.36,
+    "avg_loss": -0.666
+   },
+   "grid_spacing": {
+    "n": 1,
+    "min": 0.13011,
+    "p10": 0.13011,
+    "median": 0.13011,
+    "p90": 0.13011,
+    "mean": 0.13011
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "STXUSD": {
+   "n_trades": 2,
+   "instruments": {
+    "perp": 2
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 2,
+     "min": 0.3167,
+     "p10": 0.3167,
+     "median": 0.3167,
+     "p90": 0.3167,
+     "mean": 0.3167
+    },
+    "qty": {
+     "n": 2,
+     "min": 2.0,
+     "p10": 2.0,
+     "median": 315.0,
+     "p90": 315.0,
+     "mean": 158.5
+    },
+    "holding_hours": {
+     "n": 2,
+     "min": 163.0,
+     "p10": 163.0,
+     "median": 252.0,
+     "p90": 252.0,
+     "mean": 207.5
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.2205
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "KSMUSD": {
+   "n_trades": 2,
+   "instruments": {
+    "perp": 2
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 2,
+     "min": 8.556,
+     "p10": 8.556,
+     "median": 8.556,
+     "p90": 8.556,
+     "mean": 8.556
+    },
+    "qty": {
+     "n": 2,
+     "min": 0.2,
+     "p10": 0.2,
+     "median": 11.6,
+     "p90": 11.6,
+     "mean": 5.9
+    },
+    "holding_hours": {
+     "n": 2,
+     "min": 163.0,
+     "p10": 163.0,
+     "median": 248.0,
+     "p90": 248.0,
+     "mean": 205.5
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.3332
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "FILUSD": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 1.544,
+     "p10": 1.544,
+     "median": 1.544,
+     "p90": 1.544,
+     "mean": 1.544
+    },
+    "qty": {
+     "n": 1,
+     "min": 64.0,
+     "p10": 64.0,
+     "median": 64.0,
+     "p90": 64.0,
+     "mean": 64.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 84.0,
+     "p10": 84.0,
+     "median": 84.0,
+     "p90": 84.0,
+     "mean": 84.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -1.088
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "NEARUS": {
+   "n_trades": 3,
+   "instruments": {
+    "perp": 3
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 3,
+     "min": 1.058,
+     "p10": 1.058,
+     "median": 1.85,
+     "p90": 1.85,
+     "mean": 1.586
+    },
+    "qty": {
+     "n": 3,
+     "min": 1.0,
+     "p10": 1.0,
+     "median": 9.0,
+     "p90": 53.0,
+     "mean": 21.0
+    },
+    "holding_hours": {
+     "n": 3,
+     "min": 161.0,
+     "p10": 161.0,
+     "median": 221.0,
+     "p90": 248.0,
+     "mean": 210.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.1153
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "ZROUSD": {
+   "n_trades": 2,
+   "instruments": {
+    "perp": 2
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 2,
+     "min": 1.536,
+     "p10": 1.536,
+     "median": 1.558,
+     "p90": 1.558,
+     "mean": 1.547
+    },
+    "qty": {
+     "n": 2,
+     "min": 6.0,
+     "p10": 6.0,
+     "median": 64.0,
+     "p90": 64.0,
+     "mean": 35.0
+    },
+    "holding_hours": {
+     "n": 2,
+     "min": 162.0,
+     "p10": 162.0,
+     "median": 220.0,
+     "p90": 220.0,
+     "mean": 191.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.352
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "STRKUS": {
+   "n_trades": 3,
+   "instruments": {
+    "perp": 3
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 3,
+     "min": 0.0432,
+     "p10": 0.0432,
+     "median": 0.051,
+     "p90": 0.118,
+     "mean": 0.070733
+    },
+    "qty": {
+     "n": 3,
+     "min": 100.0,
+     "p10": 100.0,
+     "median": 800.0,
+     "p90": 1100.0,
+     "mean": 666.666667
+    },
+    "holding_hours": {
+     "n": 3,
+     "min": 161.0,
+     "p10": 161.0,
+     "median": 229.0,
+     "p90": 28280.0,
+     "mean": 9556.666667
+    },
+    "win_rate": 0.3333,
+    "avg_win": 0.55,
+    "avg_loss": -0.16
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "EVAAUS": {
+   "n_trades": 4,
+   "instruments": {
+    "perp": 4
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 4,
+     "min": 0.7463,
+     "p10": 0.7463,
+     "median": 0.7534,
+     "p90": 0.966,
+     "mean": 0.80475
+    },
+    "qty": {
+     "n": 4,
+     "min": 66.0,
+     "p10": 66.0,
+     "median": 66.0,
+     "p90": 103.0,
+     "mean": 75.25
+    },
+    "holding_hours": {
+     "n": 4,
+     "min": 99.0,
+     "p10": 99.0,
+     "median": 726.0,
+     "p90": 2041.0,
+     "mean": 756.5
+    },
+    "win_rate": 0.25,
+    "avg_win": 1.0626,
+    "avg_loss": -0.7917
+   },
+   "grid_spacing": {
+    "n": 1,
+    "min": 0.000133,
+    "p10": 0.000133,
+    "median": 0.000133,
+    "p90": 0.000133,
+    "mean": 0.000133
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "PEOPLE": {
+   "n_trades": 2,
+   "instruments": {
+    "perp": 2
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 2,
+     "min": 0.00689,
+     "p10": 0.00689,
+     "median": 0.01064,
+     "p90": 0.01064,
+     "mean": 0.008765
+    },
+    "qty": {
+     "n": 2,
+     "min": 1400.0,
+     "p10": 1400.0,
+     "median": 9300.0,
+     "p90": 9300.0,
+     "mean": 5350.0
+    },
+    "holding_hours": {
+     "n": 2,
+     "min": 160.0,
+     "p10": 160.0,
+     "median": 228.0,
+     "p90": 228.0,
+     "mean": 194.0
+    },
+    "win_rate": 0.5,
+    "avg_win": 0.014,
+    "avg_loss": -0.651
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "RAREUS": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.02482,
+     "p10": 0.02482,
+     "median": 0.02482,
+     "p90": 0.02482,
+     "mean": 0.02482
+    },
+    "qty": {
+     "n": 1,
+     "min": 4000.0,
+     "p10": 4000.0,
+     "median": 4000.0,
+     "p90": 4000.0,
+     "mean": 4000.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 160.0,
+     "p10": 160.0,
+     "median": 160.0,
+     "p90": 160.0,
+     "mean": 160.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.56
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "YALAUS": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.02916,
+     "p10": 0.02916,
+     "median": 0.02916,
+     "p90": 0.02916,
+     "mean": 0.02916
+    },
+    "qty": {
+     "n": 1,
+     "min": 3400.0,
+     "p10": 3400.0,
+     "median": 3400.0,
+     "p90": 3400.0,
+     "mean": 3400.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 158.0,
+     "p10": 158.0,
+     "median": 158.0,
+     "p90": 158.0,
+     "mean": 158.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.476
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "1000SA": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 1.8e-05,
+     "p10": 1.8e-05,
+     "median": 1.8e-05,
+     "p90": 1.8e-05,
+     "mean": 1.8e-05
+    },
+    "qty": {
+     "n": 1,
+     "min": 5524000.0,
+     "p10": 5524000.0,
+     "median": 5524000.0,
+     "p90": 5524000.0,
+     "mean": 5524000.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 161.0,
+     "p10": 161.0,
+     "median": 161.0,
+     "p90": 161.0,
+     "mean": 161.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -1.6572
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "ZENUSD": {
+   "n_trades": 2,
+   "instruments": {
+    "perp": 2
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 2,
+     "min": 5.986,
+     "p10": 5.986,
+     "median": 10.525,
+     "p90": 10.525,
+     "mean": 8.2555
+    },
+    "qty": {
+     "n": 2,
+     "min": 1.0,
+     "p10": 1.0,
+     "median": 9.0,
+     "p90": 9.0,
+     "mean": 5.0
+    },
+    "holding_hours": {
+     "n": 2,
+     "min": 161.0,
+     "p10": 161.0,
+     "median": 226.0,
+     "p90": 226.0,
+     "mean": 193.5
+    },
+    "win_rate": 0.5,
+    "avg_win": 0.675,
+    "avg_loss": -0.005
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "ORDERU": {
+   "n_trades": 3,
+   "instruments": {
+    "perp": 3
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 3,
+     "min": 0.05819,
+     "p10": 0.05819,
+     "median": 0.05819,
+     "p90": 0.1122,
+     "mean": 0.076193
+    },
+    "qty": {
+     "n": 3,
+     "min": 70.0,
+     "p10": 70.0,
+     "median": 100.0,
+     "p90": 890.0,
+     "mean": 353.333333
+    },
+    "holding_hours": {
+     "n": 3,
+     "min": 160.0,
+     "p10": 160.0,
+     "median": 231.0,
+     "p90": 231.0,
+     "mean": 207.333333
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.247
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "DEEPUS": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.04385,
+     "p10": 0.04385,
+     "median": 0.04385,
+     "p90": 0.04385,
+     "mean": 0.04385
+    },
+    "qty": {
+     "n": 1,
+     "min": 2260.0,
+     "p10": 2260.0,
+     "median": 2260.0,
+     "p90": 2260.0,
+     "mean": 2260.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 158.0,
+     "p10": 158.0,
+     "median": 158.0,
+     "p90": 158.0,
+     "mean": 158.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.452
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "ATOMUS": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 2.354,
+     "p10": 2.354,
+     "median": 2.354,
+     "p90": 2.354,
+     "mean": 2.354
+    },
+    "qty": {
+     "n": 1,
+     "min": 42.0,
+     "p10": 42.0,
+     "median": 42.0,
+     "p90": 42.0,
+     "mean": 42.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 79.0,
+     "p10": 79.0,
+     "median": 79.0,
+     "p90": 79.0,
+     "mean": 79.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.588
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "WCTUSD": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.0916,
+     "p10": 0.0916,
+     "median": 0.0916,
+     "p90": 0.0916,
+     "mean": 0.0916
+    },
+    "qty": {
+     "n": 1,
+     "min": 1090.0,
+     "p10": 1090.0,
+     "median": 1090.0,
+     "p90": 1090.0,
+     "mean": 1090.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 160.0,
+     "p10": 160.0,
+     "median": 160.0,
+     "p90": 160.0,
+     "mean": 160.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.545
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "KITEUS": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.08533,
+     "p10": 0.08533,
+     "median": 0.08533,
+     "p90": 0.08533,
+     "mean": 0.08533
+    },
+    "qty": {
+     "n": 1,
+     "min": 1100.0,
+     "p10": 1100.0,
+     "median": 1100.0,
+     "p90": 1100.0,
+     "mean": 1100.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 158.0,
+     "p10": 158.0,
+     "median": 158.0,
+     "p90": 158.0,
+     "mean": 158.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.011
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "POPCAT": {
+   "n_trades": 2,
+   "instruments": {
+    "perp": 2
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 2,
+     "min": 0.0505,
+     "p10": 0.0505,
+     "median": 0.1081,
+     "p90": 0.1081,
+     "mean": 0.0793
+    },
+    "qty": {
+     "n": 2,
+     "min": 198.0,
+     "p10": 198.0,
+     "median": 925.0,
+     "p90": 925.0,
+     "mean": 561.5
+    },
+    "holding_hours": {
+     "n": 2,
+     "min": 158.0,
+     "p10": 158.0,
+     "median": 223.0,
+     "p90": 223.0,
+     "mean": 190.5
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.3337
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "VFYUSD": {
+   "n_trades": 2,
+   "instruments": {
+    "perp": 2
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 2,
+     "min": 0.01926,
+     "p10": 0.01926,
+     "median": 0.0347,
+     "p90": 0.0347,
+     "mean": 0.02698
+    },
+    "qty": {
+     "n": 2,
+     "min": 500.0,
+     "p10": 500.0,
+     "median": 2800.0,
+     "p90": 2800.0,
+     "mean": 1650.0
+    },
+    "holding_hours": {
+     "n": 2,
+     "min": 158.0,
+     "p10": 158.0,
+     "median": 226.0,
+     "p90": 226.0,
+     "mean": 192.0
+    },
+    "win_rate": 0.5,
+    "avg_win": 0.005,
+    "avg_loss": -0.756
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "COAIUS": {
+   "n_trades": 2,
+   "instruments": {
+    "perp": 2
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 2,
+     "min": 0.2936,
+     "p10": 0.2936,
+     "median": 0.5322,
+     "p90": 0.5322,
+     "mean": 0.4129
+    },
+    "qty": {
+     "n": 2,
+     "min": 30.0,
+     "p10": 30.0,
+     "median": 180.0,
+     "p90": 180.0,
+     "mean": 105.0
+    },
+    "holding_hours": {
+     "n": 2,
+     "min": 156.0,
+     "p10": 156.0,
+     "median": 230.0,
+     "p90": 230.0,
+     "mean": 193.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.1485
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "BNBUSD": {
+   "n_trades": 5,
+   "instruments": {
+    "perp": 5
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 5,
+     "min": 766.26,
+     "p10": 766.26,
+     "median": 790.0,
+     "p90": 916.92,
+     "mean": 809.47
+    },
+    "qty": {
+     "n": 5,
+     "min": 0.1,
+     "p10": 0.1,
+     "median": 0.1,
+     "p90": 0.1,
+     "mean": 0.1
+    },
+    "holding_hours": {
+     "n": 5,
+     "min": 158.0,
+     "p10": 158.0,
+     "median": 5511.0,
+     "p90": 12819.0,
+     "mean": 6524.8
+    },
+    "win_rate": 0.6,
+    "avg_win": 0.7034,
+    "avg_loss": -0.504
+   },
+   "grid_spacing": {
+    "n": 1,
+    "min": 0.030051,
+    "p10": 0.030051,
+    "median": 0.030051,
+    "p90": 0.030051,
+    "mean": 0.030051
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "TIAUSD": {
+   "n_trades": 2,
+   "instruments": {
+    "perp": 2
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 2,
+     "min": 0.3326,
+     "p10": 0.3326,
+     "median": 0.6328,
+     "p90": 0.6328,
+     "mean": 0.4827
+    },
+    "qty": {
+     "n": 2,
+     "min": 30.0,
+     "p10": 30.0,
+     "median": 157.0,
+     "p90": 157.0,
+     "mean": 93.5
+    },
+    "holding_hours": {
+     "n": 2,
+     "min": 156.0,
+     "p10": 156.0,
+     "median": 226.0,
+     "p90": 226.0,
+     "mean": 191.0
+    },
+    "win_rate": 0.5,
+    "avg_win": 0.012,
+    "avg_loss": -0.6751
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "LTCUSD": {
+   "n_trades": 12,
+   "instruments": {
+    "perp": 12
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 12,
+     "min": 50.38,
+     "p10": 52.33,
+     "median": 62.73,
+     "p90": 76.14,
+     "mean": 62.255833
+    },
+    "qty": {
+     "n": 12,
+     "min": 0.1,
+     "p10": 0.8,
+     "median": 1.6,
+     "p90": 4.5,
+     "mean": 1.858333
+    },
+    "holding_hours": {
+     "n": 12,
+     "min": 32.0,
+     "p10": 111.0,
+     "median": 1523.0,
+     "p90": 7040.0,
+     "mean": 2301.333333
+    },
+    "win_rate": 0.5,
+    "avg_win": 0.603,
+    "avg_loss": -0.786
+   },
+   "grid_spacing": {
+    "n": 3,
+    "min": 0.000635,
+    "p10": 0.000635,
+    "median": 0.079866,
+    "p90": 0.098919,
+    "mean": 0.059807
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "SUIUSD": {
+   "n_trades": 2,
+   "instruments": {
+    "perp": 2
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 2,
+     "min": 0.9815,
+     "p10": 0.9815,
+     "median": 1.1259,
+     "p90": 1.1259,
+     "mean": 1.0537
+    },
+    "qty": {
+     "n": 2,
+     "min": 10.0,
+     "p10": 10.0,
+     "median": 20.0,
+     "p90": 20.0,
+     "mean": 15.0
+    },
+    "holding_hours": {
+     "n": 2,
+     "min": 231.0,
+     "p10": 231.0,
+     "median": 32449.0,
+     "p90": 32449.0,
+     "mean": 16340.0
+    },
+    "win_rate": 0.5,
+    "avg_win": 0.71,
+    "avg_loss": -0.011
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "AVAXUS": {
+   "n_trades": 9,
+   "instruments": {
+    "perp": 9
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 9,
+     "min": 9.01,
+     "p10": 9.01,
+     "median": 10.304,
+     "p90": 11.448,
+     "mean": 10.297778
+    },
+    "qty": {
+     "n": 9,
+     "min": 1.0,
+     "p10": 1.0,
+     "median": 4.0,
+     "p90": 10.0,
+     "mean": 5.111111
+    },
+    "holding_hours": {
+     "n": 9,
+     "min": 166.0,
+     "p10": 166.0,
+     "median": 303.0,
+     "p90": 4519.0,
+     "mean": 995.0
+    },
+    "win_rate": 0.6667,
+    "avg_win": 0.5403,
+    "avg_loss": -0.2727
+   },
+   "grid_spacing": {
+    "n": 2,
+    "min": 0.005092,
+    "p10": 0.005092,
+    "median": 0.006676,
+    "p90": 0.006676,
+    "mean": 0.005884
+   },
+   "lifo_check": {
+    "n_pairs_checked": 1,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "DUSKUS": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.08871,
+     "p10": 0.08871,
+     "median": 0.08871,
+     "p90": 0.08871,
+     "mean": 0.08871
+    },
+    "qty": {
+     "n": 1,
+     "min": 100.0,
+     "p10": 100.0,
+     "median": 100.0,
+     "p90": 100.0,
+     "mean": 100.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 231.0,
+     "p10": 231.0,
+     "median": 231.0,
+     "p90": 231.0,
+     "mean": 231.0
+    },
+    "win_rate": 1.0,
+    "avg_win": 0.013,
+    "avg_loss": 0.0
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "SONICU": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.04068,
+     "p10": 0.04068,
+     "median": 0.04068,
+     "p90": 0.04068,
+     "mean": 0.04068
+    },
+    "qty": {
+     "n": 1,
+     "min": 240.0,
+     "p10": 240.0,
+     "median": 240.0,
+     "p90": 240.0,
+     "mean": 240.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 231.0,
+     "p10": 231.0,
+     "median": 231.0,
+     "p90": 231.0,
+     "mean": 231.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.0336
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "ARUSD": {
+   "n_trades": 17,
+   "instruments": {
+    "perp": 17
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 17,
+     "min": 2.118,
+     "p10": 4.302,
+     "median": 4.332,
+     "p90": 4.68,
+     "mean": 4.286353
+    },
+    "qty": {
+     "n": 17,
+     "min": 1.0,
+     "p10": 1.0,
+     "median": 10.0,
+     "p90": 21.0,
+     "mean": 10.823529
+    },
+    "holding_hours": {
+     "n": 17,
+     "min": 51.0,
+     "p10": 53.0,
+     "median": 2268.0,
+     "p90": 56345.0,
+     "mean": 18571.058824
+    },
+    "win_rate": 0.4706,
+    "avg_win": 0.424,
+    "avg_loss": -0.5331
+   },
+   "grid_spacing": {
+    "n": 3,
+    "min": 0.016172,
+    "p10": 0.016172,
+    "median": 0.024544,
+    "p90": 0.037527,
+    "mean": 0.026081
+   },
+   "lifo_check": {
+    "n_pairs_checked": 6,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "POLUSD": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.0966,
+     "p10": 0.0966,
+     "median": 0.0966,
+     "p90": 0.0966,
+     "mean": 0.0966
+    },
+    "qty": {
+     "n": 1,
+     "min": 100.0,
+     "p10": 100.0,
+     "median": 100.0,
+     "p90": 100.0,
+     "mean": 100.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 230.0,
+     "p10": 230.0,
+     "median": 230.0,
+     "p90": 230.0,
+     "mean": 230.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.03
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "ZKUSD": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.02377,
+     "p10": 0.02377,
+     "median": 0.02377,
+     "p90": 0.02377,
+     "mean": 0.02377
+    },
+    "qty": {
+     "n": 1,
+     "min": 420.0,
+     "p10": 420.0,
+     "median": 420.0,
+     "p90": 420.0,
+     "mean": 420.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 230.0,
+     "p10": 230.0,
+     "median": 230.0,
+     "p90": 230.0,
+     "mean": 230.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.0546
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "API3US": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.3094,
+     "p10": 0.3094,
+     "median": 0.3094,
+     "p90": 0.3094,
+     "mean": 0.3094
+    },
+    "qty": {
+     "n": 1,
+     "min": 30.0,
+     "p10": 30.0,
+     "median": 30.0,
+     "p90": 30.0,
+     "mean": 30.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 231.0,
+     "p10": 231.0,
+     "median": 231.0,
+     "p90": 231.0,
+     "mean": 231.0
+    },
+    "win_rate": 1.0,
+    "avg_win": 0.018,
+    "avg_loss": 0.0
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "COOKIE": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.02072,
+     "p10": 0.02072,
+     "median": 0.02072,
+     "p90": 0.02072,
+     "mean": 0.02072
+    },
+    "qty": {
+     "n": 1,
+     "min": 480.0,
+     "p10": 480.0,
+     "median": 480.0,
+     "p90": 480.0,
+     "mean": 480.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 231.0,
+     "p10": 231.0,
+     "median": 231.0,
+     "p90": 231.0,
+     "mean": 231.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.0432
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "UNIUSD": {
+   "n_trades": 5,
+   "instruments": {
+    "perp": 5
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 5,
+     "min": 3.432,
+     "p10": 3.432,
+     "median": 8.883,
+     "p90": 9.151,
+     "mean": 7.8302
+    },
+    "qty": {
+     "n": 5,
+     "min": 2.0,
+     "p10": 2.0,
+     "median": 5.0,
+     "p90": 5.0,
+     "mean": 4.4
+    },
+    "holding_hours": {
+     "n": 5,
+     "min": 230.0,
+     "p10": 230.0,
+     "median": 2387.0,
+     "p90": 4229.0,
+     "mean": 2294.8
+    },
+    "win_rate": 0.2,
+    "avg_win": 0.004,
+    "avg_loss": -0.7296
+   },
+   "grid_spacing": {
+    "n": 1,
+    "min": 0.030624,
+    "p10": 0.030624,
+    "median": 0.030624,
+    "p90": 0.030624,
+    "mean": 0.030624
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "NOTUSD": {
+   "n_trades": 2,
+   "instruments": {
+    "perp": 2
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 2,
+     "min": 0.000414,
+     "p10": 0.000414,
+     "median": 0.000414,
+     "p90": 0.000414,
+     "mean": 0.000414
+    },
+    "qty": {
+     "n": 2,
+     "min": 100.0,
+     "p10": 100.0,
+     "median": 24000.0,
+     "p90": 24000.0,
+     "mean": 12050.0
+    },
+    "holding_hours": {
+     "n": 2,
+     "min": 229.0,
+     "p10": 229.0,
+     "median": 285.0,
+     "p90": 285.0,
+     "mean": 257.0
+    },
+    "win_rate": 1.0,
+    "avg_win": 0.0108,
+    "avg_loss": 0.0
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "PARTIU": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.08926,
+     "p10": 0.08926,
+     "median": 0.08926,
+     "p90": 0.08926,
+     "mean": 0.08926
+    },
+    "qty": {
+     "n": 1,
+     "min": 100.0,
+     "p10": 100.0,
+     "median": 100.0,
+     "p90": 100.0,
+     "mean": 100.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 228.0,
+     "p10": 228.0,
+     "median": 228.0,
+     "p90": 228.0,
+     "mean": 228.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.007
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "TRXUSD": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.27162,
+     "p10": 0.27162,
+     "median": 0.27162,
+     "p90": 0.27162,
+     "mean": 0.27162
+    },
+    "qty": {
+     "n": 1,
+     "min": 36.0,
+     "p10": 36.0,
+     "median": 36.0,
+     "p90": 36.0,
+     "mean": 36.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 228.0,
+     "p10": 228.0,
+     "median": 228.0,
+     "p90": 228.0,
+     "mean": 228.0
+    },
+    "win_rate": 1.0,
+    "avg_win": 0.0065,
+    "avg_loss": 0.0
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "SANDUS": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.0854,
+     "p10": 0.0854,
+     "median": 0.0854,
+     "p90": 0.0854,
+     "mean": 0.0854
+    },
+    "qty": {
+     "n": 1,
+     "min": 117.0,
+     "p10": 117.0,
+     "median": 117.0,
+     "p90": 117.0,
+     "mean": 117.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 226.0,
+     "p10": 226.0,
+     "median": 226.0,
+     "p90": 226.0,
+     "mean": 226.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.0585
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "ORDIUS": {
+   "n_trades": 2,
+   "instruments": {
+    "perp": 2
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 2,
+     "min": 2.797,
+     "p10": 2.797,
+     "median": 2.797,
+     "p90": 2.797,
+     "mean": 2.797
+    },
+    "qty": {
+     "n": 2,
+     "min": 0.1,
+     "p10": 0.1,
+     "median": 3.5,
+     "p90": 3.5,
+     "mean": 1.8
+    },
+    "holding_hours": {
+     "n": 2,
+     "min": 225.0,
+     "p10": 225.0,
+     "median": 284.0,
+     "p90": 284.0,
+     "mean": 254.5
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.0002
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "FRAXUS": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.7849,
+     "p10": 0.7849,
+     "median": 0.7849,
+     "p90": 0.7849,
+     "mean": 0.7849
+    },
+    "qty": {
+     "n": 1,
+     "min": 10.0,
+     "p10": 10.0,
+     "median": 10.0,
+     "p90": 10.0,
+     "mean": 10.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 228.0,
+     "p10": 228.0,
+     "median": 228.0,
+     "p90": 228.0,
+     "mean": 228.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.004
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "RUNEUS": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.4103,
+     "p10": 0.4103,
+     "median": 0.4103,
+     "p90": 0.4103,
+     "mean": 0.4103
+    },
+    "qty": {
+     "n": 1,
+     "min": 24.0,
+     "p10": 24.0,
+     "median": 24.0,
+     "p90": 24.0,
+     "mean": 24.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 228.0,
+     "p10": 228.0,
+     "median": 228.0,
+     "p90": 228.0,
+     "mean": 228.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.0024
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "TRBUSD": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 14.681,
+     "p10": 14.681,
+     "median": 14.681,
+     "p90": 14.681,
+     "mean": 14.681
+    },
+    "qty": {
+     "n": 1,
+     "min": 0.6,
+     "p10": 0.6,
+     "median": 0.6,
+     "p90": 0.6,
+     "mean": 0.6
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 228.0,
+     "p10": 228.0,
+     "median": 228.0,
+     "p90": 228.0,
+     "mean": 228.0
+    },
+    "win_rate": 1.0,
+    "avg_win": 0.0108,
+    "avg_loss": 0.0
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "MANAUS": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.1006,
+     "p10": 0.1006,
+     "median": 0.1006,
+     "p90": 0.1006,
+     "mean": 0.1006
+    },
+    "qty": {
+     "n": 1,
+     "min": 99.0,
+     "p10": 99.0,
+     "median": 99.0,
+     "p90": 99.0,
+     "mean": 99.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 228.0,
+     "p10": 228.0,
+     "median": 228.0,
+     "p90": 228.0,
+     "mean": 228.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.0297
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "ENSUSD": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 5.843,
+     "p10": 5.843,
+     "median": 5.843,
+     "p90": 5.843,
+     "mean": 5.843
+    },
+    "qty": {
+     "n": 1,
+     "min": 1.7,
+     "p10": 1.7,
+     "median": 1.7,
+     "p90": 1.7,
+     "mean": 1.7
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 227.0,
+     "p10": 227.0,
+     "median": 227.0,
+     "p90": 227.0,
+     "mean": 227.0
+    },
+    "win_rate": 1.0,
+    "avg_win": 0.0068,
+    "avg_loss": 0.0
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "EDENUS": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.03507,
+     "p10": 0.03507,
+     "median": 0.03507,
+     "p90": 0.03507,
+     "mean": 0.03507
+    },
+    "qty": {
+     "n": 1,
+     "min": 280.0,
+     "p10": 280.0,
+     "median": 280.0,
+     "p90": 280.0,
+     "mean": 280.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 224.0,
+     "p10": 224.0,
+     "median": 224.0,
+     "p90": 224.0,
+     "mean": 224.0
+    },
+    "win_rate": 1.0,
+    "avg_win": 0.0364,
+    "avg_loss": 0.0
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "GIGGLE": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 34.28,
+     "p10": 34.28,
+     "median": 34.28,
+     "p90": 34.28,
+     "mean": 34.28
+    },
+    "qty": {
+     "n": 1,
+     "min": 0.2,
+     "p10": 0.2,
+     "median": 0.2,
+     "p90": 0.2,
+     "mean": 0.2
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 224.0,
+     "p10": 224.0,
+     "median": 224.0,
+     "p90": 224.0,
+     "mean": 224.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.004
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "1000FL": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.03173,
+     "p10": 0.03173,
+     "median": 0.03173,
+     "p90": 0.03173,
+     "mean": 0.03173
+    },
+    "qty": {
+     "n": 1,
+     "min": 300.0,
+     "p10": 300.0,
+     "median": 300.0,
+     "p90": 300.0,
+     "mean": 300.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 226.0,
+     "p10": 226.0,
+     "median": 226.0,
+     "p90": 226.0,
+     "mean": 226.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.018
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "GLMUSD": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.19764,
+     "p10": 0.19764,
+     "median": 0.19764,
+     "p90": 0.19764,
+     "mean": 0.19764
+    },
+    "qty": {
+     "n": 1,
+     "min": 50.0,
+     "p10": 50.0,
+     "median": 50.0,
+     "p90": 50.0,
+     "mean": 50.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 226.0,
+     "p10": 226.0,
+     "median": 226.0,
+     "p90": 226.0,
+     "mean": 226.0
+    },
+    "win_rate": 1.0,
+    "avg_win": 0.032,
+    "avg_loss": 0.0
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "BLURUS": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.02054,
+     "p10": 0.02054,
+     "median": 0.02054,
+     "p90": 0.02054,
+     "mean": 0.02054
+    },
+    "qty": {
+     "n": 1,
+     "min": 480.0,
+     "p10": 480.0,
+     "median": 480.0,
+     "p90": 480.0,
+     "mean": 480.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 225.0,
+     "p10": 225.0,
+     "median": 225.0,
+     "p90": 225.0,
+     "mean": 225.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.0048
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "LDOUSD": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.3455,
+     "p10": 0.3455,
+     "median": 0.3455,
+     "p90": 0.3455,
+     "mean": 0.3455
+    },
+    "qty": {
+     "n": 1,
+     "min": 28.0,
+     "p10": 28.0,
+     "median": 28.0,
+     "p90": 28.0,
+     "mean": 28.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 223.0,
+     "p10": 223.0,
+     "median": 223.0,
+     "p90": 223.0,
+     "mean": 223.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": 0.0
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "AIXBTU": {
+   "n_trades": 2,
+   "instruments": {
+    "perp": 2
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 2,
+     "min": 0.02133,
+     "p10": 0.02133,
+     "median": 0.02133,
+     "p90": 0.02133,
+     "mean": 0.02133
+    },
+    "qty": {
+     "n": 2,
+     "min": 20.0,
+     "p10": 20.0,
+     "median": 460.0,
+     "p90": 460.0,
+     "mean": 240.0
+    },
+    "holding_hours": {
+     "n": 2,
+     "min": 226.0,
+     "p10": 226.0,
+     "median": 282.0,
+     "p90": 282.0,
+     "mean": 254.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.0309
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "XMRUSD": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 316.59,
+     "p10": 316.59,
+     "median": 316.59,
+     "p90": 316.59,
+     "mean": 316.59
+    },
+    "qty": {
+     "n": 1,
+     "min": 0.03,
+     "p10": 0.03,
+     "median": 0.03,
+     "p90": 0.03,
+     "mean": 0.03
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 222.0,
+     "p10": 222.0,
+     "median": 222.0,
+     "p90": 222.0,
+     "mean": 222.0
+    },
+    "win_rate": 1.0,
+    "avg_win": 0.0159,
+    "avg_loss": 0.0
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "MANTAU": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.06793,
+     "p10": 0.06793,
+     "median": 0.06793,
+     "p90": 0.06793,
+     "mean": 0.06793
+    },
+    "qty": {
+     "n": 1,
+     "min": 147.0,
+     "p10": 147.0,
+     "median": 147.0,
+     "p90": 147.0,
+     "mean": 147.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 221.0,
+     "p10": 221.0,
+     "median": 221.0,
+     "p90": 221.0,
+     "mean": 221.0
+    },
+    "win_rate": 1.0,
+    "avg_win": 0.0279,
+    "avg_loss": 0.0
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "INITUS": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.0679,
+     "p10": 0.0679,
+     "median": 0.0679,
+     "p90": 0.0679,
+     "mean": 0.0679
+    },
+    "qty": {
+     "n": 1,
+     "min": 140.0,
+     "p10": 140.0,
+     "median": 140.0,
+     "p90": 140.0,
+     "mean": 140.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 224.0,
+     "p10": 224.0,
+     "median": 224.0,
+     "p90": 224.0,
+     "mean": 224.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.014
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "XPLUSD": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.0829,
+     "p10": 0.0829,
+     "median": 0.0829,
+     "p90": 0.0829,
+     "mean": 0.0829
+    },
+    "qty": {
+     "n": 1,
+     "min": 120.0,
+     "p10": 120.0,
+     "median": 120.0,
+     "p90": 120.0,
+     "mean": 120.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 223.0,
+     "p10": 223.0,
+     "median": 223.0,
+     "p90": 223.0,
+     "mean": 223.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.036
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "ARBUSD": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.1155,
+     "p10": 0.1155,
+     "median": 0.1155,
+     "p90": 0.1155,
+     "mean": 0.1155
+    },
+    "qty": {
+     "n": 1,
+     "min": 86.0,
+     "p10": 86.0,
+     "median": 86.0,
+     "p90": 86.0,
+     "mean": 86.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 222.0,
+     "p10": 222.0,
+     "median": 222.0,
+     "p90": 222.0,
+     "mean": 222.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.0516
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "IOUSD": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.1135,
+     "p10": 0.1135,
+     "median": 0.1135,
+     "p90": 0.1135,
+     "mean": 0.1135
+    },
+    "qty": {
+     "n": 1,
+     "min": 87.0,
+     "p10": 87.0,
+     "median": 87.0,
+     "p90": 87.0,
+     "mean": 87.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 221.0,
+     "p10": 221.0,
+     "median": 221.0,
+     "p90": 221.0,
+     "mean": 221.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.0435
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "MEMEUS": {
+   "n_trades": 2,
+   "instruments": {
+    "perp": 2
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 2,
+     "min": 0.000741,
+     "p10": 0.000741,
+     "median": 0.000741,
+     "p90": 0.000741,
+     "mean": 0.000741
+    },
+    "qty": {
+     "n": 2,
+     "min": 100.0,
+     "p10": 100.0,
+     "median": 13400.0,
+     "p90": 13400.0,
+     "mean": 6750.0
+    },
+    "holding_hours": {
+     "n": 2,
+     "min": 221.0,
+     "p10": 221.0,
+     "median": 282.0,
+     "p90": 282.0,
+     "mean": 251.5
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.0135
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "ADAUSD": {
+   "n_trades": 3,
+   "instruments": {
+    "perp": 3
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 3,
+     "min": 0.2463,
+     "p10": 0.2463,
+     "median": 0.2466,
+     "p90": 0.2726,
+     "mean": 0.255167
+    },
+    "qty": {
+     "n": 3,
+     "min": 36.0,
+     "p10": 36.0,
+     "median": 411.0,
+     "p90": 411.0,
+     "mean": 286.0
+    },
+    "holding_hours": {
+     "n": 3,
+     "min": 223.0,
+     "p10": 223.0,
+     "median": 1288.0,
+     "p90": 2321.0,
+     "mean": 1277.333333
+    },
+    "win_rate": 0.6667,
+    "avg_win": 0.6206,
+    "avg_loss": -0.0108
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "BERAUS": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.4096,
+     "p10": 0.4096,
+     "median": 0.4096,
+     "p90": 0.4096,
+     "mean": 0.4096
+    },
+    "qty": {
+     "n": 1,
+     "min": 24.0,
+     "p10": 24.0,
+     "median": 24.0,
+     "p90": 24.0,
+     "mean": 24.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 223.0,
+     "p10": 223.0,
+     "median": 223.0,
+     "p90": 223.0,
+     "mean": 223.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.0192
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "DOGSUS": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 2.8e-05,
+     "p10": 2.8e-05,
+     "median": 2.8e-05,
+     "p90": 2.8e-05,
+     "mean": 2.8e-05
+    },
+    "qty": {
+     "n": 1,
+     "min": 354000.0,
+     "p10": 354000.0,
+     "median": 354000.0,
+     "p90": 354000.0,
+     "mean": 354000.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 223.0,
+     "p10": 223.0,
+     "median": 223.0,
+     "p90": 223.0,
+     "mean": 223.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.1416
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "PUMPUS": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.002081,
+     "p10": 0.002081,
+     "median": 0.002081,
+     "p90": 0.002081,
+     "mean": 0.002081
+    },
+    "qty": {
+     "n": 1,
+     "min": 4000.0,
+     "p10": 4000.0,
+     "median": 4000.0,
+     "p90": 4000.0,
+     "mean": 4000.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 223.0,
+     "p10": 223.0,
+     "median": 223.0,
+     "p90": 223.0,
+     "mean": 223.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.064
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "TOWNSU": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.004398,
+     "p10": 0.004398,
+     "median": 0.004398,
+     "p90": 0.004398,
+     "mean": 0.004398
+    },
+    "qty": {
+     "n": 1,
+     "min": 2200.0,
+     "p10": 2200.0,
+     "median": 2200.0,
+     "p90": 2200.0,
+     "mean": 2200.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 221.0,
+     "p10": 221.0,
+     "median": 221.0,
+     "p90": 221.0,
+     "mean": 221.0
+    },
+    "win_rate": 1.0,
+    "avg_win": 0.0022,
+    "avg_loss": 0.0
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "XANUSD": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.00772,
+     "p10": 0.00772,
+     "median": 0.00772,
+     "p90": 0.00772,
+     "mean": 0.00772
+    },
+    "qty": {
+     "n": 1,
+     "min": 1200.0,
+     "p10": 1200.0,
+     "median": 1200.0,
+     "p90": 1200.0,
+     "mean": 1200.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 221.0,
+     "p10": 221.0,
+     "median": 221.0,
+     "p90": 221.0,
+     "mean": 221.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.024
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "HBARUS": {
+   "n_trades": 2,
+   "instruments": {
+    "perp": 2
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 2,
+     "min": 0.09046,
+     "p10": 0.09046,
+     "median": 0.09046,
+     "p90": 0.09046,
+     "mean": 0.09046
+    },
+    "qty": {
+     "n": 2,
+     "min": 1.0,
+     "p10": 1.0,
+     "median": 109.0,
+     "p90": 109.0,
+     "mean": 55.0
+    },
+    "holding_hours": {
+     "n": 2,
+     "min": 222.0,
+     "p10": 222.0,
+     "median": 280.0,
+     "p90": 280.0,
+     "mean": 251.0
+    },
+    "win_rate": 0.5,
+    "avg_win": 0.0001,
+    "avg_loss": -0.0044
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "IOTAUS": {
+   "n_trades": 2,
+   "instruments": {
+    "perp": 2
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 2,
+     "min": 0.0735,
+     "p10": 0.0735,
+     "median": 0.0735,
+     "p90": 0.0735,
+     "mean": 0.0735
+    },
+    "qty": {
+     "n": 2,
+     "min": 1.0,
+     "p10": 1.0,
+     "median": 135.0,
+     "p90": 135.0,
+     "mean": 68.0
+    },
+    "holding_hours": {
+     "n": 2,
+     "min": 222.0,
+     "p10": 222.0,
+     "median": 280.0,
+     "p90": 280.0,
+     "mean": 251.0
+    },
+    "win_rate": 1.0,
+    "avg_win": 0.0068,
+    "avg_loss": 0.0
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "RSRUSD": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 0.001703,
+     "p10": 0.001703,
+     "median": 0.001703,
+     "p90": 0.001703,
+     "mean": 0.001703
+    },
+    "qty": {
+     "n": 1,
+     "min": 5800.0,
+     "p10": 5800.0,
+     "median": 5800.0,
+     "p90": 5800.0,
+     "mean": 5800.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 223.0,
+     "p10": 223.0,
+     "median": 223.0,
+     "p90": 223.0,
+     "mean": 223.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.0174
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "PENDLE": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 1.2351,
+     "p10": 1.2351,
+     "median": 1.2351,
+     "p90": 1.2351,
+     "mean": 1.2351
+    },
+    "qty": {
+     "n": 1,
+     "min": 8.0,
+     "p10": 8.0,
+     "median": 8.0,
+     "p90": 8.0,
+     "mean": 8.0
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 222.0,
+     "p10": 222.0,
+     "median": 222.0,
+     "p90": 222.0,
+     "mean": 222.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.0024
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "LINKUS": {
+   "n_trades": 13,
+   "instruments": {
+    "perp": 13
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 13,
+     "min": 8.574,
+     "p10": 10.712,
+     "median": 12.396,
+     "p90": 13.179,
+     "mean": 12.241769
+    },
+    "qty": {
+     "n": 13,
+     "min": 1.0,
+     "p10": 1.0,
+     "median": 3.0,
+     "p90": 7.0,
+     "mean": 3.923077
+    },
+    "holding_hours": {
+     "n": 13,
+     "min": 12.0,
+     "p10": 221.0,
+     "median": 4049.0,
+     "p90": 14762.0,
+     "mean": 5735.230769
+    },
+    "win_rate": 0.6154,
+    "avg_win": 0.8629,
+    "avg_loss": -0.3496
+   },
+   "grid_spacing": {
+    "n": 3,
+    "min": 0.000618,
+    "p10": 0.000618,
+    "median": 0.057684,
+    "p90": 0.059413,
+    "mean": 0.039239
+   },
+   "lifo_check": {
+    "n_pairs_checked": 3,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "TSLAXU": {
+   "n_trades": 21,
+   "instruments": {
+    "perp": 21
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 21,
+     "min": 306.15,
+     "p10": 351.3,
+     "median": 371.75,
+     "p90": 398.0,
+     "mean": 370.569524
+    },
+    "qty": {
+     "n": 21,
+     "min": 0.01,
+     "p10": 0.13,
+     "median": 0.25,
+     "p90": 0.28,
+     "mean": 0.21619
+    },
+    "holding_hours": {
+     "n": 21,
+     "min": 2547.0,
+     "p10": 24146.0,
+     "median": 284760.0,
+     "p90": 2315534.0,
+     "mean": 619158.571429
+    },
+    "win_rate": 0.9048,
+    "avg_win": 2.4136,
+    "avg_loss": -7.787
+   },
+   "grid_spacing": {
+    "n": 11,
+    "min": 0.000879,
+    "p10": 0.004024,
+    "median": 0.025809,
+    "p90": 0.05553,
+    "mean": 0.032357
+   },
+   "lifo_check": {
+    "n_pairs_checked": 7,
+    "n_lifo": 2,
+    "n_fifo": 0
+   }
+  },
+  "SLVONU": {
+   "n_trades": 16,
+   "instruments": {
+    "perp": 16
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 16,
+     "min": 52.33,
+     "p10": 52.33,
+     "median": 58.55,
+     "p90": 60.76,
+     "mean": 58.06625
+    },
+    "qty": {
+     "n": 16,
+     "min": 0.1,
+     "p10": 0.2,
+     "median": 1.6,
+     "p90": 1.8,
+     "mean": 1.45
+    },
+    "holding_hours": {
+     "n": 16,
+     "min": 4102.0,
+     "p10": 10174.0,
+     "median": 235148.0,
+     "p90": 4249178.0,
+     "mean": 1552495.5625
+    },
+    "win_rate": 0.5625,
+    "avg_win": 2.6032,
+    "avg_loss": -1.5411
+   },
+   "grid_spacing": {
+    "n": 7,
+    "min": 0.00855,
+    "p10": 0.00855,
+    "median": 0.037689,
+    "p90": 0.067368,
+    "mean": 0.038819
+   },
+   "lifo_check": {
+    "n_pairs_checked": 6,
+    "n_lifo": 4,
+    "n_fifo": 0
+   }
+  },
+  "COINXU": {
+   "n_trades": 36,
+   "instruments": {
+    "perp": 36
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 36,
+     "min": 143.35,
+     "p10": 146.5,
+     "median": 169.1,
+     "p90": 190.09,
+     "mean": 168.303889
+    },
+    "qty": {
+     "n": 36,
+     "min": 0.01,
+     "p10": 0.03,
+     "median": 0.53,
+     "p90": 0.66,
+     "mean": 0.410833
+    },
+    "holding_hours": {
+     "n": 36,
+     "min": 708.0,
+     "p10": 1388.0,
+     "median": 85584.0,
+     "p90": 1635136.0,
+     "mean": 296987.805556
+    },
+    "win_rate": 0.9167,
+    "avg_win": 1.6554,
+    "avg_loss": -1.4042
+   },
+   "grid_spacing": {
+    "n": 15,
+    "min": 0.002798,
+    "p10": 0.004417,
+    "median": 0.021123,
+    "p90": 0.049625,
+    "mean": 0.025973
+   },
+   "lifo_check": {
+    "n_pairs_checked": 15,
+    "n_lifo": 0,
+    "n_fifo": 1
+   }
+  },
+  "METAXU": {
+   "n_trades": 19,
+   "instruments": {
+    "perp": 19
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 19,
+     "min": 537.9,
+     "p10": 537.9,
+     "median": 596.95,
+     "p90": 737.05,
+     "mean": 620.024211
+    },
+    "qty": {
+     "n": 19,
+     "min": 0.01,
+     "p10": 0.01,
+     "median": 0.15,
+     "p90": 0.17,
+     "mean": 0.122105
+    },
+    "holding_hours": {
+     "n": 19,
+     "min": 4294.0,
+     "p10": 12212.0,
+     "median": 340826.0,
+     "p90": 1243240.0,
+     "mean": 491071.894737
+    },
+    "win_rate": 0.6842,
+    "avg_win": 1.9339,
+    "avg_loss": -1.6785
+   },
+   "grid_spacing": {
+    "n": 9,
+    "min": 0.003128,
+    "p10": 0.003128,
+    "median": 0.018771,
+    "p90": 0.09892,
+    "mean": 0.033236
+   },
+   "lifo_check": {
+    "n_pairs_checked": 8,
+    "n_lifo": 2,
+    "n_fifo": 1
+   }
+  },
+  "GOOGLX": {
+   "n_trades": 7,
+   "instruments": {
+    "perp": 7
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 7,
+     "min": 320.05,
+     "p10": 320.05,
+     "median": 344.85,
+     "p90": 356.3,
+     "mean": 341.878571
+    },
+    "qty": {
+     "n": 7,
+     "min": 0.14,
+     "p10": 0.14,
+     "median": 0.28,
+     "p90": 0.31,
+     "mean": 0.245714
+    },
+    "holding_hours": {
+     "n": 7,
+     "min": 313948.0,
+     "p10": 313948.0,
+     "median": 559493.0,
+     "p90": 3375633.0,
+     "mean": 1362733.714286
+    },
+    "win_rate": 0.7143,
+    "avg_win": 3.2649,
+    "avg_loss": -1.5172
+   },
+   "grid_spacing": {
+    "n": 1,
+    "min": 0.02554,
+    "p10": 0.02554,
+    "median": 0.02554,
+    "p90": 0.02554,
+    "mean": 0.02554
+   },
+   "lifo_check": {
+    "n_pairs_checked": 2,
+    "n_lifo": 1,
+    "n_fifo": 0
+   }
+  },
+  "QQQXUS": {
+   "n_trades": 17,
+   "instruments": {
+    "perp": 17
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 17,
+     "min": 690.57,
+     "p10": 707.32,
+     "median": 722.96,
+     "p90": 742.48,
+     "mean": 724.054706
+    },
+    "qty": {
+     "n": 17,
+     "min": 0.01,
+     "p10": 0.06,
+     "median": 0.14,
+     "p90": 1.89,
+     "mean": 0.411765
+    },
+    "holding_hours": {
+     "n": 17,
+     "min": 27751.0,
+     "p10": 36928.0,
+     "median": 110951.0,
+     "p90": 2414761.0,
+     "mean": 470128.764706
+    },
+    "win_rate": 0.8824,
+    "avg_win": 3.5434,
+    "avg_loss": -0.119
+   },
+   "grid_spacing": {
+    "n": 4,
+    "min": 9.6e-05,
+    "p10": 9.6e-05,
+    "median": 0.00991,
+    "p90": 0.015149,
+    "mean": 0.00716
+   },
+   "lifo_check": {
+    "n_pairs_checked": 7,
+    "n_lifo": 2,
+    "n_fifo": 1
+   }
+  },
+  "CRCLXU": {
+   "n_trades": 17,
+   "instruments": {
+    "perp": 17
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 17,
+     "min": 63.35,
+     "p10": 72.4,
+     "median": 87.15,
+     "p90": 96.7,
+     "mean": 85.581176
+    },
+    "qty": {
+     "n": 17,
+     "min": 0.1,
+     "p10": 0.1,
+     "median": 0.9,
+     "p90": 1.3,
+     "mean": 0.782353
+    },
+    "holding_hours": {
+     "n": 17,
+     "min": 2840.0,
+     "p10": 11712.0,
+     "median": 417756.0,
+     "p90": 1060991.0,
+     "mean": 484282.058824
+    },
+    "win_rate": 0.8235,
+    "avg_win": 2.9942,
+    "avg_loss": -3.8167
+   },
+   "grid_spacing": {
+    "n": 9,
+    "min": 0.009599,
+    "p10": 0.009599,
+    "median": 0.035677,
+    "p90": 0.125,
+    "mean": 0.045321
+   },
+   "lifo_check": {
+    "n_pairs_checked": 9,
+    "n_lifo": 6,
+    "n_fifo": 0
+   }
+  },
+  "AAPLXU": {
+   "n_trades": 9,
+   "instruments": {
+    "perp": 9
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 9,
+     "min": 279.8,
+     "p10": 279.8,
+     "median": 321.75,
+     "p90": 335.0,
+     "mean": 317.627778
+    },
+    "qty": {
+     "n": 9,
+     "min": 0.01,
+     "p10": 0.01,
+     "median": 0.3,
+     "p90": 0.35,
+     "mean": 0.258889
+    },
+    "holding_hours": {
+     "n": 9,
+     "min": 20938.0,
+     "p10": 20938.0,
+     "median": 91350.0,
+     "p90": 1712531.0,
+     "mean": 474131.666667
+    },
+    "win_rate": 0.8889,
+    "avg_win": 1.8301,
+    "avg_loss": -5.307
+   },
+   "grid_spacing": {
+    "n": 3,
+    "min": 0.013831,
+    "p10": 0.013831,
+    "median": 0.017506,
+    "p90": 0.088806,
+    "mean": 0.040048
+   },
+   "lifo_check": {
+    "n_pairs_checked": 4,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "SPYXUS": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 733.35,
+     "p10": 733.35,
+     "median": 733.35,
+     "p90": 733.35,
+     "mean": 733.35
+    },
+    "qty": {
+     "n": 1,
+     "min": 0.13,
+     "p10": 0.13,
+     "median": 0.13,
+     "p90": 0.13,
+     "mean": 0.13
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 569880.0,
+     "p10": 569880.0,
+     "median": 569880.0,
+     "p90": 569880.0,
+     "mean": 569880.0
+    },
+    "win_rate": 1.0,
+    "avg_win": 1.9071,
+    "avg_loss": 0.0
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "NVDAXU": {
+   "n_trades": 17,
+   "instruments": {
+    "perp": 17
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 17,
+     "min": 192.75,
+     "p10": 193.8,
+     "median": 215.85,
+     "p90": 226.2,
+     "mean": 211.751765
+    },
+    "qty": {
+     "n": 17,
+     "min": 0.01,
+     "p10": 0.02,
+     "median": 0.45,
+     "p90": 0.51,
+     "mean": 0.386471
+    },
+    "holding_hours": {
+     "n": 17,
+     "min": 9316.0,
+     "p10": 20822.0,
+     "median": 360705.0,
+     "p90": 806544.0,
+     "mean": 382869.647059
+    },
+    "win_rate": 0.7059,
+    "avg_win": 2.1076,
+    "avg_loss": -1.3369
+   },
+   "grid_spacing": {
+    "n": 6,
+    "min": 0.012174,
+    "p10": 0.012174,
+    "median": 0.030331,
+    "p90": 0.064222,
+    "mean": 0.030902
+   },
+   "lifo_check": {
+    "n_pairs_checked": 6,
+    "n_lifo": 2,
+    "n_fifo": 0
+   }
+  },
+  "AMZNXU": {
+   "n_trades": 5,
+   "instruments": {
+    "perp": 5
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 5,
+     "min": 228.5,
+     "p10": 228.5,
+     "median": 262.0,
+     "p90": 274.3,
+     "mean": 255.724
+    },
+    "qty": {
+     "n": 5,
+     "min": 0.19,
+     "p10": 0.19,
+     "median": 0.37,
+     "p90": 0.43,
+     "mean": 0.346
+    },
+    "holding_hours": {
+     "n": 5,
+     "min": 90709.0,
+     "p10": 90709.0,
+     "median": 277650.0,
+     "p90": 359813.0,
+     "mean": 235443.6
+    },
+    "win_rate": 1.0,
+    "avg_win": 1.8798,
+    "avg_loss": 0.0
+   },
+   "grid_spacing": {
+    "n": 1,
+    "min": 0.008139,
+    "p10": 0.008139,
+    "median": 0.008139,
+    "p90": 0.008139,
+    "mean": 0.008139
+   },
+   "lifo_check": {
+    "n_pairs_checked": 1,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "XAUT": {
+   "n_trades": 573,
+   "instruments": {
+    "put": 281,
+    "call": 205,
+    "perp": 87
+   },
+   "options": {
+    "entry_price": {
+     "n": 486,
+     "min": 0.05,
+     "p10": 2.7,
+     "median": 11.9,
+     "p90": 26.7,
+     "mean": 13.988457
+    },
+    "qty": {
+     "n": 486,
+     "min": 0.001,
+     "p10": 0.009,
+     "median": 0.099,
+     "p90": 0.25,
+     "mean": 0.135033
+    },
+    "holding_hours": {
+     "n": 486,
+     "min": 13.0,
+     "p10": 24281.0,
+     "median": 85129.0,
+     "p90": 113892.0,
+     "mean": 78488.436214
+    },
+    "win_rate": 0.7387,
+    "avg_win": 1.2523,
+    "avg_loss": -2.6425
+   },
+   "perps": {
+    "entry_price": {
+     "n": 87,
+     "min": 4149.74,
+     "p10": 4268.48,
+     "median": 4374.62,
+     "p90": 4600.39,
+     "mean": 4402.737701
+    },
+    "qty": {
+     "n": 87,
+     "min": 0.01,
+     "p10": 0.05,
+     "median": 0.1,
+     "p90": 0.25,
+     "mean": 0.147126
+    },
+    "holding_hours": {
+     "n": 87,
+     "min": 6791.0,
+     "p10": 70146.0,
+     "median": 258353.0,
+     "p90": 1115066.0,
+     "mean": 405414.712644
+    },
+    "win_rate": 0.4483,
+    "avg_win": 6.3312,
+    "avg_loss": -14.6439
+   },
+   "grid_spacing": {
+    "n": 27,
+    "min": 2e-06,
+    "p10": 3.5e-05,
+    "median": 0.004213,
+    "p90": 0.017947,
+    "mean": 0.006763
+   },
+   "options_geometry": {
+    "n_parsed": 486,
+    "calls": 205,
+    "puts": 281,
+    "expiry_weekdays": {
+     "Fri": 66,
+     "Sat": 59,
+     "Sun": 74,
+     "Mon": 73,
+     "Tue": 45,
+     "Wed": 110,
+     "Thu": 59
+    },
+    "strike_distance_pct": {
+     "n": 223,
+     "min": -0.022646,
+     "p10": -0.010636,
+     "median": -0.000551,
+     "p90": 0.007508,
+     "mean": -0.001203
+    },
+    "strike_distance_call": {
+     "n": 109,
+     "min": -0.003622,
+     "p10": -0.00114,
+     "median": 0.000767,
+     "p90": 0.011573,
+     "mean": 0.003564
+    },
+    "strike_distance_put": {
+     "n": 114,
+     "min": -0.022646,
+     "p10": -0.01789,
+     "median": -0.004757,
+     "p90": -8.5e-05,
+     "mean": -0.005761
+    },
+    "spot_proxy": "nearest perp fill within 24h (Delta perp ~ spot)"
+   },
+   "lifo_check": {
+    "n_pairs_checked": 34,
+    "n_lifo": 11,
+    "n_fifo": 4
+   },
+   "cover_ratio_note": "cover ratio computed in interrogate.py once both legs exist"
+  },
+  "PAXG": {
+   "n_trades": 100,
+   "instruments": {
+    "perp": 100
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 100,
+     "min": 4096.9,
+     "p10": 4104.6,
+     "median": 4358.7,
+     "p90": 4461.3,
+     "mean": 4332.7177
+    },
+    "qty": {
+     "n": 100,
+     "min": 0.001,
+     "p10": 0.05,
+     "median": 0.2,
+     "p90": 0.404,
+     "mean": 0.20498
+    },
+    "holding_hours": {
+     "n": 100,
+     "min": 5298.0,
+     "p10": 85476.0,
+     "median": 259409.0,
+     "p90": 677956.0,
+     "mean": 306401.1
+    },
+    "win_rate": 0.73,
+    "avg_win": 10.0037,
+    "avg_loss": -7.4708
+   },
+   "grid_spacing": {
+    "n": 27,
+    "min": 2.2e-05,
+    "p10": 2.2e-05,
+    "median": 0.000504,
+    "p90": 0.016433,
+    "mean": 0.005283
+   },
+   "lifo_check": {
+    "n_pairs_checked": 42,
+    "n_lifo": 17,
+    "n_fifo": 8
+   }
+  },
+  "MRVLBU": {
+   "n_trades": 12,
+   "instruments": {
+    "perp": 12
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 12,
+     "min": 207.98,
+     "p10": 212.14,
+     "median": 220.49,
+     "p90": 230.66,
+     "mean": 220.29
+    },
+    "qty": {
+     "n": 12,
+     "min": 0.4,
+     "p10": 0.4,
+     "median": 0.4,
+     "p90": 0.4,
+     "mean": 0.4
+    },
+    "holding_hours": {
+     "n": 12,
+     "min": 408.0,
+     "p10": 11810.0,
+     "median": 58146.0,
+     "p90": 376426.0,
+     "mean": 160540.166667
+    },
+    "win_rate": 0.9167,
+    "avg_win": 2.1025,
+    "avg_loss": -0.4
+   },
+   "grid_spacing": {
+    "n": 9,
+    "min": 0.002404,
+    "p10": 0.002404,
+    "median": 0.019261,
+    "p90": 0.055536,
+    "mean": 0.019648
+   },
+   "lifo_check": {
+    "n_pairs_checked": 6,
+    "n_lifo": 1,
+    "n_fifo": 1
+   }
+  },
+  "CBRSBU": {
+   "n_trades": 16,
+   "instruments": {
+    "perp": 16
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 16,
+     "min": 145.34,
+     "p10": 168.66,
+     "median": 193.72,
+     "p90": 214.75,
+     "mean": 189.324375
+    },
+    "qty": {
+     "n": 16,
+     "min": 0.1,
+     "p10": 0.1,
+     "median": 0.3,
+     "p90": 0.5,
+     "mean": 0.29375
+    },
+    "holding_hours": {
+     "n": 16,
+     "min": 1688.0,
+     "p10": 38004.0,
+     "median": 282564.0,
+     "p90": 1105230.0,
+     "mean": 429312.75
+    },
+    "win_rate": 0.5,
+    "avg_win": 2.587,
+    "avg_loss": -4.3639
+   },
+   "grid_spacing": {
+    "n": 10,
+    "min": 0.003166,
+    "p10": 0.007999,
+    "median": 0.032986,
+    "p90": 0.138266,
+    "mean": 0.049485
+   },
+   "lifo_check": {
+    "n_pairs_checked": 9,
+    "n_lifo": 4,
+    "n_fifo": 0
+   }
+  },
+  "SOXLBU": {
+   "n_trades": 18,
+   "instruments": {
+    "perp": 18
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 18,
+     "min": 103.15,
+     "p10": 104.2,
+     "median": 121.75,
+     "p90": 145.3,
+     "mean": 123.441667
+    },
+    "qty": {
+     "n": 18,
+     "min": 0.1,
+     "p10": 0.1,
+     "median": 0.7,
+     "p90": 0.9,
+     "mean": 0.55
+    },
+    "holding_hours": {
+     "n": 18,
+     "min": 4141.0,
+     "p10": 4362.0,
+     "median": 26108.0,
+     "p90": 123487.0,
+     "mean": 54581.5
+    },
+    "win_rate": 0.8333,
+    "avg_win": 1.7685,
+    "avg_loss": -5.2
+   },
+   "grid_spacing": {
+    "n": 12,
+    "min": 0.009769,
+    "p10": 0.010386,
+    "median": 0.062448,
+    "p90": 0.152294,
+    "mean": 0.071059
+   },
+   "lifo_check": {
+    "n_pairs_checked": 7,
+    "n_lifo": 0,
+    "n_fifo": 2
+   }
+  },
+  "NBISBU": {
+   "n_trades": 20,
+   "instruments": {
+    "perp": 20
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 20,
+     "min": 202.0,
+     "p10": 207.2,
+     "median": 220.7,
+     "p90": 269.3,
+     "mean": 226.143
+    },
+    "qty": {
+     "n": 20,
+     "min": 0.2,
+     "p10": 0.2,
+     "median": 0.3,
+     "p90": 0.4,
+     "mean": 0.3
+    },
+    "holding_hours": {
+     "n": 20,
+     "min": 437.0,
+     "p10": 1616.0,
+     "median": 72154.0,
+     "p90": 348865.0,
+     "mean": 115116.85
+    },
+    "win_rate": 0.75,
+    "avg_win": 1.3743,
+    "avg_loss": -4.2372
+   },
+   "grid_spacing": {
+    "n": 14,
+    "min": 0.001853,
+    "p10": 0.005424,
+    "median": 0.023283,
+    "p90": 0.071116,
+    "mean": 0.035614
+   },
+   "lifo_check": {
+    "n_pairs_checked": 9,
+    "n_lifo": 2,
+    "n_fifo": 0
+   }
+  },
+  "SKHYBU": {
+   "n_trades": 16,
+   "instruments": {
+    "perp": 16
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 16,
+     "min": 133.86,
+     "p10": 154.29,
+     "median": 179.86,
+     "p90": 187.91,
+     "mean": 169.951875
+    },
+    "qty": {
+     "n": 16,
+     "min": 0.2,
+     "p10": 0.2,
+     "median": 0.3,
+     "p90": 0.6,
+     "mean": 0.375
+    },
+    "holding_hours": {
+     "n": 16,
+     "min": 147.0,
+     "p10": 7469.0,
+     "median": 96871.0,
+     "p90": 705178.0,
+     "mean": 251570.75
+    },
+    "win_rate": 0.625,
+    "avg_win": 1.5573,
+    "avg_loss": -6.858
+   },
+   "grid_spacing": {
+    "n": 10,
+    "min": 0.000648,
+    "p10": 0.006291,
+    "median": 0.031558,
+    "p90": 0.133648,
+    "mean": 0.040213
+   },
+   "lifo_check": {
+    "n_pairs_checked": 8,
+    "n_lifo": 3,
+    "n_fifo": 0
+   }
+  },
+  "LITEBU": {
+   "n_trades": 13,
+   "instruments": {
+    "perp": 13
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 13,
+     "min": 829.45,
+     "p10": 855.95,
+     "median": 895.85,
+     "p90": 935.25,
+     "mean": 904.488462
+    },
+    "qty": {
+     "n": 13,
+     "min": 0.04,
+     "p10": 0.05,
+     "median": 0.1,
+     "p90": 0.11,
+     "mean": 0.087692
+    },
+    "holding_hours": {
+     "n": 13,
+     "min": 858.0,
+     "p10": 3805.0,
+     "median": 68586.0,
+     "p90": 264740.0,
+     "mean": 100122.923077
+    },
+    "win_rate": 0.8462,
+    "avg_win": 1.7359,
+    "avg_loss": -1.387
+   },
+   "grid_spacing": {
+    "n": 6,
+    "min": 0.005041,
+    "p10": 0.005041,
+    "median": 0.032024,
+    "p90": 0.050049,
+    "mean": 0.023159
+   },
+   "lifo_check": {
+    "n_pairs_checked": 5,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "DRAMBU": {
+   "n_trades": 10,
+   "instruments": {
+    "perp": 10
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 10,
+     "min": 54.66,
+     "p10": 54.99,
+     "median": 56.13,
+     "p90": 60.7,
+     "mean": 56.494
+    },
+    "qty": {
+     "n": 10,
+     "min": 0.8,
+     "p10": 1.7,
+     "median": 1.7,
+     "p90": 1.8,
+     "mean": 1.63
+    },
+    "holding_hours": {
+     "n": 10,
+     "min": 590.0,
+     "p10": 19115.0,
+     "median": 62315.0,
+     "p90": 219966.0,
+     "mean": 65355.2
+    },
+    "win_rate": 1.0,
+    "avg_win": 1.7979,
+    "avg_loss": 0.0
+   },
+   "grid_spacing": {
+    "n": 4,
+    "min": 0.003985,
+    "p10": 0.003985,
+    "median": 0.026339,
+    "p90": 0.052426,
+    "mean": 0.027235
+   },
+   "lifo_check": {
+    "n_pairs_checked": 3,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "MUBUSD": {
+   "n_trades": 12,
+   "instruments": {
+    "perp": 12
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 12,
+     "min": 913.2,
+     "p10": 920.55,
+     "median": 985.85,
+     "p90": 1061.9,
+     "mean": 982.8
+    },
+    "qty": {
+     "n": 12,
+     "min": 0.04,
+     "p10": 0.04,
+     "median": 0.1,
+     "p90": 0.1,
+     "mean": 0.079167
+    },
+    "holding_hours": {
+     "n": 12,
+     "min": 837.0,
+     "p10": 3238.0,
+     "median": 61831.0,
+     "p90": 342401.0,
+     "mean": 124909.666667
+    },
+    "win_rate": 0.9167,
+    "avg_win": 1.6862,
+    "avg_loss": -0.485
+   },
+   "grid_spacing": {
+    "n": 7,
+    "min": 0.001059,
+    "p10": 0.001059,
+    "median": 0.024014,
+    "p90": 0.048588,
+    "mean": 0.021027
+   },
+   "lifo_check": {
+    "n_pairs_checked": 5,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "WDCBUS": {
+   "n_trades": 16,
+   "instruments": {
+    "perp": 16
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 16,
+     "min": 370.8,
+     "p10": 396.26,
+     "median": 448.55,
+     "p90": 464.4,
+     "mean": 437.343125
+    },
+    "qty": {
+     "n": 16,
+     "min": 0.01,
+     "p10": 0.01,
+     "median": 0.2,
+     "p90": 0.23,
+     "mean": 0.14375
+    },
+    "holding_hours": {
+     "n": 16,
+     "min": 3787.0,
+     "p10": 44946.0,
+     "median": 258459.0,
+     "p90": 993701.0,
+     "mean": 341215.125
+    },
+    "win_rate": 0.75,
+    "avg_win": 1.8735,
+    "avg_loss": -2.779
+   },
+   "grid_spacing": {
+    "n": 10,
+    "min": 0.013028,
+    "p10": 0.020018,
+    "median": 0.043173,
+    "p90": 0.074496,
+    "mean": 0.041286
+   },
+   "lifo_check": {
+    "n_pairs_checked": 8,
+    "n_lifo": 1,
+    "n_fifo": 2
+   }
+  },
+  "HOODBU": {
+   "n_trades": 11,
+   "instruments": {
+    "perp": 11
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 11,
+     "min": 91.36,
+     "p10": 99.98,
+     "median": 108.27,
+     "p90": 119.02,
+     "mean": 108.652727
+    },
+    "qty": {
+     "n": 11,
+     "min": 0.3,
+     "p10": 0.4,
+     "median": 0.8,
+     "p90": 0.9,
+     "mean": 0.7
+    },
+    "holding_hours": {
+     "n": 11,
+     "min": 2741.0,
+     "p10": 6775.0,
+     "median": 68700.0,
+     "p90": 344690.0,
+     "mean": 139361.272727
+    },
+    "win_rate": 1.0,
+    "avg_win": 1.6865,
+    "avg_loss": 0.0
+   },
+   "grid_spacing": {
+    "n": 6,
+    "min": 0.006742,
+    "p10": 0.006742,
+    "median": 0.036744,
+    "p90": 0.078695,
+    "mean": 0.036496
+   },
+   "lifo_check": {
+    "n_pairs_checked": 2,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "BABABU": {
+   "n_trades": 14,
+   "instruments": {
+    "perp": 14
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 14,
+     "min": 108.37,
+     "p10": 108.78,
+     "median": 110.54,
+     "p90": 110.56,
+     "mean": 109.654286
+    },
+    "qty": {
+     "n": 14,
+     "min": 0.1,
+     "p10": 0.3,
+     "median": 2.0,
+     "p90": 5.0,
+     "mean": 2.264286
+    },
+    "holding_hours": {
+     "n": 14,
+     "min": 4557.0,
+     "p10": 6047.0,
+     "median": 7946.0,
+     "p90": 603634.0,
+     "mean": 126744.071429
+    },
+    "win_rate": 1.0,
+    "avg_win": 0.7053,
+    "avg_loss": 0.0
+   },
+   "grid_spacing": {
+    "n": 2,
+    "min": 0.000643,
+    "p10": 0.000643,
+    "median": 0.019808,
+    "p90": 0.019808,
+    "mean": 0.010226
+   },
+   "lifo_check": {
+    "n_pairs_checked": 4,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "RKLBBU": {
+   "n_trades": 5,
+   "instruments": {
+    "perp": 5
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 5,
+     "min": 62.33,
+     "p10": 62.33,
+     "median": 62.35,
+     "p90": 71.88,
+     "mean": 64.322
+    },
+    "qty": {
+     "n": 5,
+     "min": 0.3,
+     "p10": 0.3,
+     "median": 0.6,
+     "p90": 1.6,
+     "mean": 0.76
+    },
+    "holding_hours": {
+     "n": 5,
+     "min": 4945.0,
+     "p10": 4945.0,
+     "median": 4981.0,
+     "p90": 266492.0,
+     "mean": 71700.0
+    },
+    "win_rate": 1.0,
+    "avg_win": 1.3516,
+    "avg_loss": 0.0
+   },
+   "grid_spacing": {
+    "n": 1,
+    "min": 0.00016,
+    "p10": 0.00016,
+    "median": 0.00016,
+    "p90": 0.00016,
+    "mean": 0.00016
+   },
+   "lifo_check": {
+    "n_pairs_checked": 2,
+    "n_lifo": 0,
+    "n_fifo": 1
+   }
+  },
+  "INTCBU": {
+   "n_trades": 10,
+   "instruments": {
+    "perp": 10
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 10,
+     "min": 91.75,
+     "p10": 98.26,
+     "median": 113.04,
+     "p90": 120.02,
+     "mean": 108.238
+    },
+    "qty": {
+     "n": 10,
+     "min": 0.4,
+     "p10": 0.4,
+     "median": 0.4,
+     "p90": 1.0,
+     "mean": 0.52
+    },
+    "holding_hours": {
+     "n": 10,
+     "min": 28256.0,
+     "p10": 46092.0,
+     "median": 172939.0,
+     "p90": 945389.0,
+     "mean": 354090.7
+    },
+    "win_rate": 0.5,
+    "avg_win": 1.359,
+    "avg_loss": -6.2704
+   },
+   "grid_spacing": {
+    "n": 6,
+    "min": 0.019753,
+    "p10": 0.019753,
+    "median": 0.042817,
+    "p90": 0.085791,
+    "mean": 0.049529
+   },
+   "lifo_check": {
+    "n_pairs_checked": 5,
+    "n_lifo": 2,
+    "n_fifo": 1
+   }
+  },
+  "ARMBUS": {
+   "n_trades": 7,
+   "instruments": {
+    "perp": 7
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 7,
+     "min": 250.93,
+     "p10": 250.93,
+     "median": 284.79,
+     "p90": 311.58,
+     "mean": 283.377143
+    },
+    "qty": {
+     "n": 7,
+     "min": 0.14,
+     "p10": 0.14,
+     "median": 0.17,
+     "p90": 0.39,
+     "mean": 0.197143
+    },
+    "holding_hours": {
+     "n": 7,
+     "min": 24068.0,
+     "p10": 24068.0,
+     "median": 152039.0,
+     "p90": 744290.0,
+     "mean": 305844.428571
+    },
+    "win_rate": 0.4286,
+    "avg_win": 1.2544,
+    "avg_loss": -8.3951
+   },
+   "grid_spacing": {
+    "n": 4,
+    "min": 0.008964,
+    "p10": 0.008964,
+    "median": 0.085981,
+    "p90": 0.096334,
+    "mean": 0.066981
+   },
+   "lifo_check": {
+    "n_pairs_checked": 3,
+    "n_lifo": 2,
+    "n_fifo": 0
+   }
+  },
+  "SNDKBU": {
+   "n_trades": 7,
+   "instruments": {
+    "perp": 7
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 7,
+     "min": 1536.58,
+     "p10": 1536.58,
+     "median": 1645.99,
+     "p90": 1780.8,
+     "mean": 1667.75
+    },
+    "qty": {
+     "n": 7,
+     "min": 0.01,
+     "p10": 0.01,
+     "median": 0.03,
+     "p90": 0.06,
+     "mean": 0.037143
+    },
+    "holding_hours": {
+     "n": 7,
+     "min": 5272.0,
+     "p10": 5272.0,
+     "median": 336665.0,
+     "p90": 587764.0,
+     "mean": 319150.0
+    },
+    "win_rate": 0.8571,
+    "avg_win": 1.7329,
+    "avg_loss": -0.9828
+   },
+   "grid_spacing": {
+    "n": 4,
+    "min": 0.003482,
+    "p10": 0.003482,
+    "median": 0.031227,
+    "p90": 0.031714,
+    "mean": 0.024007
+   },
+   "lifo_check": {
+    "n_pairs_checked": 4,
+    "n_lifo": 0,
+    "n_fifo": 2
+   }
+  },
+  "SPCXXU": {
+   "n_trades": 9,
+   "instruments": {
+    "perp": 9
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 9,
+     "min": 146.16,
+     "p10": 146.16,
+     "median": 149.05,
+     "p90": 163.03,
+     "mean": 153.198889
+    },
+    "qty": {
+     "n": 9,
+     "min": 0.03,
+     "p10": 0.03,
+     "median": 0.3,
+     "p90": 0.66,
+     "mean": 0.284444
+    },
+    "holding_hours": {
+     "n": 9,
+     "min": 51626.0,
+     "p10": 51626.0,
+     "median": 540400.0,
+     "p90": 979938.0,
+     "mean": 447717.888889
+    },
+    "win_rate": 0.5556,
+    "avg_win": 1.5782,
+    "avg_loss": -0.7261
+   },
+   "grid_spacing": {
+    "n": 4,
+    "min": 0.002515,
+    "p10": 0.002515,
+    "median": 0.028225,
+    "p90": 0.070683,
+    "mean": 0.029874
+   },
+   "lifo_check": {
+    "n_pairs_checked": 6,
+    "n_lifo": 3,
+    "n_fifo": 1
+   }
+  },
+  "EWYBUS": {
+   "n_trades": 2,
+   "instruments": {
+    "perp": 2
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 2,
+     "min": 178.8,
+     "p10": 178.8,
+     "median": 184.05,
+     "p90": 184.05,
+     "mean": 181.425
+    },
+    "qty": {
+     "n": 2,
+     "min": 0.2,
+     "p10": 0.2,
+     "median": 0.5,
+     "p90": 0.5,
+     "mean": 0.35
+    },
+    "holding_hours": {
+     "n": 2,
+     "min": 48611.0,
+     "p10": 48611.0,
+     "median": 656627.0,
+     "p90": 656627.0,
+     "mean": 352619.0
+    },
+    "win_rate": 1.0,
+    "avg_win": 1.6075,
+    "avg_loss": 0.0
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "DOTUSD": {
+   "n_trades": 6,
+   "instruments": {
+    "perp": 6
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 6,
+     "min": 1.131,
+     "p10": 1.131,
+     "median": 1.172,
+     "p90": 1.192,
+     "mean": 1.1615
+    },
+    "qty": {
+     "n": 6,
+     "min": 42.0,
+     "p10": 42.0,
+     "median": 44.0,
+     "p90": 87.0,
+     "mean": 57.0
+    },
+    "holding_hours": {
+     "n": 6,
+     "min": 495.0,
+     "p10": 495.0,
+     "median": 6683.0,
+     "p90": 13586.0,
+     "mean": 6795.5
+    },
+    "win_rate": 0.3333,
+    "avg_win": 0.408,
+    "avg_loss": -0.5363
+   },
+   "grid_spacing": {
+    "n": 1,
+    "min": 0.051146,
+    "p10": 0.051146,
+    "median": 0.051146,
+    "p90": 0.051146,
+    "mean": 0.051146
+   },
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "ZECUSD": {
+   "n_trades": 1,
+   "instruments": {
+    "perp": 1
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 1,
+     "min": 1518.23,
+     "p10": 1518.23,
+     "median": 1518.23,
+     "p90": 1518.23,
+     "mean": 1518.23
+    },
+    "qty": {
+     "n": 1,
+     "min": 0.1,
+     "p10": 0.1,
+     "median": 0.1,
+     "p90": 0.1,
+     "mean": 0.1
+    },
+    "holding_hours": {
+     "n": 1,
+     "min": 1143.0,
+     "p10": 1143.0,
+     "median": 1143.0,
+     "p90": 1143.0,
+     "mean": 1143.0
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -1.923
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "PIEVER": {
+   "n_trades": 2,
+   "instruments": {
+    "perp": 2
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 2,
+     "min": 1.7945,
+     "p10": 1.7945,
+     "median": 1.8632,
+     "p90": 1.8632,
+     "mean": 1.82885
+    },
+    "qty": {
+     "n": 2,
+     "min": 20.0,
+     "p10": 20.0,
+     "median": 20.0,
+     "p90": 20.0,
+     "mean": 20.0
+    },
+    "holding_hours": {
+     "n": 2,
+     "min": 310.0,
+     "p10": 310.0,
+     "median": 6373.0,
+     "p90": 6373.0,
+     "mean": 3341.5
+    },
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -0.845
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  },
+  "PLTRBU": {
+   "n_trades": 2,
+   "instruments": {
+    "perp": 2
+   },
+   "options": null,
+   "perps": {
+    "entry_price": {
+     "n": 2,
+     "min": 188.01,
+     "p10": 188.01,
+     "median": 198.07,
+     "p90": 198.07,
+     "mean": 193.04
+    },
+    "qty": {
+     "n": 2,
+     "min": 0.2,
+     "p10": 0.2,
+     "median": 0.2,
+     "p90": 0.2,
+     "mean": 0.2
+    },
+    "holding_hours": {
+     "n": 2,
+     "min": 340984.0,
+     "p10": 340984.0,
+     "median": 557189.0,
+     "p90": 557189.0,
+     "mean": 449086.5
+    },
+    "win_rate": 1.0,
+    "avg_win": 0.537,
+    "avg_loss": 0.0
+   },
+   "grid_spacing": null,
+   "lifo_check": {
+    "n_pairs_checked": 0,
+    "n_lifo": 0,
+    "n_fifo": 0
+   }
+  }
+ }
+}

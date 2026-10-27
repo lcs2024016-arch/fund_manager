@@ -1,0 +1,27 @@
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.7.0
+    hooks:
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.21.1
+    hooks:
+      - id: gitleaks
+  - repo: local
+    hooks:
+      - id: no-secrets-patterns
+        name: no hard-coded api secrets
+        entry: bash -c '! grep -rIlE "(api_secret|API_SECRET)\s*=\s*[\"'"'"'][A-Za-z0-9_-]{16,}" src scripts tests config'
+        language: system
+      - id: typecheck-core
+        name: mypy --strict on risk-critical core
+        entry: .venv/bin/mypy --strict src/core/conversions.py src/core/fees.py src/core/options.py src/core/oms.py src/core/portfolio_risk.py src/strategy/credit_spread.py scripts/golive_check.py
+        language: system
+        pass_filenames: false
+      - id: pytest-sanity
+        name: quick pytest sanity (core risk tests)
+        entry: .venv/bin/python -m pytest tests/test_core_units.py tests/test_oms.py tests/test_portfolio_risk.py tests/test_property_risk.py -q
+        language: system
+        pass_filenames: false

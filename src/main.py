@@ -49,6 +49,22 @@ def build_strategy(cfg: Config, now_fn=None):
         from strategy.rwa_positional import RwaPositionalStrategy
 
         return RwaPositionalStrategy(cfg, now_fn=now_fn)
+    if (cfg.flags.get("strategy") or "") == "credit_spread":
+        import yaml
+
+        from strategy.credit_spread import CreditSpreadRunner, SpreadCfg
+
+        path = Path("config") / "credit_spread.yaml"
+        data = yaml.safe_load(path.read_text()) if path.exists() else {}
+        data.pop("strategy", None)
+        runner = CreditSpreadRunner(SpreadCfg(**data))
+        # The runner only needs underlying candles for spot marks; option
+        # chain polling is its own (rate-limit aware) job.
+        cfg.flags["symbols"] = [
+            u if u.endswith("USD") else u + "USD" for u in runner.cfg.underlyings]
+        cfg.flags["resolutions"] = ["15m"]
+        cfg.flags["poll_interval_s"] = cfg.flags.get("poll_interval_s", 20)
+        return runner
     from strategy.all_in_one import AllInOneStrategy
 
     return AllInOneStrategy(cfg.all_in_one or {}, state_dir=cfg.state_dir, log_dir=cfg.log_dir)
@@ -331,7 +347,9 @@ def main() -> None:
 
     ap = argparse.ArgumentParser(description="fund manager (Delta Exchange India)")
     ap.add_argument("--mode", default=None, help="backtest | paper | live")
-    ap.add_argument("--strategy", default=None, help="rwa_positional | all_in_one")
+    ap.add_argument(
+        "--strategy", default=None,
+        help="credit_spread | rwa_positional | all_in_one")
     ap.add_argument("--config", default="config.yaml")
     ap.add_argument("--i-understand-this-is-live", action="store_true", help="prod gate")
     ap.add_argument("--resume", action="store_true", help="resume after intentional mismatch halt")

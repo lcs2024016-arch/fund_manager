@@ -1,0 +1,483 @@
+{
+ "summary": {
+  "grid only (no options)": {
+   "pnl": -10004.883514546847,
+   "ann": NaN,
+   "sharpe": -4.28,
+   "mdd": -10007.53,
+   "n_days": 213,
+   "per_asset": {
+    "BTCUSD/short": -1720.4301075268818,
+    "ETHUSD/long": -4516.129032258064,
+    "PAXGUSD/long": -2365.5913978494627,
+    "PAXGUSD2/short": -1397.8494623655915
+   }
+  },
+  "naive short 1d ATM straddle (BTC)": {
+   "pnl_10k": 156958.0,
+   "mean_daily_per_10k": 1.96,
+   "worst_day_per_10k": -2157.44,
+   "note": "premium at bid each day minus intrinsic |dS| paid; unhedged, 1x $10k"
+  },
+  "no safety layers (replica)": {
+   "pnl": -10009.506439584231,
+   "ann": NaN,
+   "sharpe": -3.45,
+   "mdd": -10015.03,
+   "n_days": 157,
+   "liq": 9,
+   "per_asset": {
+    "BTCUSD/short": -1720.4301075268818,
+    "ETHUSD/long": -4516.129032258064,
+    "PAXGUSD/long": -2365.5913978494627,
+    "PAXGUSD2/short": -1397.8494623655915
+   },
+   "daily_premium_pct": 0.0
+  },
+  "+regime filter": {
+   "pnl": -10014.797345704166,
+   "ann": NaN,
+   "sharpe": -2.18,
+   "mdd": -10023.54,
+   "n_days": 221,
+   "liq": 28,
+   "per_asset": {
+    "BTCUSD/short": -1720.4301075268818,
+    "ETHUSD/long": -4516.129032258064,
+    "PAXGUSD/long": -2365.5913978494627,
+    "PAXGUSD2/short": -1397.8494623655915
+   },
+   "daily_premium_pct": 0.0
+  },
+  "+caps only (no breaker)": {
+   "pnl": 14075.809369927207,
+   "ann": 10.0,
+   "sharpe": 0.81,
+   "mdd": -1320.89,
+   "n_days": 3353,
+   "liq": 0,
+   "per_asset": {
+    "BTCUSD/short": 2469.4076845696077,
+    "ETHUSD/long": 11616.522070126766,
+    "PAXGUSD/long": 127.67282479126106,
+    "PAXGUSD2/short": -137.79320956042875
+   },
+   "daily_premium_pct": 0.0023
+  },
+  "+caps only, options OFF": {
+   "pnl": -452.57786291227785,
+   "ann": -0.5,
+   "sharpe": 0.3,
+   "mdd": -657.1,
+   "n_days": 3353,
+   "liq": 0,
+   "per_asset": {
+    "BTCUSD/short": -692.7340472549467,
+    "ETHUSD/long": 262.1203647411794,
+    "PAXGUSD/long": 115.82902916191824,
+    "PAXGUSD2/short": -137.79320956042875
+   }
+  },
+  "+volscale grid/TP": {
+   "pnl": -10094.497004895431,
+   "ann": NaN,
+   "sharpe": -2.85,
+   "mdd": -10151.31,
+   "n_days": 105,
+   "liq": 7,
+   "per_asset": {
+    "BTCUSD/short": -1720.4301075268818,
+    "ETHUSD/long": -4516.129032258064,
+    "PAXGUSD/long": -2365.5913978494627,
+    "PAXGUSD2/short": -1397.8494623655915
+   },
+   "daily_premium_pct": 0.0006
+  },
+  "+anti-mart 0.8": {
+   "pnl": -10000.36624586459,
+   "ann": NaN,
+   "sharpe": -1.8,
+   "mdd": -10000.59,
+   "n_days": 328,
+   "liq": 23,
+   "per_asset": {
+    "BTCUSD/short": -1720.4301075268818,
+    "ETHUSD/long": -4516.129032258064,
+    "PAXGUSD/long": -2365.5913978494627,
+    "PAXGUSD2/short": -1397.8494623655915
+   },
+   "daily_premium_pct": 0.0002
+  },
+  "+time stop 3d": {
+   "pnl": -10003.843421860298,
+   "ann": NaN,
+   "sharpe": -4.45,
+   "mdd": -10006.16,
+   "n_days": 182,
+   "liq": 12,
+   "per_asset": {
+    "BTCUSD/short": -1720.4301075268818,
+    "ETHUSD/long": -4516.129032258064,
+    "PAXGUSD/long": -2365.5913978494627,
+    "PAXGUSD2/short": -1397.8494623655915
+   },
+   "daily_premium_pct": 0.0002
+  },
+  "+caps +breaker = FINAL": {
+   "pnl": -1233.1788058422462,
+   "ann": -1.4,
+   "sharpe": 0.26,
+   "mdd": -1237.72,
+   "n_days": 3353,
+   "liq": 0,
+   "per_asset": {
+    "BTCUSD/short": -214.20580984049093,
+    "ETHUSD/long": -1037.6929679699879,
+    "PAXGUSD/long": -12.190389513119044,
+    "PAXGUSD2/short": 30.910361481351856
+   },
+   "daily_premium_pct": 0.0001
+  },
+  "regime_split_replica": [
+   [
+    "bull",
+    0,
+    0
+   ],
+   [
+    "bear",
+    0,
+    0
+   ],
+   [
+    "range",
+    63,
+    -326.1,
+    -0.02
+   ],
+   [
+    "high-vol",
+    94,
+    -1324.9,
+    -0.01
+   ]
+  ],
+  "deflated_sharpe": {
+   "observed_ann": -3.45,
+   "trials": 20,
+   "net": -31.641
+  },
+  "stress": [
+   [
+    "COVID crash",
+    "2020-03-12",
+    -5286.7,
+    -229.9,
+    -52.87
+   ],
+   [
+    "May-2021",
+    "2021-05-19",
+    -1332.46,
+    -57.9,
+    -13.32
+   ],
+   [
+    "Jun-2022",
+    "2022-06-13",
+    -857.94,
+    -37.3,
+    -8.58
+   ],
+   [
+    "FTX",
+    "2022-11-08",
+    -970.13,
+    -42.2,
+    -9.7
+   ],
+   [
+    "yen carry unwind",
+    "2024-08-05",
+    -711.97,
+    -31.0,
+    -7.12
+   ],
+   [
+    "any \u00b110% BTC day (all 14 days, first 14 shown)",
+    "",
+    -5634.84,
+    "\u2014",
+    -56.35
+   ]
+  ],
+  "sizing": [
+   [
+    "0.5",
+    "0.0",
+    "OK"
+   ],
+   [
+    "1",
+    "0.0",
+    "OK"
+   ],
+   [
+    "2",
+    "0.0",
+    "OK"
+   ],
+   [
+    "3",
+    "0.0",
+    "OK"
+   ],
+   [
+    "4",
+    "0.0",
+    "OK"
+   ],
+   [
+    "5",
+    "0.23",
+    "OK"
+   ]
+  ],
+  "worst_hist_mdd_pctFINAL": -1237.72,
+  "calibration_check": "STAGE1 DATA MISSING (leader_trades.db empty) \u2014 pending HAR export"
+ },
+ "yearly": {
+  "no safety layers (replica)": {
+   "2018": {
+    "pnl": -1302.6623296719865,
+    "ann": NaN,
+    "sharpe": -8.81,
+    "mdd": -10054.72,
+    "n_days": 20
+   }
+  },
+  "+regime filter": {
+   "2018": {
+    "pnl": -3009.485469634049,
+    "ann": NaN,
+    "sharpe": -3.42,
+    "mdd": -10043.68,
+    "n_days": 84
+   }
+  },
+  "+caps only (no breaker)": {
+   "2018": {
+    "pnl": 0.0,
+    "ann": 0,
+    "sharpe": 0,
+    "mdd": 0,
+    "n_days": 364
+   },
+   "2019": {
+    "pnl": 0.0,
+    "ann": 0,
+    "sharpe": 0,
+    "mdd": 0,
+    "n_days": 364
+   },
+   "2020": {
+    "pnl": 3488.9795043062404,
+    "ann": 55.9,
+    "sharpe": 0.95,
+    "mdd": -316.82,
+    "n_days": 365
+   },
+   "2021": {
+    "pnl": -402.55692273899876,
+    "ann": -4.2,
+    "sharpe": -1.54,
+    "mdd": -446.96,
+    "n_days": 364
+   },
+   "2022": {
+    "pnl": -328.88910506513093,
+    "ann": -3.5,
+    "sharpe": -3.84,
+    "mdd": -366.29,
+    "n_days": 364
+   },
+   "2023": {
+    "pnl": -230.9154722075109,
+    "ann": -2.6,
+    "sharpe": -2.61,
+    "mdd": -283.9,
+    "n_days": 364
+   },
+   "2024": {
+    "pnl": 5533.680921099041,
+    "ann": 63.1,
+    "sharpe": 29.25,
+    "mdd": -46.19,
+    "n_days": 365
+   },
+   "2025": {
+    "pnl": 6562.9437011953705,
+    "ann": 46.1,
+    "sharpe": 43.08,
+    "mdd": -2.4,
+    "n_days": 364
+   },
+   "2026": {
+    "pnl": 3215.414154005881,
+    "ann": 19.5,
+    "sharpe": 42.45,
+    "mdd": -2.61,
+    "n_days": 294
+   }
+  },
+  "+caps only, options OFF": {
+   "2018": {
+    "pnl": 0.0,
+    "ann": 0,
+    "sharpe": 0,
+    "mdd": 0,
+    "n_days": 364
+   },
+   "2019": {
+    "pnl": 0.0,
+    "ann": 0,
+    "sharpe": 0,
+    "mdd": 0,
+    "n_days": 364
+   },
+   "2020": {
+    "pnl": 3627.2268295381864,
+    "ann": 58.1,
+    "sharpe": 0.98,
+    "mdd": -188.91,
+    "n_days": 365
+   },
+   "2021": {
+    "pnl": 191.04090755328798,
+    "ann": 1.9,
+    "sharpe": 0.82,
+    "mdd": -127.96,
+    "n_days": 364
+   },
+   "2022": {
+    "pnl": -101.4414909832849,
+    "ann": -1.0,
+    "sharpe": -1.23,
+    "mdd": -156.2,
+    "n_days": 364
+   },
+   "2023": {
+    "pnl": -160.88140907373418,
+    "ann": -1.6,
+    "sharpe": -1.82,
+    "mdd": -191.44,
+    "n_days": 364
+   },
+   "2024": {
+    "pnl": -204.12328843375872,
+    "ann": -2.1,
+    "sharpe": -1.35,
+    "mdd": -270.49,
+    "n_days": 365
+   },
+   "2025": {
+    "pnl": -23.5536841819212,
+    "ann": -0.2,
+    "sharpe": -0.16,
+    "mdd": -174.49,
+    "n_days": 364
+   },
+   "2026": {
+    "pnl": -18.830108023727007,
+    "ann": -0.2,
+    "sharpe": -0.26,
+    "mdd": -86.97,
+    "n_days": 294
+   }
+  },
+  "+volscale grid/TP": {},
+  "+anti-mart 0.8": {
+   "2018": {
+    "pnl": -3452.4628858367723,
+    "ann": NaN,
+    "sharpe": -2.15,
+    "mdd": -10001.01,
+    "n_days": 191
+   }
+  },
+  "+time stop 3d": {
+   "2018": {
+    "pnl": -1884.0883644663595,
+    "ann": NaN,
+    "sharpe": -8.15,
+    "mdd": -10020.3,
+    "n_days": 45
+   }
+  },
+  "+caps +breaker = FINAL": {
+   "2018": {
+    "pnl": 0.0,
+    "ann": 0,
+    "sharpe": 0,
+    "mdd": 0,
+    "n_days": 364
+   },
+   "2019": {
+    "pnl": 0.0,
+    "ann": 0,
+    "sharpe": 0,
+    "mdd": 0,
+    "n_days": 364
+   },
+   "2020": {
+    "pnl": 3109.3733253524224,
+    "ann": 49.9,
+    "sharpe": 0.89,
+    "mdd": -655.36,
+    "n_days": 365
+   },
+   "2021": {
+    "pnl": -577.2933490943833,
+    "ann": -6.2,
+    "sharpe": -3.24,
+    "mdd": -635.72,
+    "n_days": 364
+   },
+   "2022": {
+    "pnl": 0.0,
+    "ann": 0,
+    "sharpe": 0,
+    "mdd": 0,
+    "n_days": 364
+   },
+   "2023": {
+    "pnl": 0.0,
+    "ann": 0,
+    "sharpe": 0,
+    "mdd": 0,
+    "n_days": 364
+   },
+   "2024": {
+    "pnl": 0.0,
+    "ann": 0,
+    "sharpe": 0,
+    "mdd": 0,
+    "n_days": 365
+   },
+   "2025": {
+    "pnl": 0.0,
+    "ann": 0,
+    "sharpe": 0,
+    "mdd": 0,
+    "n_days": 364
+   },
+   "2026": {
+    "pnl": 0.0,
+    "ann": 0,
+    "sharpe": 0,
+    "mdd": 0,
+    "n_days": 294
+   }
+  }
+ }
+}

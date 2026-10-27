@@ -207,9 +207,12 @@ class PaperPort(ExecutionPort):
                     margin=notional / lev,
                 )
             )
+        # the simulated account is cross-margined (spec 2.3): report it the
+        # same way the live port does, otherwise AllInOne's cross-margin
+        # gate never confirms and every sleeve vetoes new lots forever.
         return AccountSnapshot(equity=self.equity_sim, positions=positions, used_margin=sum(
             (p.margin or Decimal("0") for p in positions), Decimal("0")
-        ))
+        ), raw={"margin_mode": "cross", "paper": True})
 
     async def position(self, symbol: str) -> Optional[PositionSnapshot]:
         return next((p for p in (await self.account()).positions if p.symbol == symbol), None)

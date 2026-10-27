@@ -1,0 +1,19 @@
+# Portfolio risk limits — fractions where noted; versioned in git.
+# Any breach halts trading until an operator resets by hand.
+margin_cap_pct: 0.5
+max_lots_per_underlying: 4
+max_notional_usd_per_underlying: 2000
+max_group_notional_usd:
+  crypto_beta: 3000          # BTCUSD + ETHUSD move together
+  gold: 2000                 # XAUTUSD + PAXGUSD
+max_net_delta_usd: 1500
+max_spread_pct:
+  default: 0.05
+  "XAUT*": 0.35
+max_open_book_loss_pct: 0.10  # MTM limit, not realised-only
+max_daily_loss_pct: 0.05
+max_weekly_loss_pct: 0.10
+max_drawdown_pct: 0.20        # portfolio breaker: flatten + halt
+stale_data_s: 15
+min_bid_size: 1
+max_open_orders: 10

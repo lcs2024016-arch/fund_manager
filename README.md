@@ -124,3 +124,36 @@ spec marked `[ASK]` are `null` and must be filled before live trading:
   with an IV premium), clearly labelled in every report.
 - Tokenized RWA / stock perp availability on Delta India changes; the bot
   discovers and verifies symbols at startup and skips what is missing loudly.
+
+---
+
+## Risk-first credit-spread bot (M1–M3 milestone, 2026-10-23)
+
+The validation study (`validate/REPORT.md`) found **no validated edge** in
+the leader's rules, so a dedicated risk-first strategy
+(`credit_spread`) was added: defined-risk option verticals only
+(short leg capped by a long leg), portfolio hard caps, mark-to-market
+loss limits, and a drawdown circuit breaker. The bot **defaults to PAPER**;
+LIVE is impossible until every gate in `scripts/golive_check.py` passes
+and the operator passes an explicit flag.
+
+- Docs: [ARCHITECTURE.md](ARCHITECTURE.md) · [RISK.md](RISK.md) ·
+  [RUNBOOK.md](RUNBOOK.md) · [docs/API_NOTES.md](docs/API_NOTES.md) ·
+  [CHANGELOG.md](CHANGELOG.md) · final state report [REPORT_M1_M3.md](REPORT_M1_M3.md)
+- Run paper:
+  ```bash
+  python -m main --strategy credit_spread --mode paper
+  ```
+- Gates / ops:
+  ```bash
+  python scripts/golive_check.py        # prints WHICH gate fails; all fail is correct
+  python scripts/collector_health.py    # nightly collector heartbeat
+  python scripts/walkforward_eval.py    # weekly OOS + deflated Sharpe + config log
+  ```
+- Tests / lint / types:
+  ```bash
+  pytest tests -q --cov --cov-config=.coveragerc_gate --cov-fail-under=85
+  ruff check src scripts tests
+  mypy --strict src/core/conversions.py src/core/fees.py src/core/options.py \
+       src/core/oms.py src/core/portfolio_risk.py src/strategy/credit_spread.py
+  ```

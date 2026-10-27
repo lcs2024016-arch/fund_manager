@@ -1,0 +1,63 @@
+Loading data for 12 assets 2026-05-09 -> 2026-10-23 (SYNTHETIC) ...
+(missing cross-symbol hours: 0)
+books=16  bars=4009  2026-05-09 00:00:00+00:00 -> 2026-10-23 00:00:00+00:00
+
+config                       pnl$     ann%   maxDD% sharpe    wr%       opt$      lots$    stops$
+              baseline     13,364    539.0     -1.2  22.70   99.8      6,611        828      -376
+       +regime(EMA20d)     12,704    500.2     -1.2  21.99   99.8      6,309        743      -376
+     +volscale grid/TP      7,605    244.2     -1.6  16.77   99.9      3,699      1,010      -368
+        +anti-mart 0.8      7,378    234.6     -0.7  24.29   99.8      3,659        473         0
+     +sigma strike 0.8     13,364    539.0     -1.2  22.70   99.8      6,611        828      -376
+   +skip thin/breakout     12,350    479.9     -2.5  19.00   99.8      6,124        828      -376
+         +time stop 3d      5,887    175.1     -1.0  16.60   91.0      3,212      2,191    -2,697
+         +caps+breaker      1,959     47.9     -0.2  25.35   99.6        966        158         0
+           FINAL (all)        678     15.4     -0.3   9.30   76.2        323        568      -475
+   FINAL minus options         33      0.7     -1.1   0.27   71.9          0        568      -475
+     FINAL funding off        687     15.6     -0.3   9.41   76.2        323        568      -475
+     FINAL haircut 30%        563     12.7     -0.3   7.93   76.2        265        568      -475
+    FINAL IV call 1.2x        283      6.3     -0.4   4.10   76.2        125        568      -475
+FINAL no options+tstop 6d          4      0.1     -1.3  -0.18   79.9          0        511      -462
+
+FINAL per-book pnl (liq=0):
+      ETHUSD/long:       +626
+     XAUTUSD/long:        +47
+     BTCUSD/short:        +10
+    XAUTUSD/short:         -7
+    PAXGUSD/short:         +6
+     SPYXUSD/long:         -3
+     PAXGUSD/long:         +3
+     QQQXUSD/long:         -2
+    TSLAXUSD/long:         -2
+    NVDAXUSD/long:         -1
+    AAPLXUSD/long:         +1
+    BABABUSD/long:         +1
+   SLVONUSD/short:         -0
+     OILUSD/short:         +0
+    SLVONUSD/long:         +0
+      OILUSD/long:         -0
+
+event kinds:
+       count         sum
+kind                    
+lot      760  567.769544
+opt      197  322.638814
+tstop    328 -475.370153
+
+Buy & hold, same capital weights:
+  ETHUSD/long  :   -3.20%  pnl       -107 (in-mkt frac 0.88)
+  PAXGUSD/long  :   -2.80%  pnl        -25 (in-mkt frac 0.88)
+  PAXGUSD/short :   -2.80%  pnl        -25 (in-mkt frac 0.88)
+  BTCUSD/short :  +29.03%  pnl       +372 (in-mkt frac 0.88)
+  XAUTUSD/long  :   +6.36%  pnl        +33 (in-mkt frac 0.88)
+  XAUTUSD/short :   +6.36%  pnl        +33 (in-mkt frac 0.88)
+  QQQXUSD/long  :  +10.02%  pnl        +40 (in-mkt frac 0.88)
+  BABABUSD/long  :  +22.20%  pnl        +18 (in-mkt frac 0.88)
+  SPYXUSD/long  :  -13.42%  pnl        -32 (in-mkt frac 0.88)
+  AAPLXUSD/long  :  +26.58%  pnl        +43 (in-mkt frac 0.88)
+  TSLAXUSD/long  :   -9.22%  pnl        -15 (in-mkt frac 0.88)
+  NVDAXUSD/long  :  -10.12%  pnl        -16 (in-mkt frac 0.88)
+  SLVONUSD/long  :  +17.81%  pnl         +7 (in-mkt frac 0.88)
+  SLVONUSD/short :  +17.81%  pnl         +7 (in-mkt frac 0.88)
+  OILUSD/long  :   -5.61%  pnl         -2 (in-mkt frac 0.88)
+  OILUSD/short :   -5.61%  pnl         -2 (in-mkt frac 0.88)
+  B&H weighted pnl +328 on 10,000

@@ -1,0 +1,51 @@
+==============================================================================
+OPTION-LEG MODEL-FREE ANALYSIS  (collector.db, 1 day(s) of data, 2 runs, 2026-10-22T21:31:11+00:00 -> 2026-10-22T21:31:11+00:00)
+==============================================================================
+data days with entry snapshots: 1; settle rows captured: 0
+snap rows total: 284; candidate P&L rows (offset-group rows): 107
+
+Variance-risk premium at entry (mark_iv minus realised next-day vol):
+            days  mark_iv  realized_daily_vol  vr_premium_median  vr_premium_p10  vr_premium_p90
+underlying                                                                                      
+BTC            1   0.3413                 0.0             0.3413          0.3413          0.3413
+ETH            1   0.4516                 0.0             0.4516          0.4516          0.4516
+XAUT           1   0.2426                 0.0             0.2426          0.2426          0.2426
+
+ATM P&L per underlying (requires settlements; 'n_settled' tells when):
+    key   n  n_settled  avg_premium  gross_premium avg_worst_payoff win_rate avg_win avg_loss worst profit_factor tail_mult
+0   BTC  10          0         0.48           4.77             None     None    None     None  None          None      None
+1   ETH   6          0         0.20           1.19             None     None    None     None  None          None      None
+2  XAUT   4          0         0.02           0.06             None     None    None     None  None          None      None
+
+Liquidity at the bid:
+underlying side  n  median_spread_pct  p90_spread_pct  bid_zero_pct  bid_missing_pct  median_l2_depth_at_bid
+       BTC call 80           0.041385        0.410000           0.0              0.0                 12416.0
+       BTC  put 78           0.011365        0.027138           0.0              0.0                 12402.0
+       ETH call 40           0.041026        0.584876           0.0              0.0                  5997.0
+       ETH  put 40           0.015790        0.103571           0.0              0.0                  5506.5
+      XAUT call 23           0.352941        1.164912           0.0              0.0                 88015.0
+      XAUT  put 23           0.049844        0.088347           0.0              0.0                 76786.0
+
+Shock-day stress (loss as multiple of ONE day's ATM premium):
+                             max  count
+underlying side shock_pct              
+BTC        call 0.06        7.07      4
+                0.08        9.76      4
+                0.10       12.45      4
+           put  0.06        1.37      4
+                0.08        2.16      4
+                0.10        2.95      4
+ETH        call 0.06        4.40      4
+                0.08        6.20      4
+                0.10        8.00      4
+           put  0.06        1.10      4
+                0.08        1.80      4
+                0.10        2.49      4
+XAUT       call 0.03       22.87      4
+                0.05       38.78      4
+           put  0.03        0.27      4
+                0.05        1.12      4
+
+no bootstrap CI: needs >=8 settled observations
+
+STATISTICAL HONESTY: n < 1 week: NOT interpretable.; n < 8 weeks: cannot claim an edge even if P&L positive.; no expired settlements captured yet: forward P&L unknown.; daily sigma from snapshots not ready for some underlyings (offsets degraded).
