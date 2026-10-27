@@ -82,8 +82,8 @@ jobs:
 
       - name: Commit journal + report
         run: |
-          git config user.name "10vulture1005"
-          git config user.email "10vulture1005@users.noreply.github.com"
+          git config user.name "lcs2024016-arch"
+          git config user.email "287223359+lcs2024016-arch@users.noreply.github.com"
           git add paper README.md
           if git diff --cached --quiet; then
             echo "no changes to commit"
