@@ -68,8 +68,25 @@ jobs:
         run: pytest tests/test_golden_backtest.py -q
       - name: go-live gates must fail-closed (paper-only guarantee)
         run: |
-          python scripts/golive_check.py --json; 
-          python -c "print('gates reported; failing is correct until earned')"
+          set +e
+          python scripts/golive_check.py --json > gates_out.txt 2>&1
+          RC=$?
+          set -e
+          python - "$RC" <<'PYEOF'
+          import json, re, sys
+
+          rc = int(sys.argv[1])
+          text = open("gates_out.txt").read()
+          m = re.search(r"GATES_JSON_BEGIN(.*?)GATES_JSON_END", text, re.S)
+          assert m, f"golive_check produced no gates JSON (rc={rc}):\n{text[-500:]}"
+          gates = json.loads(m.group(1))
+          all_passed = all(g["passed"] for g in gates.values())
+          if all_passed:
+              assert rc == 0, "gates earned but golive_check failed"
+          else:
+              assert rc != 0, "unearned gates must fail golive_check (fail-closed)"
+              print("ok: golive_check fails closed while gates are unearned")
+          PYEOF
 
   docker:
     runs-on: ubuntu-latest
