@@ -51,9 +51,9 @@ initial equity inputs). Locally: `PYTHONPATH=src python -m tools.paper_session
 
 | Strategy | Equity | P&L | P&L % | Days (G/R) | Max DD | Fees |
 |---|---|---|---|---|---|---|
-| `all_in_one` (B) | $100,110.59 | +$110.59 | +0.11% | 9 (3/1) | -0.27% | $82.17 |
+| `all_in_one` (B) | $100,088.47 | +$88.47 | +0.09% | 10 (3/2) | -0.27% | $82.17 |
 | `credit_spread` (C) | $100,000.00 | +$0.00 | +0.00% | 5 (0/0) | +0.00% | $0.00 |
-| `rwa_positional` (A) | $116,729.71 | +$16,729.71 | +16.73% | 9 (5/4) | -3.68% | $94.86 |
+| `rwa_positional` (A) | $116,339.63 | +$16,339.63 | +16.34% | 10 (5/5) | -3.68% | $96.11 |
 
 Full per-strategy **PnL calendar + daily stats** in [paper/REPORT.md](paper/REPORT.md).
 
