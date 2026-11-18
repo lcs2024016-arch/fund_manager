@@ -55,3 +55,4 @@ ts,symbol,side,size,price,fee,contract_value,notional_usd,reduce_only,client_ord
 2026-11-14T15:14:34.590687+00:00,SLVONUSD,buy,8532,43.86,3.7421352,0.1,37421.352,1,rwa-slvon-bracket-605c40cf
 2026-11-14T15:14:34.596324+00:00,SLVONUSD,buy,12785,43.86,5.6075010,0.1,56075.010,1,rwa-slvon-bracket-cf5ba34a
 2026-11-14T15:14:34.601864+00:00,SLVONUSD,buy,17030,43.86,7.4693580,0.1,74693.580,1,rwa-slvon-bracket-e1cd36e3
+2026-11-18T07:45:34.922749+00:00,SLVONUSD,buy,17030,41.55,7.0759650,0.1,70759.650,1,rwa-slvon-exit-0b620f79
