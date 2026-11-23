@@ -1,12 +1,12 @@
 # Paper-trading report (B+C+A)
 
-_Paper money for each strategy: simulated fills on real Delta market data; zero orders sent, no API keys used. Generated 2026-11-22 16:56 UTC._
+_Paper money for each strategy: simulated fills on real Delta market data; zero orders sent, no API keys used. Generated 2026-11-23 01:27 UTC._
 
 | Strategy | Equity | P&L | P&L % | Days (G/R) | Max DD | Fees |
 |---|---|---|---|---|---|---|
-| `all_in_one` (B) | $100,636.56 | +$636.56 | +0.64% | 32 (15/12) | -0.41% | $82.17 |
+| `all_in_one` (B) | $100,561.54 | +$561.54 | +0.56% | 33 (15/13) | -0.41% | $82.17 |
 | `credit_spread` (C) | $100,000.00 | +$0.00 | +0.00% | 5 (0/0) | +0.00% | $0.00 |
-| `rwa_positional` (A) | $96,865.78 | -$3,134.22 | -3.13% | 32 (16/16) | -20.86% | $153.18 |
+| `rwa_positional` (A) | $96,055.33 | -$3,944.67 | -3.94% | 33 (16/17) | -20.86% | $153.18 |
 
 > Strategies trade *separate simulated accounts*; their numbers are independent (per-strategy equity, PnL, fees).
 
@@ -15,10 +15,10 @@ _Paper money for each strategy: simulated fills on real Delta market data; zero 
 
 _Initial equity $100,000.00. Start 2026-10-22._
 
-Equity **$100,636.56** · P&L **+$636.56** (+0.64%) · trading days **32** (green 15 / red 12) · max drawdown **-0.41%** · fees $82.17
+Equity **$100,561.54** · P&L **+$561.54** (+0.56%) · trading days **33** (green 15 / red 13) · max drawdown **-0.41%** · fees $82.17
 
 - Closed lots: 0
-- Open unrealized PnL: **+$689.07**
+- Open unrealized PnL: **+$614.05**
 - Open positions: `BTCUSD -62`, `ETHUSD +171`, `PAXGUSD -986`, `XAUTUSD -490`
 _(Option P&L, when applicable, is an approximate Black-Scholes model.)_
 
@@ -33,7 +33,7 @@ _(Option P&L, when applicable, is an approximate Black-Scholes model.)_
 | · | · | · | **22** 0.00 | **23** 0.00 | **24** 0.00 | **25** 0.00 |
 | **26** 0.00 | **27** -$273.41 | **28** +$9.10 | **29** +$72.05 | **30** +$302.84 | **31** -$16.99 |   |
 
-### November 2026  — month +$542.96
+### November 2026  — month +$467.95
 
 | Mon | Tue | Wed | Thu | Fri | Sat | Sun |
 |---|---|---|---|---|---|---|
@@ -41,7 +41,7 @@ _(Option P&L, when applicable, is an approximate Black-Scholes model.)_
 | **2** -$60.99 | **3** +$82.08 | **4** -$353.68 | **5** +$71.55 | **6** +$42.67 | **7** -$3.76 | **8** -$1.63 |
 | **9** -$165.40 | **10** +$32.08 | **11** +$57.12 | **12** +$217.93 | **13** +$67.12 | **14** +$125.13 | **15** -$54.79 |
 | **16** -$2.88 | **17** +$15.81 | **18** +$184.97 | **19** +$221.98 | **20** +$86.78 | **21** -$15.75 | **22** -$0.24 |
-| · | · | · | · | · |   |   |
+| **23** -$75.01 | · | · | · | · |   |   |
 | · |   |   |   |   |   |   |
 
 _(UTC days. `**day** +$PnL` = recorded session day; `·` = weekday with
@@ -51,6 +51,7 @@ no session; weekends without data left blank. Future days left blank.)_
 
 | Date | Day PnL | Equity (MTM) | Cash | Unrealized | Trades | Fees | Sessions | Open positions |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-23 | -$75.01 | $100,561.54 | $99,947.49 | +$614.05 | 0 | $0.00 | 1 | BTCUSD-62, ETHUSD+171, PAXGUSD-986, XAUTUSD-490 |
 | 2026-11-22 | -$0.24 | $100,636.56 | $99,947.49 | +$689.07 | 0 | $0.00 | 2 | BTCUSD-62, ETHUSD+171, PAXGUSD-986, XAUTUSD-490 |
 | 2026-11-21 | -$15.75 | $100,636.80 | $99,947.49 | +$689.31 | 0 | $0.00 | 3 | BTCUSD-62, ETHUSD+171, PAXGUSD-986, XAUTUSD-490 |
 | 2026-11-20 | +$86.78 | $100,652.55 | $99,947.49 | +$705.06 | 0 | $0.00 | 2 | BTCUSD-62, ETHUSD+171, PAXGUSD-986, XAUTUSD-490 |
@@ -80,7 +81,6 @@ no session; weekends without data left blank. Future days left blank.)_
 | 2026-10-27 | -$273.41 | $99,726.59 | $99,947.49 | -$220.89 | 66 | $82.17 | 9 | BTCUSD-62, ETHUSD+171, PAXGUSD-986, XAUTUSD-490 |
 | 2026-10-26 | +$0.00 | $100,000.00 | $100,000.00 | +$0.00 | 0 | $0.00 | 3 | — |
 | 2026-10-25 | +$0.00 | $100,000.00 | $100,000.00 | +$0.00 | 0 | $0.00 | 4 | — |
-| 2026-10-24 | +$0.00 | $100,000.00 | $100,000.00 | +$0.00 | 0 | $0.00 | 4 | — |
 
 _(Day PnL: closing equity vs previous recorded day close; MTM includes
  unrealized PnL of open positions. Trades = fills journaled that day.)_
@@ -165,10 +165,10 @@ _No fills journaled yet._
 
 _Initial equity $100,000.00. Start 2026-10-22._
 
-Equity **$96,865.78** · P&L **-$3,134.22** (-3.13%) · trading days **32** (green 16 / red 16) · max drawdown **-20.86%** · fees $153.18
+Equity **$96,055.33** · P&L **-$3,944.67** (-3.94%) · trading days **33** (green 16 / red 17) · max drawdown **-20.86%** · fees $153.18
 
 - Closed lots: 0
-- Open unrealized PnL: **-$2,981.04**
+- Open unrealized PnL: **-$3,791.49**
 - Open positions: `PAXGUSD -55724`, `SLVONUSD +41256`, `USOONUSD -7782`, `XAUTUSD -13609`
 _(Option P&L, when applicable, is an approximate Black-Scholes model.)_
 
@@ -183,7 +183,7 @@ _(Option P&L, when applicable, is an approximate Black-Scholes model.)_
 | · | · | · | **22** -$843.73 | **23** +$6,963.64 | **24** -$538.18 | **25** -$3,365.19 |
 | **26** +$2,119.75 | **27** +$276.12 | **28** -$1,277.37 | **29** +$2,806.38 | **30** +$10,588.29 | **31** +$793.53 |   |
 
-### November 2026  — month -$20,657.46
+### November 2026  — month -$21,467.91
 
 | Mon | Tue | Wed | Thu | Fri | Sat | Sun |
 |---|---|---|---|---|---|---|
@@ -191,7 +191,7 @@ _(Option P&L, when applicable, is an approximate Black-Scholes model.)_
 | **2** -$623.19 | **3** -$5,777.11 | **4** -$10,328.30 | **5** +$1,257.65 | **6** +$2,181.79 | **7** -$263.70 | **8** +$942.45 |
 | **9** -$850.07 | **10** +$5,812.48 | **11** +$810.38 | **12** +$9,089.52 | **13** -$1,634.13 | **14** -$9,928.23 | **15** -$3,458.39 |
 | **16** +$557.99 | **17** +$892.08 | **18** -$9,909.59 | **19** -$1,547.33 | **20** +$3,898.25 | **21** -$1,711.39 | **22** -$260.13 |
-| · | · | · | · | · |   |   |
+| **23** -$810.45 | · | · | · | · |   |   |
 | · |   |   |   |   |   |   |
 
 _(UTC days. `**day** +$PnL` = recorded session day; `·` = weekday with
@@ -201,6 +201,7 @@ no session; weekends without data left blank. Future days left blank.)_
 
 | Date | Day PnL | Equity (MTM) | Cash | Unrealized | Trades | Fees | Sessions | Open positions |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-23 | -$810.45 | $96,055.33 | $99,846.82 | -$3,791.49 | 0 | $0.00 | 1 | PAXGUSD-55724, SLVONUSD+41256, USOONUSD-7782, XAUTUSD-13609 |
 | 2026-11-22 | -$260.13 | $96,865.78 | $99,846.82 | -$2,981.04 | 0 | $0.00 | 2 | PAXGUSD-55724, SLVONUSD+41256, USOONUSD-7782, XAUTUSD-13609 |
 | 2026-11-21 | -$1,711.39 | $97,125.91 | $99,846.82 | -$2,720.91 | 0 | $0.00 | 3 | PAXGUSD-55724, SLVONUSD+41256, USOONUSD-7782, XAUTUSD-13609 |
 | 2026-11-20 | +$3,898.25 | $98,837.30 | $99,846.82 | -$1,009.51 | 6 | $23.20 | 2 | PAXGUSD-55724, SLVONUSD+41256, USOONUSD-7782, XAUTUSD-13609 |
@@ -230,7 +231,6 @@ no session; weekends without data left blank. Future days left blank.)_
 | 2026-10-27 | +$276.12 | $104,612.41 | $99,912.56 | +$4,699.86 | 12 | $33.78 | 3 | PAXGUSD-37178, SLVONUSD-1361, USOONUSD-4956, XAUTUSD-15262 |
 | 2026-10-26 | +$2,119.75 | $104,336.29 | $99,946.34 | +$4,389.95 | 9 | $14.32 | 3 | PAXGUSD-9404, SLVONUSD-1408, USOONUSD-4956, XAUTUSD-15262 |
 | 2026-10-25 | -$3,365.19 | $102,216.54 | $99,960.66 | +$2,255.88 | 4 | $7.49 | 4 | PAXGUSD-28004, SLVONUSD-15282, USOONUSD-4956, XAUTUSD-15262 |
-| 2026-10-24 | -$538.18 | $105,581.73 | $99,968.15 | +$5,613.58 | 2 | $1.32 | 4 | PAXGUSD-9286, SLVONUSD-15282, USOONUSD-4956, XAUTUSD-15262 |
 
 _(Day PnL: closing equity vs previous recorded day close; MTM includes
  unrealized PnL of open positions. Trades = fills journaled that day.)_
