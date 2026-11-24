@@ -62,3 +62,4 @@ ts,symbol,side,size,price,fee,contract_value,notional_usd,reduce_only,client_ord
 2026-11-20T17:03:59.554527+00:00,USOONUSD,sell,940,136.2,2.560560,0.1,12802.80,1,rwa-usoon-bracket-d8086e9c
 2026-11-20T17:04:23.115517+00:00,USOONUSD,sell,1886,136.2,5.137464,0.1,25687.32,1,rwa-usoon-bracket-c464af69
 2026-11-20T17:04:23.120866+00:00,USOONUSD,sell,2839,136.2,7.733436,0.1,38667.18,1,rwa-usoon-bracket-79ed6ca4
+2026-11-24T02:58:32.072454+00:00,USOONUSD,sell,2839,131.6,7.472248,0.1,37361.24,1,rwa-usoon-exit-6e94722a
